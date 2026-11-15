@@ -1,0 +1,41 @@
+# WeQ 文档站
+
+[WeQ](https://github.com/weq-devs/WeQ) 的文档源文件，用 [VitePress](https://vitepress.dev/) 构建。
+
+## 内容
+
+| 目录 | 内容 |
+| --- | --- |
+| `guide/` | 使用手册：安装、消息、联系人、导出、空间邮箱、分析与工具、设置 |
+| `database/` | QQNT 本地数据库表结构与字段 |
+| `tools/` | 在线工具箱：头像路径、数据库密钥、商城表情等纯前端计算器 |
+| `develop/` | 开发向常青内容：协议、架构、踩坑记录、原理 |
+| `notes/` | 过程记录（**不进站点**，见 `notes/README.md`） |
+
+## 本地预览
+
+```bash
+pnpm install
+pnpm dev      # http://127.0.0.1:5174
+pnpm check    # 只跑链接完整性检查
+pnpm build    # 先 check 再构建，产物在 .vitepress/dist
+```
+
+## 构建期依赖
+
+「支持的 QQ 版本」页读 `versions/supported.json` 与 `versions/latest.json`。这两个文件
+**不入库** —— 权威数据在主仓 `versions/`，由 `.github/workflows/qq-version-watch.yml`
+每晚更新。
+
+- CI 构建前自动从主仓拉取到 `versions/`；
+- 本地开发设 `WEQ_VERSIONS_DIR=/path/to/WeQ/versions` 指过去即可。
+
+## 这个仓库与主仓的关系
+
+它是 WeQ 的 `docs/` 目录（submodule）。改文档时：
+
+- 直接在主仓的 `docs/` 里改，提交会同时更新 submodule 指针；
+- 或者在本仓库单独提交，再回主仓提交指针更新。
+
+跨目录引用（源码、`CONTRIBUTING.md`、`CHANGELOG.md`）一律写 GitHub 绝对 URL ——
+`check-docs.mjs` 会检查这一点，因为相对路径在独立 checkout 下必然 404。

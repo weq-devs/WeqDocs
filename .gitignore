@@ -1,0 +1,17 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# VitePress 构建产物与缓存（内容目录就是仓库根）
+.vitepress/dist
+.vitepress/cache
+
+# 主仓 versions/*.json 的构建期副本（CI 拉取 / 本地用 WEQ_VERSIONS_DIR）。
+# 权威数据只在主仓，不重复入库。
+versions/
+
+# 未入库的专题稿（含真机抓包样本）
+develop/redbag.md
+
+.DS_Store
+*.log
