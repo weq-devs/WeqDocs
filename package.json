@@ -3,6 +3,7 @@
   "version": "2.7.1",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@12.8.1",
   "description": "WeQ 文档站（VitePress），内容就是仓库 docs/ 目录",
   "scripts": {
     "dev": "vitepress dev . --port 5174",
