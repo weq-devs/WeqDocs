@@ -34,6 +34,11 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        with:
+          # 显式指定版本，而不是靠 package.json 的 packageManager —— 那个字段会让
+          # pnpm 把整个二进制写进 lockfile（packageManagerDependencies），对
+          # 一个只有文档的仓库太重。
+          version: 12.8.1
 
       - name: Setup Node
         uses: actions/setup-node@v4
