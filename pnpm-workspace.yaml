@@ -1,0 +1,5 @@
+# pnpm 11 起用 allowBuilds 取代 onlyBuiltDependencies；不显式放行时，
+# esbuild 的 postinstall 被跳过会让 `pnpm install` 直接以 ERR_PNPM_IGNORED_BUILDS
+# 失败（不是静默忽略）。VitePress 的 vite 依赖 esbuild。
+allowBuilds:
+  esbuild: true
