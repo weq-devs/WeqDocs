@@ -97,8 +97,10 @@ export default defineConfig({
       },
     },
 
+    // 文档内容住在独立仓库 `weq-devs/WeqDocs`（主仓的 `docs/` 只是 submodule
+    // 指针）。指的必须是那边，指主仓的 `docs/` 会落到一个 gitlink 上。
     editLink: {
-      pattern: 'https://github.com/weq-devs/WeQ/edit/dev/docs/:path',
+      pattern: 'https://github.com/weq-devs/WeqDocs/edit/main/:path',
       text: '在 GitHub 上编辑此页',
     },
 

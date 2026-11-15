@@ -2,7 +2,7 @@ name: Docs
 
 # 文档站构建与部署。
 #
-# 这个仓库（`weq-devs/WeQDocs`）只装文档内容；内容根就是仓库根。
+# 这个仓库（`weq-devs/WeqDocs`）只装文档内容；内容根就是仓库根。
 # 上游是 `weq-devs/WeQ` 的 `docs/` 目录 —— 本仓库以 submodule 形式挂在那边，
 # 主仓里改文档会更新这里的提交指针。
 #
