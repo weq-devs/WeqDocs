@@ -55,11 +55,21 @@ jobs:
               -o "versions/$f"
           done
 
+      # 页脚显示的版本号来自主仓 `package.json`。submodule 化之后主仓的
+      # `pnpm version:set` 不再写本仓库，这里显式取主仓的版本注入进去。
+      - name: Resolve site version
+        id: version
+        run: |
+          v=$(curl -fsSL https://raw.githubusercontent.com/weq-devs/WeQ/main/package.json \
+              | node -e 'let s="";process.stdin.on("data",(c)=>s+=c).on("end",()=>console.log(JSON.parse(s).version))')
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+
       # build 内部先跑 check-docs.mjs（链接完整性），失败就不进 VitePress。
       - name: Build docs
         env:
           # PR 构建用根路径，产物丢给人下载预览；正式站是项目站点子路径。
-          DOCS_BASE: ${{ github.event_name == 'pull_request' && '/' || '/WeQDocs/' }}
+          DOCS_BASE: ${{ github.event_name == 'pull_request' && '/' || '/WeqDocs/' }}
+          WEQ_VERSION: ${{ steps.version.outputs.version }}
         run: pnpm build
 
       - name: Upload artifact
