@@ -18,7 +18,7 @@
  * `../scripts/check-docs.mjs` + `join(ROOT, 'docs')`，拆仓后第一条路径就不存在了。
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
-import { dirname, join, relative, resolve, sep } from 'node:path';
+import { dirname, join, relative, resolve } from 'node:path';
 
 /** 内容根：脚本所在目录。主仓里是 `docs/`，独立仓库里是仓库根。 */
 const ROOT = import.meta.dirname;
