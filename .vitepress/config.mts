@@ -2,9 +2,12 @@ import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vitepress';
 import { nav, guideSidebar, databaseSidebar, toolsSidebar, developSidebar } from './nav.mts';
 
-// 文档站与仓库共用同一个版本号（`pnpm version:set` 会一起改）。
-// 页脚和「编辑此页」的版本提示都从这里取，避免出现两个版本号。
+// 版本号：优先取构建期注入的 `WEQ_VERSION`（CI 从主仓 `package.json` 读），
+// 退回本仓库自己的 `package.json`。submodule 化之后 `pnpm version:set` 不再写
+// 这里（那会把 submodule 弄脏），所以正式站的版本必须靠注入，否则会一直显示
+// 文档仓自己的初始版本。
 const pkg = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf-8'));
+const version = process.env.WEQ_VERSION ?? pkg.version;
 
 // GitHub Pages 项目站点是 /WeQ/；本地 dev 和自定义域名是 /。
 // 走环境变量而不是写死，换托管目标时只改 CI。
@@ -102,7 +105,7 @@ export default defineConfig({
     docFooter: { prev: '上一篇', next: '下一篇' },
 
     footer: {
-      message: `当前文档对应 v${pkg.version} · 已发布内容以 CHANGELOG 为准`,
+      message: `当前文档对应 v${version} · 已发布内容以 CHANGELOG 为准`,
       copyright: 'GPL-3.0-or-later',
     },
 
