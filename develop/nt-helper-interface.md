@@ -204,12 +204,17 @@ OIDB `0x102a_1` 复用的是同机 QQ 已在维持的会话，更稳定、更普
 
 ## 5. 加密库直查 / 解密 / 导出（`@weq/db` 的基础）
 
-对 QQ NT 加密库（SQLCipher v4 + 1024 字节 wrapper 头）的读写与导出。全部走自定义 **offset VFS** 透明跳过文件头，**连接默认缓存** —— 同一 `dbPath` 首次打开解密一次，后续调用复用句柄，极大省开销。`better-sqlite3` 在 running code 里零引用，读库统一走这里。
+对 QQ NT 加密库（SQLCipher v4 + 1024 字节 wrapper 头）的读写与导出。全部走自定义 **offset VFS** 透明跳过文件头，**连接默认缓存**：每条连接只在创建时初始化解密，后续借用复用句柄。`better-sqlite3` 在 running code 里零引用，读库统一走这里。
 
 SQLite 的保留页按**文件**设置：QQ 库因 1024 字节头保留 `262144`，标准 SQLite 保留 `262145`。nt_helper 从文件头自动识别布局，同一进程可以同时打开两类库与解密产物，不再需要子进程。详见 QQ 数据库布局：按文件设置保留页。
 
+多连接入口的 `timing` 分别返回 `nativeQueueMs`（阻塞线程池等待）、`connectionWaitMs`（读取池等待）、`connectionOpenMs`（开库与解密初始化）和 `executionMs`（准备语句及读取行）。不能把 native Promise 总等待冒称 SQL 执行。`budgetMs` 为 1–50 毫秒，仅在 SQL 开始后计时；请求另有 120 秒期限。严格与宽容连接不混用，但共同计入同库上限；进程只读连接最多 32 条，空闲一分钟后由周期回收器释放。每次原生调用持有一个独占借用，分块扫描内的多步读取保持在该连接内，返回后清理查询钩子和遗留事务。JS 对旧 native 保持单路调度，写入与建索引继续独占协调。
+
 | JS 函数 | 参数 | 返回 | 说明 |
 | ---- | ---- | ---- | ---- |
+| `executeDatabaseRead(input)`（可选） | `dbPath`、`sql`、`requestId`，可选 `params` / `key` / `algo` / `bulk` / `budgetMs` / `level` / `scan` | `Promise<DatabaseReadResult>` | 同库有界多连接入口；普通、短预算、宽容查询与扫描共用容量，`level` / `scan` 沿用原有语义。返回 `rows`、`salvage` 或 `scan`；SQL 错误在 `error` 中返回，调用方恢复为原来的拒绝语义。 |
+| `configureDatabaseReads(concurrency)`（可选） | 1–8 的整数 | `void` | 进程级同库只读上限，默认 4；调低不打断在途读取。 |
+| `cancelDatabaseRead(requestId)`（可选） | 本次读取 ID | `boolean` | 仅取消此 ID 对应的请求；完成后 ID 注销，不中断复用连接的下一次查询。 |
 | `executeSql(dbPath, sql, params?, layout?)` | 路径 + SQL + 可选参数 + 可选布局 | `Promise<SqlValue[][]>` | 只读查询（offset VFS，无密钥）。注意：这只适用于无需 SQLCipher 密钥的库；带密钥的库首次需要用 `executeSqlWithKey` 领证，之后才能用 `executeSql` 复用。`layout`（`'qq'` / `'standard'`）缺省时按文件头自动识别。 |
 | `executeSqlBudgeted(dbPath, sql, params, budgetMs, key?, algo?)` | 路径 + SQL + 参数 + 毫秒预算 + 可选密钥 / 算法 | `Promise<SqlValue[][]>` | 带**时间预算**的查询：长查询到点就中止并报错，用来保护启动期 / UI 线程不被慢查询拖死。 |
 | `executeSqlWithKey(dbPath, sql, key, algo, params?, layout?)` | + `key` + `CipherAlgo` + 可选布局 | `Promise<SqlValue[][]>` | 带密钥查询。**密钥只消费一次**：首个调用驱动 PRAGMA cipher 舞步并缓存连接，之后可省略密钥用 `executeSql`。 |
