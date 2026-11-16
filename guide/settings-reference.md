@@ -60,7 +60,7 @@
 
 ## 基础功能
 
-### 阅读与未读
+### 会话列表
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
@@ -69,35 +69,35 @@
 | 群助手显示总消息数 | `group-assistant-count` |  | 群助手计数（全局） |
 | 包含已隐藏会话 | `all-conversations-include-hidden` | 全部会话隐藏范围 | 包含已隐藏会话（全局） |
 | 包含已删除会话 | `all-conversations-include-deleted` | 全部会话删除范围 | 包含已删除会话（全局） |
-| 从第一条新消息开始阅读 | `read-first-unread` | 第一条未读 | 从首条未读开始（全局） |
-| 查看时自动拉取缺失的消息 | `auto-fetch-missing-messages` | 自动补全消息、漫游消息 | 查看时自动拉取缺失的消息（全局） |
-| 定位到缺失消息时自动拉取上下文 | `auto-fetch-missing-context` |  | 定位到缺失消息时自动拉取上下文（全局） |
-| 自动拉取上下文条数 | `missing-message-context-count` |  | 自动拉取上下文条数（全局） |
 | 鼠标停留时保持会话位置 | `keep-conversation-position-on-hover` | 会话排序、悬停排序 | 鼠标停留时保持会话位置（全局） |
-| 自动跟随最新消息 | `auto-follow-latest-messages` |  | 自动跟随新消息（全局） |
-| 发送消息后定位到最新消息 | `jump-latest-after-send` | 发送后跳转 | 发送后跳到最新（全局） |
-| 向下滚动时显示定位到底部按钮 | `scroll-to-bottom-button` | 快速到底部 | 回到底部按钮（全局） |
+| 清除 WeQ 已读记录 | `clear-local-read-records` | 未读异常、清除阅读位置、重置已读记录 |  |
 | 向 QQ 服务器上报已读位置 | `read-sync` | 同步已读状态到 QQ、同步已读到 QQ、手动标记时上报已读位置、手动标记已读 | 自动阅读上报已读位置（全局）；手动标记上报已读位置（全局） |
 
-### 消息显示
+### 消息区域
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
+| 从第一条新消息开始阅读 | `read-first-unread` | 第一条未读 | 从首条未读开始（全局） |
+| 查看时自动拉取缺失的消息 | `auto-fetch-missing-messages` | 自动补全消息、漫游消息 | 查看时自动拉取缺失的消息（全局） |
+| 定位到缺失消息时自动拉取上下文 | `auto-fetch-missing-context` |  | 定位到缺失消息时自动拉取上下文（全局） |
+| 自动拉取上下文条数 | `missing-message-context-count` |  | 自动拉取上下文条数（全局） |
+| 自动跟随最新消息 | `auto-follow-latest-messages` |  | 自动跟随新消息（全局） |
+| 发送消息后定位到最新消息 | `jump-latest-after-send` | 发送后跳转 | 发送后跳到最新（全局） |
+| 向下滚动时显示定位到底部按钮 | `scroll-to-bottom-button` | 快速到底部 | 回到底部按钮（全局） |
 | 语音消息自动转文字 | `auto-transcribe-voice` | 语音自动识别 | 语音自动转文字（全局） |
-| 自定义消息显示 | `custom-message-display` |  |  |
+| 内容显示 | `custom-message-display` | 自定义消息显示 |  |
 | 显示消息序号（seq） | `message-seq` | 消息序号 | 消息序号（全局） |
 | 显示发送日期 | `message-date` | 消息日期 yyyy-mm-dd | 消息日期（全局） |
 | 显示发送时间 | `message-time` | 显示发送时间（精确到秒）、消息时间 精确到秒 | 消息时间（全局） |
-| 显示群消息发送者名称 | `group-message-name` | 显示群成员昵称 | 显示群消息发送者名称（全局） |
+| 昵称或备注 | `group-message-name` | 显示群消息发送者名称、显示群成员昵称、群消息发送者 | 显示群消息发送者名称（全局） |
 | 显示群成员等级 | `group-message-level` |  | 显示群成员等级（全局） |
 | 显示群成员头衔与身份 | `group-message-title` | 群主、管理员 | 显示群成员头衔与身份（全局） |
 | 聊天头像挂件 | `avatar-pendant` |  | 头像挂件（全局） |
-| 聊天 QQ 秀替换头像 | `chat-qqshow` | QQ 秀 | QQ 秀头像（全局） |
-| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
+| 优先使用 QQ 秀替换头像 | `chat-qqshow` | 聊天 QQ 秀替换头像、QQ 秀 | QQ 秀头像（全局） |
 | 消息气泡 | `message-bubble` | 消息装扮（气泡/字体/挂件）、消息装扮、message-decoration、气泡 | 消息装饰（全局）；消息气泡（全局） |
 | 消息字体 | `message-font` | 聊天字体、字体 | 消息字体（全局） |
-| 纯文本消息自动渲染为 Markdown | `text-markdown` | 纯文本消息渲染 Markdown、富文本 | Markdown 文本（全局） |
+| 文本消息自动渲染为 Markdown | `text-markdown` | 纯文本消息自动渲染为 Markdown、纯文本消息渲染 Markdown、富文本 | Markdown 文本（全局） |
 | 链接预览卡片 | `link-preview` | 网页预览 | 链接预览（全局） |
 | 无封面时网页截图 | `link-screenshot` | 链接截图 |  |
 
@@ -327,6 +327,7 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
+| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
 | 优先直连 QQ 加载图片 | `prefer-cdn` | 优先使用 CDN、下载加速 | 优先 CDN（全局） |
 | 省流量模式 | `data-saver` | 低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
 | 外部安卓图片缓存 | `external-chatpic` | 允许使用外部安卓图片缓存、Android 图片 | 外部安卓图片缓存（全局）；外部安卓图片目录（全局，目录需选择） |
