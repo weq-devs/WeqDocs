@@ -21,6 +21,11 @@ pnpm check    # 只跑链接完整性检查
 pnpm build    # 先 check 再构建，产物在 .vitepress/dist
 ```
 
+文档站使用独立的 `pnpm-workspace.yaml`、锁文件与依赖目录，不加入 WeQ 的应用 workspace。
+在 WeQ 主仓根目录可运行 `pnpm docs:install` 安装文档依赖，再用 `pnpm docs:dev`、
+`pnpm docs:check`、`pnpm docs:build` 或 `pnpm docs:preview` 转调本站命令。
+仅开发应用时仍运行 `pnpm dev`，不需要安装文档站依赖。
+
 ## 构建期依赖
 
 「支持的 QQ 版本」页读 `versions/supported.json` 与 `versions/latest.json`。这两个文件

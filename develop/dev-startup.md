@@ -58,6 +58,7 @@ native 来源由配置明确决定：本地编译失败不会下载发布版，�
 ## 缓存与安装
 
 - 项目依赖按工作区清单、锁文件、安装元数据、Node/pnpm 环境和直接依赖实际文件检查。需要补齐时执行 `pnpm install --frozen-lockfile --prefer-offline --prod=false`，确保开发依赖也安装，不改锁文件。
+- 文档站 `docs/` 是独立 workspace，使用自己的配置、锁文件和依赖目录；文档依赖缺失或清单变化不触发应用依赖安装。需要预览文档时，在主仓根目录先运行 `pnpm docs:install`，再运行 `pnpm docs:dev`；检查、构建和预览产物分别用 `pnpm docs:check`、`pnpm docs:build` 和 `pnpm docs:preview`。
 - native 同时检查来源、平台、安装文件哈希及真实加载结果；本地源码模式额外验证三类装扮资源可查询。发布版模式不要求 `.dat`，普通启动不会每次联网获取发布清单。
 - 本地指纹包含源码、依赖清单、vendor、Cargo 配置及被 Git 忽略的三类装扮原始资源。普通文档、target 产物变化不触发编译。按当前平台显式选择 Rust target 及 `.dll`、`.so` 或 `.dylib`。
 - 本地 native 使用启动器随命令传入的独立 `weq-dev` profile：继承 release 的运行检查行为，主库保留二级优化，关闭 LTO、使用 16 个代码生成单元并启用增量编译；依赖保留三级优化且不积累增量缓存。配置位于 [dev-native.cargo.toml](https://github.com/weq-devs/WeQ/blob/dev/scripts/dev-native.cargo.toml)，不改写 native 源码仓库的正式 release 配置。产物与增量缓存位于 Cargo target 的当前平台 `weq-dev` 目录，首次切换需要建立一次新缓存，之后源码未变直接复用已安装构建，源码变化复用 Cargo 增量结果。构建配置及 Cargo profile／增量环境覆盖纳入来源指纹，旧 release 记录不会误判为新开发构建。
