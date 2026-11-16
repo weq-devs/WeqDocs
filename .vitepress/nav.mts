@@ -81,7 +81,7 @@ export const guideSidebar = [
     items: [
       { text: '统一导出', link: '/guide/export' },
       { text: '报告、精确选择与资源导出', link: '/guide/saved-reports-and-content-export' },
-      { text: '我的收藏', link: '/guide/collection' },
+      { text: '收藏', link: '/guide/collection' },
       { text: '表情与装扮资源', link: '/guide/emoji-resources' },
     ],
   },
