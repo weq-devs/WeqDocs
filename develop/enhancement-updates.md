@@ -42,3 +42,21 @@ WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文�
 引擎仍由现有脚本收集目标平台依赖、裁剪、签名、生成哈希及探针验证；上传器只向草稿 Release 上传并发布统一描述，不改写正式版本。可用 `node scripts/verify-enhancement-engines.mjs --models-root 模型目录` 复用本机模型验证真实 OCR、筛图、Laya 与 SenseVoice，测试不会复制模型原件或访问聊天数据库。
 
 相关实现：[更新控制器](https://github.com/weq-devs/WeQ/blob/dev/apps/desktop/src/main/enhancements/updates.ts)、[统一发布描述](https://github.com/weq-devs/WeQ/blob/dev/apps/desktop/src/shared/enhancement_release.ts)。
+
+## 网络与签名索引
+
+应用内公网 HTTP 请求通过轻量 `@weq/network` 适配；桌面使用 Chromium 系统代理／PAC，独立 Node 服务及联网 worker 使用环境代理，遵循 `HTTP_PROXY`、`HTTPS_PROXY` 和 `NO_PROXY`。QQ 本机认证、协议 socket 以及需要钉住已核对 IP 的链接预览保留专用传输。适配层不自动重放写请求或 AI 生成请求。桌面读取保留显式 Cookie、Range 和最终重定向地址；二进制写请求由 Chromium 计算 Content-Length。
+
+WeQ 与装扮资源仓通过固定 Release `weq-update-feed` 的 `update-index.json` 分发签名索引。该 Release 是机器读取入口，不是应用版本，也不设置为 Latest；明确版本的正式资产仍位于原 Release。索引携带每个渠道最新版本的发布身份、资产名称／长度／SHA-256，以及原始增强包描述。Ed25519 对完整索引签名，客户端使用内置公钥验签，镜像只传输字节。Mac／Linux 已确认版本的安装哈希可直接来自该签名描述，不再要求下载后再次访问 GitHub API；没有签名描述的旧发布继续从官方 HTTPS API 取得身份，不接受镜像自报摘要。
+
+客户端合并在途索引读取，成功结果短缓存五分钟，并持久保存签名原文供重启后重新验签。离线缓存可用于明确版本的下载／核验，在线检查失败不冒充成功；拒绝渠道版本倒退。索引读取、旧描述及大文件下载复用同一镜像池，每批最多探测三个源，缓存源健康三十分钟；桌面网络接口变化后失效。后台策略暂停和取消会结束真实在途请求。
+
+`ManagedDownload` 首字节默认十五秒、正文读取空闲默认三十秒；持续有数据不受固定一分钟总时限截断。每文件最多八次尝试，临时连接错误、超时、408／425／429及可重试5xx退避重试，尊重 Retry-After。策略暂停不消耗次数。可信长度和 SHA-256 相同的源可以在匹配的206分段响应下接续，跨源不携带旧源 If-Range；最终全文件哈希不匹配时丢弃坏分段再换源，200响应始终从头重写。无可信内容身份的普通资源仍要求同源验证信息。
+
+模型文件描述保留 `url`，可附带 `sources`。OCR 和 SenseVoice 使用已经核对与旧文件相同的 ModelScope 明确提交，不再读取 master；旧在线描述中已知文件的浮动地址按文件哈希及长度规范化。Laya 保留原固定提交与 `hfMirror` 偏好，启用时将镜像与原站纳入候选，关闭时只使用原站。ModelScope 的两个域名属于同一平台，Laya 镜像也可能重定向至原 CDN，这些不是独立资源备份；本轮不重新托管模型。
+
+### 发布接入
+
+`node scripts/prepare-release-metadata-key.mjs` 为维护机准备 Ed25519 密钥，私钥留在机器的发布配置目录，源码只提交公钥。发布环境通过 `WEQ_RELEASE_SIGNING_KEY` 提供相应 PEM 私钥；`node scripts/publish-release-feed.mjs --check-key` 在远端写入前核对公钥匹配。密钥不能打印到发布日志或进入 Git。
+
+主程序与独立装扮发布工作流均先核密钥，再公开正常版本，最后调用 `publish-release-feed.mjs`。发布端从官方 Release 取得资产身份，只读取小型描述，不重新下载大型安装包或模型；首次运行从已公开版本初始化渠道基线。工作流串行更新索引，旧任务不得覆盖较新渠道版本。索引上传失败可重跑公开步骤，已发布正式资产不改写；客户端在索引尚未上线时仍保留旧发布路径。共享工具与两个仓的客户端公钥需要先同步，再配置相同签名密钥，最后上线索引；本地测试通过不代表这些远端步骤已执行。
