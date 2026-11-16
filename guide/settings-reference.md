@@ -32,9 +32,10 @@
 | QQ 在线能力 | `full-features` | 功能差异、受限模式、在线能力、漫游消息、发送消息 |  |
 | 启用方式 | `full-feature-routes` | 原版 QQ、读取路线、QQ 在线能力启用 |  |
 | 自动启用 QQ 在线能力 | `auto-full-mode` | 自动读取 QQ 内存 | 自动启用 QQ 在线能力（全局） |
+| 受限模式时在窗口右上角显示 | `restricted-mode-indicator` | 受限模式标记、标题栏受限模式、受限状态显示 | 受限模式时在窗口右上角显示（全局） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
-| 进入受限模式时横幅提醒 | `restricted-mode-banner` | 受限横幅 | 受限模式横幅提醒（全局） |
+| 进入受限模式时通知 | `restricted-mode-banner` | 进入受限模式时横幅提醒、受限横幅 | 受限模式横幅提醒（全局） |
 
 ### 外观与布局
 
