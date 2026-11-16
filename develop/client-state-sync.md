@@ -4,9 +4,11 @@
 
 `@weq/service/client-preferences` 提供共享偏好类型、默认值、既有显示开关映射及旧键映射。全部设置共用同一来源，不提供设备覆盖模式。
 
-省流量行为由 `dataSaverBehaviorDefaults` 定义，与 `dataSaverMode` 一同存入 `client` 组。图片档位为 `dataSaverImageLoading: none | thumbnail | original`；头像、表情、个性装扮、封面、屏幕外预取及链接预览分别使用独立布尔字段。任务使用 `dataSaverPauseBatch`、`dataSaverPauseLarge`、`dataSaverLargeMiB` 和 `dataSaverAutoResume`，阈值为 1–1048576 MiB 的整数。缺失字段沿用默认值，设置关闭时不禁用行为编辑；卡片恢复与页面恢复均覆盖这十二项。共享配置变更立即刷新宿主策略；各下载器、导出队列与媒体入口读取同一份行为策略，资源分类开关不由预取开关代替。关闭自动继续后策略解除仍等待手动操作，不伪装成用户手动暂停。
+省流量行为由 `dataSaverBehaviorDefaults` 定义，与 `dataSaverMode` 一同存入 `client` 组。`dataSaverOnMetered` 默认 `false`，只在跟随系统时显示；`constrained` 始终触发自动模式，`metered` 仅在该选项开启时触发，设置和快捷菜单共用同一值，手动模式隐藏但不清除选择。图片档位为 `dataSaverImageLoading: none | thumbnail | original`；头像、表情、个性装扮、封面、屏幕外预取及链接预览分别使用独立布尔字段。任务使用 `dataSaverPauseBatch`、`dataSaverPauseLarge`、`dataSaverLargeMiB` 和 `dataSaverAutoResume`，阈值为 1–1048576 MiB 的整数。缺失字段沿用默认值，设置关闭时不禁用行为编辑；卡片恢复与页面恢复覆盖全部省流量偏好。共享配置变更立即刷新宿主策略及任务恢复判定；各下载器、导出队列与媒体入口读取同一份行为策略，资源分类开关不由预取开关代替。关闭自动继续后策略解除仍等待手动操作，不伪装成用户手动暂停。
 
 `dataSaverMode` 为 `auto | always | never`，缺省 `auto`，随 `client` 组同步、备份与重置。网络检测状态独立于偏好：`settings.networkCost` 返回宿主状态并接收可选的本端运行态，HTTP 请求携带稳定的浏览器来源标识以绑定任务，不上传为全局设置。旧 native／手机桥缺能力时返回 unknown。共享策略区分自动预取、小图、主动查看与批量任务；任务保存策略暂停原因，手动继续只放行对应任务。下载续写必须核对强 ETag 或 Last-Modified、Content-Range 与长度；没有可靠身份的分段不续写。
+
+网页向现有 Android `networkPreference(mode)`／iOS `weqShell.postMessage({dataSaverMode:mode})` 桥传回当前实际生效结果（`always`／`never`），不是持久基础模式。旧手机壳无需理解新增偏好，也能在连接期间按宿主与本端合并后的实际策略决定更新检查是否取样测速；原始费用桥及邀请协议不变，未连接网页前的原生默认行为不变。
 
 `DataSaverSession` 保存宿主进程级临时覆盖，优先于基础模式但不进入配置文件；分钟期限由宿主定时器结束，任务期限仅允许临时关闭。`settings.dataSaver` 提供 `status`、`temporary`、`clearTemporary`、`changed`；状态包含宿主运行身份、修订、有效模式、临时期限、未完成任务数及变更原因。渲染端丢弃同一运行身份下的迟到状态，自动状态变化通过现有横幅系统去重提示。基础模式显式保存（包括同值保存）和默认恢复清除覆盖；网络探测 unknown 保留最近可靠的状态。
 
