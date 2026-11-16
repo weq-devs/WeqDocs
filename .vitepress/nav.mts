@@ -116,6 +116,7 @@ export const guideSidebar = [
       { text: 'Web 服务与手机连接', link: '/guide/remote-web' },
       { text: 'QQ NT 外观预设', link: '/guide/qqnt-appearance' },
       { text: '设置总览', link: '/guide/settings' },
+      { text: '设置项参考', link: '/guide/settings-reference' },
       { text: '跨端设置与草稿', link: '/guide/cross-device-settings' },
     ],
   },
@@ -188,6 +189,7 @@ export const developSidebar = [
     items: [
       { text: '开发者入口', link: '/develop/' },
       { text: '测试约定', link: '/develop/testing' },
+      { text: '设置注册表', link: '/develop/settings-registry' },
       { text: '开发控制台日志', link: '/develop/development-console-logging' },
       { text: '时间日期格式', link: '/develop/datetime-formatting' },
       { text: '原生二进制与资源分发', link: '/develop/native-artifacts' },

@@ -5,6 +5,8 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 打开位置：**设置 → WeQ 服务 → MCP 服务器**。
 
+`list_settings` 可列出 WeQ 的设置名称、稳定 ID、所属页面、搜索别名和页面恢复范围，与设置前端、全局搜索及[设置项参考](./settings-reference.md)共用同一注册表。可按 `page` 或 `query` 筛选；它只返回公开定义，不读取当前设置值，也不修改设置。
+
 ## 1. 服务开关
 
 - **启用 MCP 服务器**：开启后开始监听；首次开启会自动生成令牌；
