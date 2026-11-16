@@ -60,6 +60,7 @@ native 来源由配置明确决定：本地编译失败不会下载发布版，�
 - 项目依赖按工作区清单、锁文件、安装元数据、Node/pnpm 环境和直接依赖实际文件检查。需要补齐时执行 `pnpm install --frozen-lockfile --prefer-offline --prod=false`，确保开发依赖也安装，不改锁文件。
 - native 同时检查来源、平台、安装文件哈希及真实加载结果；本地源码模式额外验证三类装扮资源可查询。发布版模式不要求 `.dat`，普通启动不会每次联网获取发布清单。
 - 本地指纹包含源码、依赖清单、vendor、Cargo 配置及被 Git 忽略的三类装扮原始资源。普通文档、target 产物变化不触发编译。按当前平台显式选择 Rust target 及 `.dll`、`.so` 或 `.dylib`。
+- 本地 native 使用启动器随命令传入的独立 `weq-dev` profile：继承 release 的运行检查行为，主库保留二级优化，关闭 LTO、使用 16 个代码生成单元并启用增量编译；依赖保留三级优化且不积累增量缓存。配置位于 [dev-native.cargo.toml](https://github.com/weq-devs/WeQ/blob/dev/scripts/dev-native.cargo.toml)，不改写 native 源码仓库的正式 release 配置。产物与增量缓存位于 Cargo target 的当前平台 `weq-dev` 目录，首次切换需要建立一次新缓存，之后源码未变直接复用已安装构建，源码变化复用 Cargo 增量结果。构建配置及 Cargo profile／增量环境覆盖纳入来源指纹，旧 release 记录不会误判为新开发构建。
 - 本地装扮沿用发布流程的独立 `nt-helper-dress-pack` 工具，在 Cargo target 下维护一套经来源和哈希校验的缓存；只有原始资源、打包工具或其构建定义变化时才重新加工。普通 native 源码及提交变化复用已有装扮和对应密钥，native 编译设置 `NT_HELPER_PACK_DRESS=0`，不再在构建脚本中重复压缩，也不改写源码资源目录的 `.dat`。首次建立该缓存仍需加工一次。
 - 本次安装的 native（本地源码模式另含三份 `.dat`）在暂存区验证后成套替换；失败时恢复已经替换的文件，不删除旧索引。安装来源保存在不入库的 `native/.installed.json`，不改 `pinned.json`，不自动安装系统权限助手。
 - 网络助手按 Go 源码和产物哈希缓存；机器人运行时按 esbuild 的实际输入清单与产物哈希缓存。Electron 开发宿主继续复用已有完整性与签名检查。
