@@ -345,7 +345,7 @@
 | 启用数据库监听 | `realtime-enabled` | 自动刷新消息 | 数据库监听（全局） |
 | 数据库读取并发上限 | `database-read-concurrency` | 连接池、并行读取、查询排队、读取性能 | 数据库读取并发上限（全局） |
 | 监听与读取 | `database-listening` | 接入与监听、实时监听 |  |
-| 损坏提醒 | `damage-reminder` | 数据库异常时弹窗提醒 | 损坏提醒（全局） |
+| 损坏提醒 | `damage-reminder` | 数据库异常时弹窗提醒 |  |
 | 数据库检查与修复 | `database-repair` | 数据库修复、损坏与修复、数据库容错、修复数据库 |  |
 | 数据库浏览 | `database-manager` | 数据库管理 |  |
 | 导出明文数据库 | `database-export` | 数据库解密 |  |
