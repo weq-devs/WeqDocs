@@ -381,9 +381,9 @@ Linux 宿主**总是先试免密直连**：`yama ptrace_scope=0`（或 `CAP_SYS_
 - `SessionMaterial = { a2?: string; d2?: string; d2Key?: string; secToken?: string }`
   `secToken` 只对**需要签名的命令**有意义，缺它不阻塞发包；但本地缓存复用的判据（`canReuseSessionMaterial`）要求它也在，否则升级后老物料会一直复用、签名始终缺 token。
 - 扫描 resolve 不代表物料完整：attach 缓存只保留三项均为有效 hex 且 d2key 为 16 字节的结果，部分结果原样返回、不跨扫描合并。账号 monitor 即使已有未过期的 rkey/clientKey，也会补齐当前 PID 的物料；失败按 30 秒起、最长 5 分钟退避重试。uid/guid 暂缺只检查账号配置及补读离线设备身份，不读内存、不弹密码框；仅用户明确取消授权会暂停本 PID 的自动重试。原生登记完成后仍通过 `onlineCredentialsReady` 通知界面重查实际能力，不把提交密码当作成功。
-- 桌面端能力查询同时返回账号身份是否齐全、是否需要重新读内存，以及 `hasSsoSession` 确认的 `ssoReady`。受限模式仅在当前 PID 的有效物料、账号/设备身份和原生登记都就绪后解除；查询不触发内存读取或网络请求，异步查询期间切号会拒绝旧结果。
+- 桌面端能力查询同时返回账号身份是否齐全、是否需要重新读内存，以及 `hasSsoSession` 确认的 `ssoReady`。在线能力受限仅在当前 PID 的有效物料、账号/设备身份和原生登记都就绪后解除；查询不触发内存读取或网络请求，异步查询期间切号会拒绝旧结果。
 - `credentialsPending` 包括正在读取、等待授权、原生登记和未取消的自动重试，不包括登记完成后的网络取票。界面保留「正在启用 QQ 在线能力」及常驻进度；提交授权后须等新的状态查询完成，不用提交前缓存的就绪状态提前结束。
-- 长期授权助手存在但需要修复（协议/接口/有效期/通道不匹配）时，`attach` 不再静默回退：监视器把 `credentialsPending` 置为 false，并通过 `credentialsIssue` 把原因交给受限模式；后台仍按退避重试，修复后自动恢复。
+- 长期授权助手存在但需要修复（协议/接口/有效期/通道不匹配）时，`attach` 不再静默回退：监视器把 `credentialsPending` 置为 false，并通过 `credentialsIssue` 把原因交给「在线能力受限」详情；后台仍按退避重试，修复后自动恢复。
 - SIP 开启且直接读取、长期助手均未取得调试读取权限时，桌面端抛出 `DebugReadUnavailableError`；监视器保留退避重试，但等待期间的 `credentialsPending` 为 false，让界面显示 QQ 调试副本引导，不持续冒称正在启用。实际读取及登记中的进度判定不变。
 - 前端授权请求优先于 `credentialsPending`：存在尚未提交的密码或 ptrace 引导请求时显示「待提权」，标题栏、详情和横幅均暂停进入中进度；最后一项请求处理后才恢复进入中。横幅原地更新，避免退场动画残留相反的阶段提示。
 - `SsoSessionConfig = { uin; a2: Buffer; d2: Buffer; d2Key: Buffer; guid; uid; subAppId; secToken?; qua?; clientConnSeq?; traceParent? }`（`traceParent` 只给离线比对用）。

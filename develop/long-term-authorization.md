@@ -32,8 +32,8 @@
 `channel-mismatch`、`incompatible`、`unresponsive`。**不要把它降级成一句「启用失败」** ——
 原因决定用户下一步是更新原生组件、还是重装助手。
 
-受限模式里遇到 `needs-repair` 时的行为也是固定的：`attach` 不再静默回退，监视器把
-`credentialsPending` 置 false，把原因交给受限模式显示，后台仍按退避重试，修好后自动恢复。
+「在线能力受限」详情中遇到 `needs-repair` 时的行为也是固定的：`attach` 不再静默回退，监视器把
+`credentialsPending` 置 false，把原因交给「在线能力受限」详情显示，后台仍按退避重试，修好后自动恢复。
 
 ## 三、接口版本与有效期
 
