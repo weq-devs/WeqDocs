@@ -24,6 +24,8 @@ pnpm dev
 
 Web 开发服务只监听本机环回随机端口，由桌面 Vite 进程持有，Electron 自动重启不重建它。Remote 配对、本机 Web 登录、业务 HTTP 与 WebSocket 订阅继续使用原入口；源码模块与热更新连接同样经过原入口认证。关闭桌面开发服务会关闭内置 Web 开发服务。桌面和 Web 使用独立预构建缓存，不互相覆盖。React Refresh 所需的内联引导只在代理的开发 HTML 放行，正式页不变。
 
+开发 Web 的源码映射通过 Vite 的独立 `.map` 地址按需获取，不再以 Base64 内联到每个运行模块中；打开调试器仍可读取原始源码。原宿主代理为文本代码提供 gzip，源码保留 ETag 条件验证，带版本标识的预构建依赖沿用不可变缓存，均限制为浏览器私有缓存；HTML 与失败响应仍不缓存。代码加载量包含解压后的资源和缓存复用，不等于本次网络下载量。开发模式保留未裁剪的依赖导出和热更新代码，冷加载仍可能大于正式构建。
+
 正式构建不启动开发服务、不监听源码，继续生成并提供静态 Web 产物。定向真实浏览器验证使用 `node apps/desktop/test/browser/run-development-web.mjs`；可通过 `WEQ_PLAYWRIGHT_IMPORT`、`WEQ_BROWSER_EXECUTABLE` 复用已有 Playwright 与浏览器，验证 Remote 认证、React／CSS 热更新及计数、草稿和页面实例保留。
 
 ## 基础环境
