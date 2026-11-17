@@ -226,7 +226,7 @@ SQLite 的保留页按**文件**设置：QQ 库因 1024 字节头保留 `262144`
 | `safeDecryptDatabase(dbPath, outPath, key, algo)` | 同上 | `void` | 安全解密：所有读走 SQLite（offset VFS + `sqlcipher_export`），长导出期间不怕 QQ checkpoint 撕页；无中间文件。产物同样是**标准布局**明文。 |
 | `fastDecryptDatabaseAsync` / `safeDecryptDatabaseAsync` | 同上 | `Promise<void>` | 上面两个的**异步版**：丢进阻塞线程池，不占调用方线程。UI 触发的导出优先用它。 |
 | `checkpointWal(dbPath, key, algo)` | 路径 + key + algo | `Promise<WalCheckpointResult>` | 把 `-wal` 里的帧并回主库。报告里的 `merged` 是**结论**：为 `false` 时那批改动还没进主文件，不能声称「修复包含了全部消息」。 |
-| `checkDatabaseHealth(dbPath, key, algo, onProgress?)` | 路径 + key + algo + 可选进度回调 | `Promise<DatabaseHealthResult>` | `PRAGMA integrity_check` 体检；整体失败时逐表出结果。回调给出整体检查或逐表定位阶段；整体检查不提供虚构的工作量分母。 |
+| `checkDatabaseHealth(dbPath, key, algo, onProgress?)` | 路径 + key + algo + 可选进度回调 | `Promise<DatabaseHealthResult>` | 完整 `PRAGMA integrity_check` 体检；页结构与引用、各表记录与索引对应、索引条目数量复核分别回报真实进度，整体失败时仍逐表定位。 |
 | `recoverDatabase(options, onProgress?)` | `RecoverOptions` + 可选进度回调 | `Promise<RecoverReport>` | 重建损坏库：坏页扫描 → 解密 → SQLite recover → 重新加密 → 补 QQ 头 → 自检。源库只读。`sourceLayout` / `targetLayout` 可选（默认都 `qq`）；把旧版误修复的 standard 布局迁回 QQ 时传 `sourceLayout: 'standard', targetLayout: 'qq'`，产物报告会回显实际布局。旧产物会静默忽略这两个参数、也不回显布局，调用方必须在替换前核对。 |
 | `databaseRepairStorageVersion()`（可选） | 无 | `number` | 返回 1 表示重建后提前释放明文源库、通过 offset VFS 直接加密带头产物；方法缺失按旧模块预算预检。能力标记与实际加载模块绑定，不以应用版本推断。 |
 | `executeSqlSalvage(dbPath, sql, params?, level?)` | 路径 + SQL + 可选参数 + 宽容级别 | `Promise<SalvageQueryOutcome>` | 宽容只读查询（独立的 salvage 连接）。**不因“损坏”抛异常**，而是返回 `ok:false` + 错误码，由调用方决定放弃还是切更小的一段；其它错误照旧抛。级别 ≥ 1 时遇到损坏会换访问路径（`NOT INDEXED`）重试。 |
@@ -241,6 +241,8 @@ SQLite 的保留页按**文件**设置：QQ 库因 1024 字节头保留 `262144`
 数据库维护进度回调遵循 N-API 的 `(error, progress)` 约定。`DatabaseProgress` 包含 `step`、`message` 和可选的 `completed`、`total`、`unit`、`objectName`、`badPages`、`zeroPages`；计数是实际工作量，`total` 缺省表示没有可靠分母。`recoverDatabase` 保留旧的 `phase`／估算 `percent`／`message`，并在 `detail` 中补充同一结构的页扫描、解密、字段解析及产物检查进度。字段计数不是消息条数，当前遇到的最大页号也不是已处理页数。原生线程通常每 200ms 最多回报一次，步骤切换及末次页计数始终回报；不改变最终报告的判断口径。旧组件未提供这些回调或 `detail` 时，应用仅展示阶段与耗时，不从旧估算值补造百分比。
 
 体检在独立只读进程中以逐行事件传回进度，最终结果另行返回；停止仍等待子进程真实退出。修复页与任务中心共用有界步骤快照，百分比仅用于有可靠分母的当前步骤，备份与哈希通过异步分块读写及时回报。源库复核、替换后结构检查和报告保存均有独立状态，整个任务在这些步骤结束后才完成。
+
+整库结构检查保留 SQLite 原有完整检查，不以逐表检查代替。`integrity-pages` 按实际检查的页数显示 `pages` 进度；该轮扫描顺带统计各 root 的记录数和 B-tree 页数，不额外执行全库计数查询。`integrity-records-<root>` 按已检查记录数显示 `records` 进度，`integrity-index-<root>` 按索引计数复核实际遍历的 B-tree 页数显示 `pages` 进度，`objectName` 给出对应表或索引。各步骤的百分比独立，某一步到 100% 不表示整库体检结束。损坏导致分母不可靠时省略 `total`，错误上限、取消或执行异常导致提前退出时不补发完成计数；旧原生组件继续显示不定进度。
 
 调用解密接口前使用 `@weq/native` 的 `selectDatabaseDecryptMethod(dbPath, mode)`：
 它保留用户指定的安全模式，并把 ≥ 512 MiB 的快速解密请求切换到安全模式。
