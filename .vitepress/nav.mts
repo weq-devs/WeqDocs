@@ -15,6 +15,7 @@ export const nav = [
   {
     text: '关于',
     items: [
+      { text: '免责声明与使用说明', link: '/guide/disclaimer' },
       { text: '贡献指南', link: 'https://github.com/weq-devs/WeQ/blob/dev/CONTRIBUTING.md' },
       { text: '更新记录', link: 'https://github.com/weq-devs/WeQ/blob/dev/CHANGELOG.md' },
       { text: '问题反馈', link: 'https://github.com/weq-devs/WeQ/issues' },
@@ -37,6 +38,7 @@ export const guideSidebar = [
     collapsed: false,
     items: [
       { text: '快速上手', link: '/guide/getting-started' },
+      { text: '免责声明与使用说明', link: '/guide/disclaimer' },
       { text: '支持的 QQ 版本', link: '/guide/supported-versions' },
       { text: '主界面与账号', link: '/guide/homepage' },
     ],

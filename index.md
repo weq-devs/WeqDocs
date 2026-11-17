@@ -45,3 +45,5 @@ features:
 [交流群](https://qm.qq.com/q/ysMZoAcC1a) 反馈。
 
 先从[快速上手](/guide/getting-started)进入，或者直接翻[功能总览](/guide/)。
+
+WeQ 是非腾讯官方项目；数据与素材使用、编辑与 AI 内容及实际操作影响见[免责声明与使用说明](/guide/disclaimer)。
