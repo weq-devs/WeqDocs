@@ -284,6 +284,7 @@
 | 推荐回复温度 | `intent-tuning-suggestionTemperature` |  | 推荐回复温度（全局） |
 | 推荐候选数量上限 | `intent-tuning-suggestionCount` |  | 推荐候选数量上限（全局） |
 | 推荐目标长度（字） | `intent-tuning-suggestionTargetChars` |  | 推荐目标长度（字）（全局） |
+| 推荐 API 请求超时（秒） | `intent-tuning-suggestionApiTimeoutSeconds` |  | 推荐 API 请求超时（秒）（全局） |
 | 同一消息推荐缓存（秒） | `intent-tuning-suggestionCacheSeconds` |  | 同一消息推荐缓存（秒）（全局） |
 | 最近推荐过期时间（分钟） | `intent-tuning-suggestionExpiryMinutes` |  | 最近推荐过期时间（分钟）（全局） |
 | 每会话保留的推荐轮数 | `intent-tuning-suggestionHistoryLimit` |  | 每会话保留的推荐轮数（全局） |
