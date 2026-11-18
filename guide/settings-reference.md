@@ -344,18 +344,10 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
+| 助手模型设置 | `weq-assistant-model-settings` |  |  |
 | 助手默认聊天模型 | `weq-assistant-default-model` |  | 助手生成与执行（全局） |
 | 助手默认思考强度 | `weq-assistant-default-effort` |  |  |
-| 温度 | `weq-assistant-temperature` |  |  |
-| 单次输出 Token 上限 | `weq-assistant-maxOutputTokens` |  |  |
-| 任务最大轮数 | `weq-assistant-maxRounds` |  |  |
-| 单工具超时 | `weq-assistant-toolTimeoutMs` |  |  |
-| 任务总时限 | `weq-assistant-taskTimeoutMs` |  |  |
-| 带入历史消息条数 | `weq-assistant-historyMessages` |  |  |
-| 上下文预算 | `weq-assistant-contextTokens` |  |  |
-| 压缩触发比例 | `weq-assistant-compressionTrigger` |  |  |
-| 压缩目标比例 | `weq-assistant-compressionTarget` |  |  |
-| 摘要 Token 上限 | `weq-assistant-summaryTokens` |  |  |
+| 对话上下文 | `weq-assistant-historyMessages` |  |  |
 | 运行模式 | `weq-assistant-permission` |  |  |
 | 额外提示词 | `weq-assistant-customPrompt` |  |  |
 | 外部 MCP 服务器 | `weq-assistant-mcpServers` |  |  |
