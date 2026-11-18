@@ -137,9 +137,28 @@ node apps/desktop/test/browser/run-style-consistency.mjs
 
 联系人关系回归使用 `node apps/desktop/test/browser/run-contact-relationship.mjs`，验证真实名片、列表和搜索结果的关系标识、长名称布局与主题取色，覆盖深浅色／跟随系统、六种背景和桌面／窄屏。沿用上述 Playwright 与浏览器路径变量，可用 `WEQ_RELATIONSHIP_ARTIFACTS` 指定截图目录；测试仅使用合成联系人，不连接 QQ。
 
-复用已安装的 Playwright。模块不在默认解析路径时，用 `WEQ_PLAYWRIGHT_IMPORT` 指定入口；
-`WEQ_BROWSER_EXECUTABLE` 可指定已有 Chromium 浏览器，`WEQ_STYLE_ARTIFACTS` 可指定截图目录。
-脚本结束后会关闭自己创建的浏览器和测试服务，不使用真实 QQ 数据。
+Playwright 由根 workspace 精确锁定版本，不依赖 Codex 或其他外部工具的运行库。
+首次安装依赖后，按需准备对应浏览器；已有匹配缓存会直接复用，不重复下载：
+
+```bash
+pnpm browser:install             # 准备锁定版本的 Chromium 和 WebKit
+pnpm browser:check               # 逐一启动两种引擎，创建 context/page 并检查页面内容
+pnpm browser:check webkit        # 只检查本次需要的引擎
+```
+
+依赖升级后重新运行准备命令；只需一种引擎时可运行 `pnpm exec playwright install chromium`
+或 `pnpm exec playwright install webkit`。Linux 缺少系统依赖时，使用 Playwright 的
+`install --with-deps`。不要把其他 revision 的浏览器可执行文件强行交给当前运行库。
+
+`scripts/browser-runtime.mjs` 提供共用 `launchBrowser(name)`，供 Remote 启动、后台加载和
+手机页面退出夹具使用；这些入口始终使用项目运行库与配套引擎，不读取旧的
+`WEQ_PLAYWRIGHT_IMPORT`、`WEQ_*_EXECUTABLE` 路径覆盖。启动日志包含实际版本、引擎路径，
+环境检查失败带有 `[browser:environment]` 标签。其余旧脚本默认同样解析项目依赖，
+但仍保留各自的路径覆盖兼容逻辑，运行前应取消历史手工设置的路径变量。
+这次接入不代表全部旧脚本已迁移或全部浏览器用例已验证。
+
+`WEQ_STYLE_ARTIFACTS` 可指定样式检查的截图目录。
+脚本结束后关闭自己创建的浏览器和测试服务，不使用真实 QQ 数据。
 
 桌面竖屏回归使用 `node apps/desktop/test/browser/run-desktop-portrait.mjs`，挂载真实
 `ChatShell`、标题栏和会话控制器，覆盖 360/440/600/760/800/1180px、最小窗口高度、
