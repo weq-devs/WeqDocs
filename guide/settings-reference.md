@@ -340,6 +340,28 @@
 | 画像话题数量上限 | `intent-tuning-profileTopicLimit` |  | 画像话题数量上限（全局） |
 | 图片处理偏好 | `ai-images-profile` | 互动画像图片、画像 OCR |  |
 
+### WeQ 助手
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 助手默认聊天模型 | `weq-assistant-default-model` |  | 助手生成与执行（全局） |
+| 助手默认思考强度 | `weq-assistant-default-effort` |  |  |
+| 温度 | `weq-assistant-temperature` |  |  |
+| 单次输出 Token 上限 | `weq-assistant-maxOutputTokens` |  |  |
+| 任务最大轮数 | `weq-assistant-maxRounds` |  |  |
+| 单工具超时 | `weq-assistant-toolTimeoutMs` |  |  |
+| 任务总时限 | `weq-assistant-taskTimeoutMs` |  |  |
+| 带入历史消息条数 | `weq-assistant-historyMessages` |  |  |
+| 上下文预算 | `weq-assistant-contextTokens` |  |  |
+| 压缩触发比例 | `weq-assistant-compressionTrigger` |  |  |
+| 压缩目标比例 | `weq-assistant-compressionTarget` |  |  |
+| 摘要 Token 上限 | `weq-assistant-summaryTokens` |  |  |
+| 运行模式 | `weq-assistant-permission` |  |  |
+| 额外提示词 | `weq-assistant-customPrompt` |  |  |
+| 外部 MCP 服务器 | `weq-assistant-mcpServers` |  |  |
+| 运行中默认发送方式 | `weq-assistant-send-mode` |  |  |
+| 图片处理偏好 | `ai-images-assistant` |  | 图片处理偏好（全局） |
+
 ## 凭据与数据
 
 ### 凭据管理
