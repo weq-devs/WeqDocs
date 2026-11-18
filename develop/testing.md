@@ -66,6 +66,10 @@ pnpm --filter @weq/desktop exec vitest run test/startup_settings.test.ts # 指�
 各包单测直接读取工作区源码，不依赖其他包预先构建；根入口不按包依赖排序，
 避免无谓串行等待，以及上游测试失败后下游测试未执行。完整模式还会继续运行其余包。
 
+不打标签时，可在 GitHub Actions 的 `Release` 工作流中选中已同步的候选分支，启用
+`package_candidate`。它对该提交运行完整 CI 和 Windows 安装包构建，用包内的 native 和进程验证数据库维护流程，
+并核对发布索引的签名密钥，不创建、上传或公开 Release。其他平台的正式打包仍由标签触发。
+
 ## CI 分片
 
 Actions 将 desktop 拆为 6 片、service 拆为 2 片，使用 Vitest 的
