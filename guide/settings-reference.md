@@ -35,7 +35,6 @@
 | 在线能力受限时在窗口右上角显示 | `restricted-mode-indicator` | 在线能力受限标记、标题栏在线能力受限、受限状态显示 | 在线能力受限时在窗口右上角显示（全局） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
-| 在线能力受限时通知 | `restricted-mode-banner` | 在线能力受限时横幅提醒、受限横幅 | 在线能力受限横幅提醒（全局） |
 
 ### 外观与布局
 
@@ -52,16 +51,55 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
+| 事件通知 | `notification-events` |  | 事件通知（全局） |
+| 普通群聊消息 | `notification-groupMessage` |  |  |
+| 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
+| 特别关心 | `notification-specialCare` |  |  |
+| @自己 | `notification-mentionMe` |  |  |
+| @全体成员 | `notification-mentionAll` |  |  |
+| 引用／回复我 | `notification-replyMe` |  |  |
+| 红包消息 | `notification-redPacket` |  |  |
+| 关键词命中 | `notification-keyword` |  |  |
+| 联系人与群通知 | `notification-contact` |  |  |
+| 任务或操作进行中 | `notification-progress` |  |  |
+| 后台任务完成 | `notification-taskComplete` |  |  |
+| 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
+| 发现新版本或增强包更新 | `notification-update` |  |  |
+| 连接中断或恢复 | `notification-connection` |  |  |
+| 有请求等待处理 | `notification-request` |  |  |
+| 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
+| 操作成功与普通提示 | `notification-success` |  |  |
+| 操作失败或结果未确认 | `notification-failure` |  |  |
+| 好友与群通知 | `contact-request-badge` |  | 好友与群通知（全局） |
+| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
+| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
+| 新版本与增强包更新 | `update-badge` |  | 新版本与增强包更新（全局） |
+| 公众号 | `official-unread-badge` |  | 公众号（全局）；公众号（全局） |
+| 服务号 | `service-unread-badge` |  | 服务号（全局）；服务号（全局） |
+| 频道私聊 | `guild-unread-badge` |  | 频道私聊（全局）；频道私聊（全局） |
+| 已隐藏会话 | `hidden-unread-badge` |  | 已隐藏会话（全局）；已隐藏会话（全局） |
+| 已删除会话 | `deleted-unread-badge` |  | 已删除会话（全局）；已删除会话（全局） |
+| 克隆会话 | `clone-unread-badge` |  | 克隆会话（全局）；克隆会话（全局） |
+| WeQ 助手会话 | `assistant-aggregate-badge` |  | WeQ 助手会话（全局）；WeQ 助手会话（全局） |
 | 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
 | 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
-| 新消息系统通知 | `message-system-notifications` | 消息弹窗提醒 | 新消息系统通知（全局） |
+| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
+| 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
+| 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
 | 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
+| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
+| 好友与群聊 | `contact-unread-count` | 联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊（全局） |
+| 群助手 | `group-assistant-count` | 群助手未读汇总角标、群助手显示总消息数 | 群助手（全局）；群助手（全局） |
+| 功能受限或运行异常 | `restricted-mode-banner` | 在线能力受限时通知、在线能力受限时横幅提醒、受限横幅 |  |
+| 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
+| 未读角标 | `notification-badges` | 红点与未读标记 |  |
+| 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
+| 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
 
 ### 隐私
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 网页通知 | `web-notifications` |  | 网页通知（全局） |
 | WeQ 验证器 | `totp-authenticator` | 绑定验证器、TOTP |  |
 | 启用应用锁 | `app-lock` | 应用锁、锁屏、隐私锁 | 启用应用锁（全局） |
 | 解锁方式 | `unlock-method` | Touch ID、Windows Hello、验证器 | 解锁方式（全局） |
@@ -75,14 +113,10 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 在消息图标上显示红点 | `message-unread-badge` | 显示消息汇总红点、未读红点 | 消息红点（全局） |
-| 在联系人界面显示未读消息数 | `contact-unread-count` |  | 联系人未读数（全局） |
-| 群助手显示总消息数 | `group-assistant-count` |  | 群助手计数（全局） |
+| 重要消息标记 | `important-message-markers` | @我、@全体成员、回复我、特别关心、群提醒词、新文件、红包、群公告 | 重要消息标记（全局） |
 | 包含已隐藏会话 | `all-conversations-include-hidden` | 全部会话隐藏范围 | 包含已隐藏会话（全局） |
 | 包含已删除会话 | `all-conversations-include-deleted` | 全部会话删除范围 | 包含已删除会话（全局） |
 | 鼠标停留时保持会话位置 | `keep-conversation-position-on-hover` | 会话排序、悬停排序 | 鼠标停留时保持会话位置（全局） |
-| 清除 WeQ 已读记录 | `clear-local-read-records` | 未读异常、清除阅读位置、重置已读记录 |  |
-| 向 QQ 服务器上报已读位置 | `read-sync` | 同步已读状态到 QQ、同步已读到 QQ、手动标记时上报已读位置、手动标记已读 | 自动阅读上报已读位置（全局）；手动标记上报已读位置（全局） |
 
 ### 消息阅读
 
@@ -122,7 +156,7 @@
 | 无需回车即自动替换 | `slash-emoji-auto-replace` | 表情自动替换 | 无需回车即自动替换（全局） |
 | 按退格键移除引用 | `quote-backspace-remove` | 退格取消引用、Backspace | 按退格键移除引用（全局） |
 | 隐藏正在输入状态 | `typing-status` | 向对方展示输入状态、默认发送正在输入状态、发送正在输入状态、输入状态、正在输入、打字状态 | 隐藏正在输入状态（全局）；隐藏正在输入状态的会话选择（当前账号） |
-| 防撤回 | `anti-recall` | anti-recall | 防撤回启用范围（全局）；防撤回会话选择（当前账号）；撤回通知（全局）；撤回通知会话选择（当前账号） |
+| 防撤回 | `anti-recall` | anti-recall | 防撤回启用范围（全局）；防撤回会话选择（当前账号） |
 
 ### 联系人名片
 
@@ -194,8 +228,6 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 邮件查询间隔 | `mail-poll-interval` | 邮件查询间隔（分钟）、邮箱同步频率、邮件轮询、自动收信 | 邮箱查询间隔（全局） |
-| 在邮箱图标上显示红点 | `mail-unread-badge` | 显示未读邮件数 | 邮箱红点（全局） |
-| 收到新邮件时横幅提醒 | `mail-banner` | 新邮件提醒 | 新邮件提醒（全局） |
 
 ## 增强功能
 
@@ -345,7 +377,6 @@
 | 启用数据库监听 | `realtime-enabled` | 自动刷新消息 | 数据库监听（全局） |
 | 数据库读取并发上限 | `database-read-concurrency` | 连接池、并行读取、查询排队、读取性能 | 数据库读取并发上限（全局） |
 | 监听与读取 | `database-listening` | 接入与监听、实时监听 |  |
-| 损坏提醒 | `damage-reminder` | 数据库异常时弹窗提醒 |  |
 | 数据库检查与修复 | `database-repair` | 数据库修复、损坏与修复、数据库容错、修复数据库 |  |
 | 数据库浏览 | `database-manager` | 数据库管理 |  |
 | 导出明文数据库 | `database-export` | 数据库解密 |  |
