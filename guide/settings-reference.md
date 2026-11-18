@@ -113,6 +113,7 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
+| 显示会话预览 | `show-conversation-preview` | 消息摘要、草稿预览 | 显示会话预览（全局） |
 | 重要消息标记 | `important-message-markers` | @我、@全体成员、回复我、特别关心、群提醒词、新文件、红包、群公告 | 重要消息标记（全局） |
 | 包含已隐藏会话 | `all-conversations-include-hidden` | 全部会话隐藏范围 | 包含已隐藏会话（全局） |
 | 包含已删除会话 | `all-conversations-include-deleted` | 全部会话删除范围 | 包含已删除会话（全局） |
