@@ -118,6 +118,7 @@
 | 包含已隐藏会话 | `all-conversations-include-hidden` | 全部会话隐藏范围 | 包含已隐藏会话（全局） |
 | 包含已删除会话 | `all-conversations-include-deleted` | 全部会话删除范围 | 包含已删除会话（全局） |
 | 鼠标停留时保持会话位置 | `keep-conversation-position-on-hover` | 会话排序、悬停排序 | 鼠标停留时保持会话位置（全局） |
+| 切换视图时关闭不在新视图中的会话 | `close-conversation-outside-view` | 切换会话视图、保留当前会话 | 切换视图时关闭不在新视图中的会话（全局） |
 
 ### 消息阅读
 
@@ -260,6 +261,8 @@
 | --- | --- | --- | --- |
 | 已保存的服务商 | `llm-providers` | 已保存的 provider、API Key、Base URL、服务商 |  |
 | 默认聊天模型 | `llm-default-model` | LLM 默认聊天模型、默认模型、LLM 默认模型 | 默认聊天模型（全局） |
+| 默认上下文窗口 | `llm-default-context-window` | 上下文预算、上下文长度 | 默认上下文窗口（全局） |
+| 默认最大输出 | `llm-default-max-output` | 输出上限、最大输出 Token | 默认最大输出（全局） |
 | 默认视觉模型 | `llm-default-vision-model` | 图片分析模型 | 默认视觉模型（全局） |
 | 默认向量模型 | `llm-default-embedding-model` | 嵌入模型、Embedding 模型 | 默认向量模型（全局） |
 | TTS 语音合成 | `tts-providers` | 语音合成、朗读、音色、默认音色、复刻模型、音频格式、语速、服务地址 (Base URL)、App ID、Resource ID |  |
@@ -347,7 +350,6 @@
 | 助手模型设置 | `weq-assistant-model-settings` |  |  |
 | 助手默认聊天模型 | `weq-assistant-default-model` |  | 助手生成与执行（全局） |
 | 助手默认思考强度 | `weq-assistant-default-effort` |  |  |
-| 对话上下文 | `weq-assistant-historyMessages` |  |  |
 | 运行模式 | `weq-assistant-permission` |  |  |
 | 额外提示词 | `weq-assistant-customPrompt` |  |  |
 | 外部 MCP 服务器 | `weq-assistant-mcpServers` |  |  |
