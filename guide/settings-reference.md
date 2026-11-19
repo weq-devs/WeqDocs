@@ -33,6 +33,7 @@
 | 启用方式 | `full-feature-routes` | 原版 QQ、读取路线、QQ 在线能力启用 |  |
 | 自动启用 QQ 在线能力 | `auto-full-mode` | 自动读取 QQ 内存 | 自动启用 QQ 在线能力（全局） |
 | 在线能力受限时在窗口右上角显示 | `restricted-mode-indicator` | 在线能力受限标记、标题栏在线能力受限、受限状态显示 | 在线能力受限时在窗口右上角显示（全局） |
+| 向 QQ 服务器上报已读位置 | `read-sync` | 已读同步、已读上报、同步 QQ 未读 | 向 QQ 服务器上报已读位置（全局） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
 
@@ -83,6 +84,7 @@
 | WeQ 助手会话 | `assistant-aggregate-badge` |  | WeQ 助手会话（全局）；WeQ 助手会话（全局） |
 | 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
 | 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
+| 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
 | 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
 | 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
 | 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
