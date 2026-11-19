@@ -66,6 +66,7 @@
 | 后台任务完成 | `notification-taskComplete` |  |  |
 | 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
 | 发现新版本或增强包更新 | `notification-update` |  |  |
+| 重要官方公告 | `notification-officialAnnouncement` |  |  |
 | 连接中断或恢复 | `notification-connection` |  |  |
 | 有请求等待处理 | `notification-request` |  |  |
 | 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
@@ -75,6 +76,7 @@
 | 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
 | 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
 | 新版本与增强包更新 | `update-badge` |  | 新版本与增强包更新（全局） |
+| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
 | 公众号 | `official-unread-badge` |  | 公众号（全局）；公众号（全局） |
 | 服务号 | `service-unread-badge` |  | 服务号（全局）；服务号（全局） |
 | 频道私聊 | `guild-unread-badge` |  | 频道私聊（全局）；频道私聊（全局） |
