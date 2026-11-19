@@ -464,6 +464,7 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 内置组件 | `builtin-components` |  |  |
+| 软件更新 | `software-update` |  |  |
 | 自动检查更新频率 | `update-check-interval` | 更新间隔、更新分钟、永不检查更新 | 自动检查更新频率（全局） |
 | 检查测试版 | `update-prerelease` | 测试版更新、Beta 更新 | 检查测试版（全局） |
 
