@@ -146,6 +146,7 @@
 | 消息字体 | `message-font` | 聊天字体、字体 | 消息字体（全局） |
 | 文本消息自动渲染为 Markdown | `text-markdown` | 纯文本消息自动渲染为 Markdown、纯文本消息渲染 Markdown、富文本 | Markdown 文本（全局） |
 | 链接预览卡片 | `link-preview` | 网页预览 | 链接预览（全局） |
+| 自动联网补全链接预览 | `link-preview-auto-fetch` |  |  |
 | 无封面时网页截图 | `link-screenshot` | 链接截图 |  |
 
 ### 互动与防撤回
@@ -291,7 +292,7 @@
 | 同一消息推荐缓存（秒） | `intent-tuning-suggestionCacheSeconds` |  | 同一消息推荐缓存（秒）（全局） |
 | 最近推荐过期时间（分钟） | `intent-tuning-suggestionExpiryMinutes` |  | 最近推荐过期时间（分钟）（全局） |
 | 每会话保留的推荐轮数 | `intent-tuning-suggestionHistoryLimit` |  | 每会话保留的推荐轮数（全局） |
-| 图片处理偏好 | `ai-images-suggestions` | 推荐回复图片、推荐回复 OCR |  |
+| 图片处理偏好 | `ai-images-suggestions` | 推荐回复图片、推荐回复 OCR | 图片处理偏好（全局） |
 
 ### 意图感知
 
@@ -314,7 +315,7 @@
 | 每会话分析缓存上限（条） | `intent-tuning-cacheEntries` |  | 每会话分析缓存上限（条）（全局） |
 | API 请求超时（秒） | `intent-tuning-apiTimeoutSeconds` |  | API 请求超时（秒）（全局） |
 | API 失败冷却（秒） | `intent-tuning-apiCooldownSeconds` |  | API 失败冷却（秒）（全局） |
-| 图片处理偏好 | `ai-images-intent` | 意图感知图片、意图 OCR |  |
+| 图片处理偏好 | `ai-images-intent` | 意图感知图片、意图 OCR | 图片处理偏好（全局） |
 | 意图模型资源 | `intent-model-resources` | 意图模型资源（全局）、使用下载镜像、hf-mirror.com 镜像 |  |
 | 常驻显示 | `intent-persistent-display` |  | 常驻显示（全局） |
 | 悬停显示 | `intent-hover-display` |  | 悬停显示（全局） |
@@ -341,7 +342,7 @@
 | 画像会话切分间隔（分钟） | `intent-tuning-profileGapMinutes` |  | 画像会话切分间隔（分钟）（全局） |
 | 趋势展示天数 | `intent-tuning-profileTrendDays` |  | 趋势展示天数（全局） |
 | 画像话题数量上限 | `intent-tuning-profileTopicLimit` |  | 画像话题数量上限（全局） |
-| 图片处理偏好 | `ai-images-profile` | 互动画像图片、画像 OCR |  |
+| 图片处理偏好 | `ai-images-profile` | 互动画像图片、画像 OCR | 图片处理偏好（全局） |
 
 ### WeQ 助手
 
@@ -434,7 +435,8 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 网络配置 | `onebot-config` |  | OneBot 网络配置（全局，可能停用服务） |
+| 总开关 | `onebot-enabled` |  | OneBot 服务（全局，可能停用服务） |
+| 网络服务器 | `onebot-servers` |  | 网络服务器启用状态（全局，可能停用服务） |
 
 ### SSE 推送
 
@@ -485,7 +487,7 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 性能监视 | `performance-monitor` | 性能记录、CPU、内存历史 |  |
+| 性能监视 | `performance-monitor` | 性能记录、CPU、内存历史 | 性能记录档位（全局） |
 | 日志保留时长 | `log-retention` |  | 日志保留天数（全局） |
 | 日志文件夹 | `log-folder` |  |  |
 | 原生调试日志 | `native-debug-log` | 底层调试、调试模式 |  |
