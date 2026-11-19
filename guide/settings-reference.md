@@ -75,7 +75,7 @@
 | 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
 | 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
 | 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
-| 新版本与增强包更新 | `update-badge` |  | 新版本与增强包更新（全局） |
+| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
 | 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
 | 公众号 | `official-unread-badge` |  | 公众号（全局）；公众号（全局） |
 | 服务号 | `service-unread-badge` |  | 服务号（全局）；服务号（全局） |
