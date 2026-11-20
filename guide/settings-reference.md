@@ -435,7 +435,7 @@
 | 连接信息 | `mcp-connection` | MCP 客户端配置、复制客户端配置、MCP 令牌 |  |
 | 安装到本机 AI 客户端 | `mcp-install` | 安装 MCP、MCP 自动配置 |  |
 
-### OneBot / cc-connect
+### OneBot
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |

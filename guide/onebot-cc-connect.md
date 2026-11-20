@@ -1,4 +1,4 @@
-# OneBot / cc-connect
+# OneBot
 
 WeQ 通过内置的 **weqbot kernel** 提供完整的 OneBot v11 接口，可以直接连接
 cc-connect、NapCat 生态的客户端、Koishi、NoneBot 等。QQ 收发由 WeQ 完成，
@@ -12,12 +12,12 @@ Agent 与会话仍由客户端自己管理，不需要额外启动 NapCat。
 
 :::
 
-## 连接
+## 接入 cc-connect
 
 1. 在 QQ 登录目标账号，并在 WeQ 打开对应的在线账号。
-2. 打开「设置 → WeQ 服务 → OneBot / cc-connect」，新建一个正向 WebSocket。
-3. 填写名称与端口并启用，点「复制配置」拿到片段。
-4. 加入 cc-connect 对应项目的配置，把 `allow_from` 改成你的 QQ 号。
+2. 打开「设置 → WeQ 服务 → OneBot」，新建或选用一条已启用的正向 WebSocket。
+3. 点这条连接的「复制地址」，将地址填入下方示例的 `ws_url`。如设置了访问令牌，可在该连接的编辑窗口中显示令牌并复制到 `token`；没有设置则留空。
+4. 把片段加到 cc-connect 对应项目的配置中，将 `allow_from` 改成你的 QQ 号。已有连接不用重新配置。
 
 ```toml
 [[projects.platforms]]

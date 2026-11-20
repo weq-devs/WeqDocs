@@ -103,7 +103,7 @@ export const guideSidebar = [
       { text: 'AgentLab（克隆 / 群聊）', link: '/guide/agentlab' },
       { text: 'WeQ 助手', link: '/guide/assistant' },
       { text: 'MCP 服务器', link: '/guide/mcp-server' },
-      { text: 'OneBot / cc-connect', link: '/guide/onebot-cc-connect' },
+      { text: 'OneBot', link: '/guide/onebot-cc-connect' },
       { text: '语音转文字', link: '/guide/voice-transcribe' },
       { text: '增强功能', link: '/guide/model-resources' },
     ],

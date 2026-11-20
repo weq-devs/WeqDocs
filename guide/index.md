@@ -92,7 +92,7 @@ QQ 空间的另一种入口和 QQ 邮箱。
 | [AgentLab（克隆 / 群聊）](agentlab.md) | 好友克隆、克隆体群聊、人格设置、任务管理 |
 | [WeQ 助手](assistant.md) | 任务型助手对话、内置工具、MCP 工具、模型与思考等级 |
 | [MCP 服务器](mcp-server.md) | 让外部 AI 客户端读取当前账号数据 |
-| [OneBot / cc-connect](onebot-cc-connect.md) | 用内置 weqbot kernel 提供完整的 OneBot v11 接口 |
+| [OneBot](onebot-cc-connect.md) | 用内置 weqbot kernel 提供完整的 OneBot v11 接口，包含 cc-connect 接入示例 |
 | [语音转文字](voice-transcribe.md) | 离线语音模型下载与选择、聊天内转文字 |
 | [模型设置](model-resources.md) | API 服务商、语音合成、API 用量 |
 
