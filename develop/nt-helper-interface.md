@@ -457,6 +457,8 @@ clientKey / 下载 rkey / decryptKey / skey / p_skey / bkn 的请求构造与解
 
 桌面主进程的 `qq_sync` 模块通过独立 `qqSyncWorker.mjs` 提供本地 HTTP CONNECT／SOCKS5 转发。监护进程保持子进程可用，主进程重启后按私有控制配置接续；控制通道在 Unix 使用 socket，在 Windows 使用 named pipe。默认代理端口为 19081。
 
+端口通过 `bootstrap.setQqClientSyncPort` 修改，保存在宿主数据目录的 `qq-client-sync/config.json`。worker 的控制协议 v3 先绑定新的 `127.0.0.1` 端口，再原子写入配置，然后停止旧端口接收新连接。已建立的隧道留在同一 worker 内继续转发。启动端口被占用时，私有控制通道仍可接收端口设置。
+
 协议层 `@weqbot/protocol/qq-sync` 提供服务端方向 MSF／SSO 封装及普通私聊 `528/8`、群聊 `732/1` 已读通知。当前会话凭据经私有控制通道登记到内存，以账号和进程／密钥代次绑定已解码的 QQ 连接。完整帧边界与正常下行共享写入顺序，连接变化后旧模板失效。
 
 `AccountQqSync` 在发送成功缓存回调与已读确认回调上创建任务。本人消息在对应会话及序号窗口内按发送者和 random 匹配服务端历史原文，补投前后核对 QQ 本地记录；已读合并到每个会话最新确认水位，并丢弃已被后续阅读或手动未读覆盖的任务。队列按账号落盘，重试保留固定消息身份。转发器以业务身份去重，重建加密帧不会改变任务身份。
