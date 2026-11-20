@@ -49,19 +49,39 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| 联系人 | `contacts.directory` | 桌面、Web、Remote | 主导航；手机标签栏；全局搜索 | — |
-| 好友通知 | `contacts.friend-notices` | — | — | — |
+| 联系人 · 从好友和群目录查找已有联系人。 | `contacts.directory` | 桌面、Web、Remote | 主导航；手机标签栏；全局搜索；需要账号与数据源 | `list_buddies`、`list_groups`、`find_contact` |
+| 好友通知 | `contacts.friend-notices` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 我的资料 | `contacts.self-profile` | 桌面、Web、Remote | 全局搜索 | — |
 | 编辑我的资料 | `contacts.self-profile.edit` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 礼物墙 | `contacts.self-gift-wall` | 桌面、Web、Remote | 全局搜索 | — |
+| 联系人排序与分组 · 分别调整好友和群聊列表的分组及排序。 · [说明](./contact-directory.md#feature-contacts.directory.order) | `contacts.directory.order` | — | 需要账号与数据源 | — |
+| 联系人名片与资料 · 先显示本地资料，沿用设置中的名片内容及顺序。 · [说明](./contact-card.md#feature-contacts.profile) | `contacts.profile` | — | 需要账号与数据源、联系人 | `get_user_profile` |
+| 共同群 · 查看与指定联系人共同加入的群。 | `contacts.shared-groups` | — | 需要账号与数据源、联系人 | `list_user_groups` |
+| 联系人资料历史 · 查看已有观察记录的字段历史。 | `contacts.profile-history` | — | 需要账号与数据源、联系人 | — |
+| 签名历史 · 从签名值查看既有历史记录。 | `contacts.signatures` | — | 需要账号与数据源、联系人 | — |
+| 教育经历 · 从学校字段查看可取得的完整经历。 | `contacts.education` | — | 需要账号与数据源、联系人 | — |
+| 编辑联系人备注 · 通过已有备注行编辑好友备注。 | `contacts.remark` | — | 需要账号与数据源、联系人 | — |
+| 好友分组 · 将选定好友移到已有分组。 | `contacts.buddy-group` | — | 需要账号与数据源、联系人 | — |
 
 ## 群聊
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| 群通知 | `groups.notices` | — | — | — |
-| 群交集 | `groups.intersection` | — | — | — |
+| 群通知 | `groups.notices` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 群交集 · [说明](./relation-graph.md#feature-groups.intersection) | `groups.intersection` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 群相册 · 从指定群查看群相册及其媒体。 · [说明](./album-qzone.md#feature-groups.albums) | `groups.albums` | — | 需要账号与数据源、群 | `get_group_albums` |
+| 群名片与群资料 · 查看群基本资料、角色和已有群状态。 · [说明](./contact-card.md#feature-groups.profile) | `groups.profile` | — | 需要账号与数据源、群 | `get_group_info` |
+| 群成员 · 从群资料或聊天侧栏搜索并分页浏览成员。 | `groups.members` | — | 需要账号与数据源、群 | `list_group_members` |
+| 群公告 · 在当前群的公告入口查看公告。 · [说明](./album-qzone.md#feature-groups.announcements) | `groups.announcements` | — | 需要账号与数据源、群 | `get_group_bulletins` |
+| 群待办 · 查看指定群的待办项目。 | `groups.todos` | — | 需要账号与数据源、群 | — |
+| 群精华 · 查看已设为精华的群消息。 · [说明](./album-qzone.md#feature-groups.essence) | `groups.essence` | — | 需要账号与数据源、群 | `get_group_essence` |
+| 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 需要账号与数据源、群 | — |
+| 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | — | 需要账号与数据源、群 | — |
+| 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 需要账号与数据源、群 | — |
+| 群管理 · 在当前群的会话设置查看适用的管理操作。 | `groups.management` | — | 需要账号与数据源、群 | — |
+| 我的群昵称与头衔 · 在当前群资料或会话设置中查看和编辑可操作的字段。 | `groups.nickname` | — | 需要账号与数据源、群 | — |
+| 编辑群备注 · 通过群身份区的备注行提交修改。 | `groups.remark` | — | 需要账号与数据源、群 | — |
+| 读取群荣誉榜单 · 查询指定群的荣誉类型和榜单。 | `groups.honor` | — | 需要账号与数据源、群 | `get_group_honor` |
 
 ## 收藏
 
