@@ -138,31 +138,41 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| 任务 | `export.tasks` | 桌面、Web、Remote | 手机更多；全局搜索 | — |
-| 导出 | `export.workspace` | 桌面、Web、Remote | 手机更多；工作区；全局搜索 | — |
+| 任务 | `export.tasks` | 桌面、Web、Remote | 手机更多；全局搜索；需要账号与数据源 | — |
+| 导出 | `export.workspace` | 桌面、Web、Remote | 手机更多；工作区；全局搜索；需要账号与数据源 | — |
 | 导出查看器 | `export.viewer` | 桌面、Web、Remote | 手机更多；工作区；全局搜索 | — |
-| 聊天消息导出 · 从要导出的会话和范围开始，生成聊天记录文件。 · [说明](./export.md#feature-export.chat-history) | `export.chat-history` | 桌面、Web、Remote | 全局搜索 | — |
-| 定时导出 | `export.schedule` | 桌面、Web、Remote | 全局搜索 | — |
-| 频道私聊数据 | `export.channel-direct-messages` | 桌面、Web、Remote | 全局搜索 | — |
-| 克隆与助手对话 | `export.generated-chats` | 桌面、Web、Remote | 全局搜索 | — |
-| QQ 空间导出 | `export.qzone-posts` | 桌面、Web、Remote | 全局搜索 | — |
-| 导出联系人 | `export.contacts` | 桌面、Web、Remote | 全局搜索 | — |
-| 导出收藏 | `export.collections` | 桌面、Web、Remote | 全局搜索 | — |
-| 邮件导出 | `export.mail` | 桌面、Web、Remote | 全局搜索 | — |
-| 导出表情包 | `export.emoji-packs` | 桌面、Web、Remote | 全局搜索 | — |
-| 群相册导出 | `export.group-albums` | 桌面、Web、Remote | 全局搜索 | — |
-| 群文件导出 | `export.group-files` | 桌面、Web、Remote | 全局搜索 | — |
-| 明文数据库 | `export.database` | 桌面、Web、Remote | 全局搜索 | — |
-| 克隆体机器人 | `export.clone-bot` | 桌面、Web、Remote | 全局搜索 | — |
-| 个人空间相册 | `export.qzone-albums` | 桌面、Web、Remote | 全局搜索 | — |
+| 聊天消息导出 · 从要导出的会话和范围开始，生成聊天记录文件。 · [说明](./export.md#feature-export.chat-history) | `export.chat-history` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | `export_conversation` |
+| 定时导出 | `export.schedule` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 频道私聊数据 | `export.channel-direct-messages` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 克隆与助手对话 | `export.generated-chats` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| QQ 空间导出 | `export.qzone-posts` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 导出联系人 | `export.contacts` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 导出收藏 | `export.collections` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 邮件导出 | `export.mail` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 导出表情包 | `export.emoji-packs` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 群相册导出 | `export.group-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 群文件导出 | `export.group-files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 明文数据库 | `export.database` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 克隆体机器人 | `export.clone-bot` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 个人空间相册 | `export.qzone-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 当前任务 · 查看现有任务的状态、步骤和日志。 · [说明](./export.md#feature-export.tasks.current) | `export.tasks.current` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 定时任务 · 查看和管理已建立的定时导出计划。 · [说明](./export.md#feature-export.tasks.schedules) | `export.tasks.schedules` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 精确选择导出 · 沿用选定的对象身份与范围提交导出。 · [说明](./saved-reports-and-content-export.md#feature-export.selection.exact) | `export.selection.exact` | — | 需要账号与数据源、内容项 | — |
+| 保存导出结果 · 使用任务中已生成的产物，沿用各端保存方式。 | `export.result.save` | — | 需要账号与数据源、内容项 | — |
+| 暂停或继续任务 · 对已选任务使用本身支持的控制操作。 | `export.task.control` | — | 需要账号与数据源、内容项 | — |
 
 ## 分析
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
 | 年度报告 | `analysis.annual-report` | 桌面、Web、Remote | 主导航；手机更多；全局搜索 | — |
-| 分析 | `analysis.workspace` | 桌面、Web、Remote | 手机更多；工作区；全局搜索 | — |
-| 分析报告 | `analysis.saved-reports` | 桌面、Web、Remote | 手机更多；工作区；全局搜索 | — |
+| 分析 | `analysis.workspace` | 桌面、Web、Remote | 手机更多；工作区；全局搜索；需要账号与数据源 | — |
+| 分析报告 · [说明](./saved-reports-and-content-export.md#feature-analysis.saved-reports) | `analysis.saved-reports` | 桌面、Web、Remote | 手机更多；工作区；全局搜索；需要账号与数据源 | — |
+| 群聊分析 · 统计选定群的消息活动，沿用当前数据源与范围。 · [说明](./analytics.md#feature-analysis.group) | `analysis.group` | — | 需要账号与数据源、群 | `get_group_activity` |
+| 私聊分析 · 对选定好友会话生成统计与报告。 · [说明](./analytics.md#feature-analysis.buddy) | `analysis.buddy` | — | 需要账号与数据源、联系人 | `get_buddy_analytics` |
+| 群成员分析 · 按当前群、成员及时间范围分析消息。 | `analysis.group-member` | — | 需要账号与数据源、群、联系人 | — |
+| 按日与时段统计消息 · 通过实际时间范围查看分布或比较两段统计。 | `analysis.activity-period` | — | 需要账号与数据源 | `get_daily_digest`、`get_period_overview`、`compare_periods` |
+| 保存分析长图 · 由支持图片导出桥接的宿主捕获报告统计快照。 · [说明](./analytics.md#feature-analysis.report-image.save) | `analysis.report-image.save` | — | 需要账号与数据源、内容项 | — |
 
 ## 助手与克隆
 
@@ -172,6 +182,11 @@
 | 好友克隆 | `assistant.clones` | 桌面、Web、Remote | 全局搜索 | — |
 | 新建好友克隆 | `assistant.clones.create` | 桌面、Web、Remote | 全局搜索 | — |
 | 新建克隆体群聊 | `assistant.clone-groups.create` | 桌面、Web、Remote | 全局搜索 | — |
+| 停止或恢复助手任务 · 在当前任务的原操作区管理正在生成或可恢复的结果。 | `assistant.task.control` | — | 需要账号与数据源 | — |
+| 分析聊天图片 · 按消息身份读取图片并进行识别。 | `assistant.message-image` | — | 需要账号与数据源、消息 | `analyze_chat_image` |
+| 查看助手附件原图 · 向助手提供图片后，可按附件查看具体细节。 | `assistant.attachment-image` | — | 需要账号与数据源、内容项 | `analyze_attached_image` |
+| 生成报告文件 · 助手生成文档后通过附件卡片提供查看与另存。 | `assistant.report-artifact` | — | 需要账号与数据源 | `write_report` |
+| 调查计划与工作笔记 · 助手工具更新调查过程中使用的工作区信息。 | `assistant.investigation` | — | 需要账号与数据源 | `update_investigation_plan`、`update_work_notes` |
 
 ## 设置
 
