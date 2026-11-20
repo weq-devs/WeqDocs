@@ -87,19 +87,31 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| 收藏 | `collections.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索 | — |
+| 收藏 · 查看已有本地收藏，页面在有可用票据时补充在线结果。 | `collections.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | `list_collections` |
+| 搜索收藏 · 在现有收藏页按关键词与材料类型查找条目。 · [说明](./collection.md#feature-collections.search) | `collections.search` | — | 需要账号与数据源 | — |
+| 打开收藏内容 · 根据收藏类型打开正文、图片、链接或其他内容。 | `collections.detail` | — | 需要账号与数据源、内容项 | — |
 
 ## QQ 空间
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| QQ 空间 | `qzone.timeline` | 桌面、Web、Remote | 主导航；手机标签栏；全局搜索 | — |
+| QQ 空间 | `qzone.timeline` | 桌面、Web、Remote | 主导航；手机标签栏；全局搜索；需要账号与数据源 | `get_qzone_profile` |
+| 写说说 · 打开已有的说说编辑器，发布前可设置可见范围。 | `qzone.post.compose` | — | 需要账号与数据源 | — |
+| 说说互动 · 选定说说后查看已有点赞与评论，或使用适用操作。 | `qzone.post.interactions` | — | 需要账号与数据源、内容项 | — |
+| 好友动态 · 从已有空间栏目查看好友动态。 | `qzone.friend-feed` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 我的空间 · 查看当前 QQ 账号的空间。 | `qzone.self-space` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 与我相关 · 浏览与当前账号相关的空间互动。 | `qzone.related` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 空友爱看 · 打开已有的公开推荐动态栏目。 | `qzone.public-feed` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 我的空间相册 · 打开当前账号的相册浏览窗口。 · [说明](./album-qzone.md#feature-qzone.self-albums) | `qzone.self-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 
 ## QQ 邮箱
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| QQ 邮箱 | `mail.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索 | — |
+| QQ 邮箱 | `mail.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | — |
+| 查看邮件 · 从邮箱列表选择邮件以读正文和附件。 · [说明](./qqmail.md#feature-mail.message.read) | `mail.message.read` | — | 需要账号与数据源、内容项 | — |
+| 写信与草稿 · 在邮箱使用已有编辑器，保留草稿保存与退出确认。 · [说明](./qqmail.md#feature-mail.compose) | `mail.compose` | — | 需要账号与数据源 | — |
+| 保存邮件附件 · 在已打开的邮件中按当前端的保存流程另存附件。 · [说明](./qqmail.md#feature-mail.attachment.save) | `mail.attachment.save` | — | 需要账号与数据源、内容项 | — |
 
 ## QQ 频道
 
@@ -113,13 +125,14 @@
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
 | 个性装扮 | `appearance.catalog` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需启用开发装扮入口 | — |
-| 气泡商城 | `appearance.bubble` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
-| 字体商城 | `appearance.font` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
-| 头像挂件 | `appearance.avatar-widget` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
+| 气泡商城 | `appearance.bubble` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | `get_dress_mall` |
+| 字体商城 | `appearance.font` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | `get_dress_mall` |
+| 头像挂件 | `appearance.avatar-widget` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | `get_dress_mall` |
 | 通话背景 | `appearance.call-background` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
 | QQ 聊天背景 | `appearance.chat-background` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
-| 商城表情 | `appearance.emoji-market` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
+| 商城表情 | `appearance.emoji-market` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | `search_market_emoji`、`get_market_pack_detail` |
 | 红包封面 | `appearance.red-packet-cover` | 桌面、Web、Remote | 全局搜索；需启用开发装扮入口 | — |
+| 聊天收藏表情 · 从聊天的表情面板将收藏表情加入草稿。 · [说明](./emoji-resources.md#feature-appearance.emoji.favorites) | `appearance.emoji.favorites` | — | 需要账号与数据源、会话 | — |
 
 ## 导出与任务
 
