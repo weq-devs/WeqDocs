@@ -83,7 +83,7 @@
 | 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 需要账号与数据源、群 | — |
 | 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | — | 需要账号与数据源、群 | — |
 | 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 需要账号与数据源、群 | — |
-| 收取入群验证 · 群主可在管理员权限里调整单个管理员收取入群验证的状态。 | `groups.admin-verification` | — | 需要账号与数据源、群 | — |
+| 接收验证消息 · 群主可在管理员权限里为单个管理员开启或关闭接收验证消息。 | `groups.admin-verification` | — | 需要账号与数据源、群 | — |
 | 群管理 · 在当前群的会话设置查看适用的管理操作。 | `groups.management` | — | 需要账号与数据源、群 | — |
 | 我的群昵称与头衔 · 在当前群资料或会话设置中查看和编辑可操作的字段。 | `groups.nickname` | — | 需要账号与数据源、群 | — |
 | 编辑群备注 · 通过群身份区的备注行提交修改。 | `groups.remark` | — | 需要账号与数据源、群 | — |
