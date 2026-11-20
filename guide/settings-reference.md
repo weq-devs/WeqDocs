@@ -195,8 +195,8 @@
 | 互动标识摘要 | `contact-card-marks` |  |  |
 | 已开通特权 | `contact-card-privileges` |  |  |
 | QQ 等级 | `contact-card-level` |  |  |
-| 累计获赞 | `contact-card-likes` |  |  |
 | QQ 能量值 | `contact-card-energy` |  |  |
+| 累计获赞 | `contact-card-likes` |  |  |
 | QID | `contact-card-qid` |  |  |
 | UID | `contact-card-uid` |  |  |
 | 个人说明 | `contact-card-description` |  |  |
