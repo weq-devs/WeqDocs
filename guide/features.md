@@ -31,6 +31,8 @@
 | 服务号 · 打开服务号的具体会话并阅读本地消息。 | `messages.directory.service` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 已隐藏会话 · 在专用视图中查看隐藏的会话。 | `messages.directory.hidden` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 已删除会话 · 在专用视图中查看仍可读取的已删除会话。 | `messages.directory.deleted` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 群聊在线声线 · 在群聊 AI 声聊面板浏览当前群的声线、试听并发送。 | `messages.ai-voice-catalog` | — | 需要账号与数据源、群 | — |
+| 翻译英文消息 · 在消息菜单请求 QQ 翻译，并在原消息下方查看译文。 | `messages.translate-en-zh` | — | 需要账号与数据源、消息 | — |
 | 搜索聊天记录 · 按关键词检索消息内容，也可限定在指定会话。 · [说明](./chat-view.md#feature-messages.history.search) | `messages.history.search` | — | 需要账号与数据源 | `search_messages`、`search_in_conversation` |
 | 预览会话 · 在浮窗查看具体会话的本地记录，保留当前聊天与读状态。 · [说明](./chat-view.md#feature-messages.conversation.preview) | `messages.conversation.preview` | — | 需要账号与数据源、会话 | — |
 | 我的设备 · 查看数据线会话，区分本机和其他设备的消息。 · [说明](./chat-view.md#feature-messages.devices) | `messages.devices` | — | 需要账号与数据源 | `list_dataline_conversations`、`get_dataline_messages` |
@@ -60,6 +62,8 @@
 | 联系人资料历史 · 查看已有观察记录的字段历史。 | `contacts.profile-history` | — | 需要账号与数据源、联系人 | — |
 | 签名历史 · 从签名值查看既有历史记录。 | `contacts.signatures` | — | 需要账号与数据源、联系人 | — |
 | 教育经历 · 从学校字段查看可取得的完整经历。 | `contacts.education` | — | 需要账号与数据源、联系人 | — |
+| 在线好友与群 · 在联系人列表手动读取 QQ 在线名册。 | `contacts.online-directory` | — | 需要账号与数据源、联系人 | — |
+| 删除好友 · 从好友名片删除关系；本地聊天历史继续可查。 | `contacts.remove-friend` | — | 需要账号与数据源、联系人 | — |
 | 编辑联系人备注 · 通过已有备注行编辑好友备注。 | `contacts.remark` | — | 需要账号与数据源、联系人 | — |
 | 好友分组 · 将选定好友移到已有分组。 | `contacts.buddy-group` | — | 需要账号与数据源、联系人 | — |
 
@@ -78,6 +82,7 @@
 | 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 需要账号与数据源、群 | — |
 | 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | — | 需要账号与数据源、群 | — |
 | 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 需要账号与数据源、群 | — |
+| 收取入群验证 · 群主可在管理员权限里调整单个管理员收取入群验证的状态。 | `groups.admin-verification` | — | 需要账号与数据源、群 | — |
 | 群管理 · 在当前群的会话设置查看适用的管理操作。 | `groups.management` | — | 需要账号与数据源、群 | — |
 | 我的群昵称与头衔 · 在当前群资料或会话设置中查看和编辑可操作的字段。 | `groups.nickname` | — | 需要账号与数据源、群 | — |
 | 编辑群备注 · 通过群身份区的备注行提交修改。 | `groups.remark` | — | 需要账号与数据源、群 | — |
