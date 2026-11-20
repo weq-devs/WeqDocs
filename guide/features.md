@@ -221,19 +221,19 @@
 | 凭据管理 | `settings.page.credentials` | 桌面、Web、Remote | 设置 / 凭据与数据 / 凭据管理 | — |
 | WeQ 账号管理 | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 关于 WeQ / WeQ 账号管理 | — |
 | QQ 高级工具 | `settings.page.diagnostics` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 高级工具 | — |
-| QQ 数据库管理 | `settings.page.database-management` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 数据库管理 | — |
+| QQ 数据库管理 · 设置 QQ 数据库的监听与读取，查看体检和修复入口，浏览或导出数据库。 · [说明](./settings.md) · [说明 2](./database-view.md) | `settings.page.database-management` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 数据库管理 | — |
 | QQ 资源管理 | `settings.page.qq-storage` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 资源管理 | — |
 | 资源加载 | `settings.page.resource-loading` | 桌面、Web、Remote | 设置 / 凭据与数据 / 资源加载 | — |
-| Web 与 Remote | `settings.page.remote` | 桌面、Web、Remote | 设置 / WeQ 服务 / Web 与 Remote | — |
-| MCP 服务器 | `settings.page.mcp` | 桌面、Web、Remote | 设置 / WeQ 服务 / MCP 服务器 | — |
-| OneBot | `settings.page.onebot` | 桌面、Web、Remote | 设置 / WeQ 服务 / OneBot | — |
-| SSE 推送 | `settings.page.sse` | 桌面、Web、Remote | 设置 / WeQ 服务 / SSE 推送 | — |
-| QQ 公众号推送 | `settings.page.assistant` | 桌面、Web、Remote | 设置 / WeQ 服务 / QQ 公众号推送 | — |
+| Web 与 Remote · 查看本机浏览器访问地址，配对手机和管理已配对设备。 · [说明](./remote-web.md) | `settings.page.remote` | 桌面、Web、Remote | 设置 / WeQ 服务 / Web 与 Remote | — |
+| MCP 服务器 · 启停 MCP 服务器，查看连接信息或安装到本机 AI 客户端。 · [说明](./mcp-server.md) | `settings.page.mcp` | 桌面、Web、Remote | 设置 / WeQ 服务 / MCP 服务器 | — |
+| OneBot · 管理当前 QQ 账号的 OneBot 运行状态和网络连接，可接入 cc-connect。 · [说明](./onebot-cc-connect.md) | `settings.page.onebot` | 桌面、Web、Remote | 设置 / WeQ 服务 / OneBot | — |
+| SSE 推送 · 管理消息事件推送目标，并设置推送防抖和大量消息阈值。 · [说明](./settings.md) | `settings.page.sse` | 桌面、Web、Remote | 设置 / WeQ 服务 / SSE 推送 | — |
+| QQ 公众号推送 · 配置 QQ 公众号推送及资源服务，WeQ 运行期间提供资源。 · [说明](./settings.md) | `settings.page.assistant` | 桌面、Web、Remote | 设置 / WeQ 服务 / QQ 公众号推送 | — |
 | 隐私 | `settings.page.privacy` | 桌面、Web、Remote | 设置 / 常规 / 隐私 | — |
-| 配置备份与恢复 | `settings.page.backup` | 桌面、Web、Remote | 设置 / 关于 WeQ / 配置备份与恢复 | — |
-| 版本与更新 | `settings.page.version` | 桌面、Web、Remote | 设置 / 关于 WeQ / 版本与更新 | — |
+| 配置备份与恢复 · 导出当前配置备份，或从已有备份恢复所选内容。 · [说明](./settings.md) | `settings.page.backup` | 桌面、Web、Remote | 设置 / 关于 WeQ / 配置备份与恢复 | — |
+| 版本与更新 · 查看版本和内置组件，管理桌面端的更新检查和安装。 · [说明](./settings.md) | `settings.page.version` | 桌面、Web、Remote | 设置 / 关于 WeQ / 版本与更新 | — |
 | 常见问题 | `settings.page.faq` | 桌面、Web、Remote | 设置 / 关于 WeQ / 常见问题 | — |
-| 日志与性能 | `settings.page.logs` | 桌面、Web、Remote | 设置 / 关于 WeQ / 日志与性能 | — |
+| 日志与性能 · 查看应用日志和性能记录，设置历史保留方式。 · [说明](./performance-monitor.md) | `settings.page.logs` | 桌面、Web、Remote | 设置 / 关于 WeQ / 日志与性能 | — |
 | 反馈 | `settings.page.feedback` | 桌面、Web、Remote | 设置 / 关于 WeQ / 反馈 | — |
 
 ## 维护与诊断
