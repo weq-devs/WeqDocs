@@ -63,7 +63,7 @@
 | 联系人资料历史 · 查看已有观察记录的字段历史。 | `contacts.profile-history` | — | 需要账号与数据源、联系人 | — |
 | 签名历史 · 从签名值查看既有历史记录。 | `contacts.signatures` | — | 需要账号与数据源、联系人 | — |
 | 教育经历 · 从学校字段查看可取得的完整经历。 | `contacts.education` | — | 需要账号与数据源、联系人 | — |
-| 联系人筛选 · 在好友列表按好友关系和在线状态组合筛选。 · [说明](./contact-directory.md#feature-contacts.directory.filter) | `contacts.directory.filter` | — | 需要账号与数据源、联系人 | — |
+| 联系人筛选 · 联系人可按好友关系与在线状态筛选，群聊可按入群状态筛选。 · [说明](./contact-directory.md#feature-contacts.directory.filter) | `contacts.directory.filter` | — | 需要账号与数据源 | — |
 | 删除好友 · 从好友名片删除关系；本地聊天历史继续可查。 | `contacts.remove-friend` | — | 需要账号与数据源、联系人 | — |
 | 编辑联系人备注 · 通过已有备注行编辑好友备注。 | `contacts.remark` | — | 需要账号与数据源、联系人 | — |
 | 好友分组 · 将选定好友移到已有分组。 | `contacts.buddy-group` | — | 需要账号与数据源、联系人 | — |
