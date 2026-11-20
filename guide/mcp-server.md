@@ -65,6 +65,8 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 :::
 
+<a id="feature-maintenance.message-performance"></a>
+
 ## 4. 消息性能快照
 
 `get_message_performance` 只读取当前账号的性能统计，不触发聊天查询。
@@ -75,6 +77,7 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 ## 5. 功能目录
 
 使用 `list_features` 按关键词、领域或类别搜索，再用 `get_feature` 查询某个稳定 ID。
+已收录的功能及导航见[功能参考](./features.md)。
 列表默认每页 20 项，最多 50 项，按返回的 `nextOffset` 继续翻页。
 已知用户使用哪个客户端时，可以指定 `desktop`、`web` 或 `remote`。
 

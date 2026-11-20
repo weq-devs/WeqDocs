@@ -119,6 +119,7 @@ export const guideSidebar = [
       { text: 'QQ NT 外观预设', link: '/guide/qqnt-appearance' },
       { text: '设置总览', link: '/guide/settings' },
       { text: '设置项参考', link: '/guide/settings-reference' },
+      { text: '功能参考', link: '/guide/features' },
       { text: '跨端设置与草稿', link: '/guide/cross-device-settings' },
     ],
   },
