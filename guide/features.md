@@ -24,6 +24,26 @@
 | 拉取漫游消息 | `messages.history-backfill` | 桌面、Web、Remote | 全局搜索 | — |
 | 定位原消息 · 用当前数据源的会话与消息身份打开原消息。 | `messages.locate` | — | 需要账号与数据源、消息 | `get_message_details` |
 | 预览聊天图片 · 打开消息中的图片，可以使用已经缓存的原图。 | `messages.image.preview` | — | 需要账号与数据源、消息 | — |
+| 会话日历 · 按当前会话视图统计本地消息，选择日期可定位原记录。 · [说明](./chat-view.md#feature-messages.calendar) | `messages.calendar` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 全部会话 · 平铺各来源的会话，范围跟随隐藏和删除会话设置。 | `messages.directory.all` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 群助手 · 查看 QQ 已归入群助手的群。 | `messages.directory.group-assistant` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 公众号 · 打开公众号的具体会话并阅读本地消息。 | `messages.directory.official` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 服务号 · 打开服务号的具体会话并阅读本地消息。 | `messages.directory.service` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 已隐藏会话 · 在专用视图中查看隐藏的会话。 | `messages.directory.hidden` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 已删除会话 · 在专用视图中查看仍可读取的已删除会话。 | `messages.directory.deleted` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 搜索聊天记录 · 按关键词检索消息内容，也可限定在指定会话。 · [说明](./chat-view.md#feature-messages.history.search) | `messages.history.search` | — | 需要账号与数据源 | `search_messages`、`search_in_conversation` |
+| 预览会话 · 在浮窗查看具体会话的本地记录，保留当前聊天与读状态。 · [说明](./chat-view.md#feature-messages.conversation.preview) | `messages.conversation.preview` | — | 需要账号与数据源、会话 | — |
+| 我的设备 · 查看数据线会话，区分本机和其他设备的消息。 · [说明](./chat-view.md#feature-messages.devices) | `messages.devices` | — | 需要账号与数据源 | `list_dataline_conversations`、`get_dataline_messages` |
+| 标记已读或未读 · 按会话处理已读状态，手动未读保留提醒。 | `messages.unread` | — | 需要账号与数据源、会话 | — |
+| 重要消息 · 在群聊中查看并定位提及、回复、文件等重要消息。 | `messages.important` | — | 需要账号与数据源、群 | — |
+| 查看合并转发 · 打开聊天记录卡片并查看其中的消息。 | `messages.forward.inspect` | — | 需要账号与数据源、消息 | `get_forward_messages` |
+| 转发消息 · 选择目标后转发，可多选逐条转发或合并转发。 | `messages.forward.send` | — | 需要账号与数据源、消息 | — |
+| 撤回消息 · 在 QQ 在线且有相应权限时撤回适用的消息。 | `messages.recall` | — | 需要账号与数据源、消息 | — |
+| 查看已撤回消息 · 查看符合当前防撤回设置且已有记录的撤回消息。 | `messages.recall.history` | — | 需要账号与数据源、会话 | `list_recalled_messages`、`get_anti_recall_status` |
+| 修改本地记录 · 从消息菜单打开原始元素编辑器。 | `messages.local-edit` | — | 需要账号与数据源、消息 | — |
+| 本地删除消息 · 可恢复地删除本地消息，按实际来源处理数据库或缓存。 | `messages.local-delete` | — | 需要账号与数据源、消息 | — |
+| 查看本地删除记录 · 从会话查看旧记录，按来源恢复或定位。 | `messages.local-delete.history` | — | 需要账号与数据源、会话 | `list_deleted_messages` |
+| 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 需要账号与数据源、消息 | — |
 
 ## 联系人
 
@@ -66,7 +86,7 @@
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
 | QQ 频道 | `channels.inbox` | 桌面、Web、Remote | 主导航；全局搜索 | — |
-| 频道私聊 | `channels.direct-messages` | 桌面、Web、Remote | 全局搜索 | — |
+| 频道私聊 · [说明](./album-qzone.md#feature-channels.direct-messages) | `channels.direct-messages` | 桌面、Web、Remote | 全局搜索 | `list_guild_direct_sessions`、`get_guild_direct_messages` |
 
 ## 个性装扮
 
