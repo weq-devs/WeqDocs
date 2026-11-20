@@ -31,7 +31,6 @@
 | 服务号 · 打开服务号的具体会话并阅读本地消息。 | `messages.directory.service` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 已隐藏会话 · 在专用视图中查看隐藏的会话。 | `messages.directory.hidden` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 已删除会话 · 在专用视图中查看仍可读取的已删除会话。 | `messages.directory.deleted` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
-| 在线系统表情目录 · 从表情面板查看 QQ 在线目录或查询单个表情。 | `messages.system-emoji-catalog` | — | 需要账号与数据源、会话 | — |
 | 群聊在线声线 · 在群聊 AI 声聊面板浏览当前群的声线、试听并发送。 | `messages.ai-voice-catalog` | — | 需要账号与数据源、群 | — |
 | 翻译英文消息 · 在消息菜单请求 QQ 翻译，并在原消息下方查看译文。 | `messages.translate-en-zh` | — | 需要账号与数据源、消息 | — |
 | 搜索聊天记录 · 按关键词检索消息内容，也可限定在指定会话。 · [说明](./chat-view.md#feature-messages.history.search) | `messages.history.search` | — | 需要账号与数据源 | `search_messages`、`search_in_conversation` |
