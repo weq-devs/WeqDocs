@@ -34,6 +34,7 @@
 | 自动启用 QQ 在线能力 | `auto-full-mode` | 自动读取 QQ 内存 | 自动启用 QQ 在线能力（全局） |
 | 在线能力受限时在窗口右上角显示 | `restricted-mode-indicator` | 在线能力受限标记、标题栏在线能力受限、受限状态显示 | 在线能力受限时在窗口右上角显示（全局） |
 | 向 QQ 服务器上报已读位置 | `read-sync` | 已读同步、已读上报、同步 QQ 未读 | 向 QQ 服务器上报已读位置（全局） |
+| 自动同步本人消息与已读 | `qq-client-sync` | 本机 QQ 同步、QQ 同步代理、补投本人消息 | 自动同步本人消息与已读（全局） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
 
@@ -46,6 +47,7 @@
 | 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
 | 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
 | 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
+| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
 | 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
 
 ### 通知与提醒
@@ -131,6 +133,7 @@
 | --- | --- | --- | --- |
 | 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
 | 从第一条新消息开始阅读 | `read-first-unread` | 第一条未读 | 从首条未读开始（全局） |
+| 保留尚未读到的消息的未读计数 | `preserve-unread-until-read` | 保留未读、按阅读进度标为已读 | 保留尚未读到的消息的未读计数（全局） |
 | 查看时自动拉取缺失的消息 | `auto-fetch-missing-messages` | 自动补全消息、漫游消息 | 查看时自动拉取缺失的消息（全局） |
 | 定位到缺失消息时自动拉取上下文 | `auto-fetch-missing-context` |  | 定位到缺失消息时自动拉取上下文（全局） |
 | 自动拉取上下文条数 | `missing-message-context-count` |  | 自动拉取上下文条数（全局） |
@@ -164,7 +167,7 @@
 | 无需回车即自动替换 | `slash-emoji-auto-replace` | 表情自动替换 | 无需回车即自动替换（全局） |
 | 按退格键移除引用 | `quote-backspace-remove` | 退格取消引用、Backspace | 按退格键移除引用（全局） |
 | 隐藏正在输入状态 | `typing-status` | 向对方展示输入状态、默认发送正在输入状态、发送正在输入状态、输入状态、正在输入、打字状态 | 隐藏正在输入状态（全局）；隐藏正在输入状态的会话选择（当前账号） |
-| 防撤回 | `anti-recall` | anti-recall | 防撤回启用范围（全局）；防撤回会话选择（当前账号） |
+| 防撤回 | `anti-recall` | anti-recall | 防撤回方式（全局）；防撤回保护范围（全局）；防撤回会话选择（当前账号） |
 
 ### 联系人名片
 

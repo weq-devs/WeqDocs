@@ -85,7 +85,7 @@ curl -H 'Authorization: Bearer <令牌>' \
 
 ## 支持的 action
 
-完整列表见动作列表（214 条，按域分组）。常用的：
+完整列表见动作列表（按域分组）。常用的：
 
 - **消息**：`send_msg` / `send_private_msg` / `send_group_msg`、撤回、已读上报、
   `get_msg`、历史消息、合并转发（发与收）、自定义表情。
@@ -94,7 +94,7 @@ curl -H 'Authorization: Bearer <令牌>' \
   群文件（列表 / 上传 / 转存 / 删除 / 重命名 / 移动）、群公告、群相册。
 - **互动**：戳一戳、表情回应、点赞、翻译、@全体。
 - **空间**：资料读写、说说列表 / 详情 / 发布 / 删除 / 点赞 / 评论 / 转发。
-- **闪传**：创建任务、列表、分享链接、下载。
+- **闪传**：创建任务、列表、分享链接、下载。`list_filesets` 返回首页数组；`list_filesets_page` 返回 `items`、`total`、`is_end` 和 `next_cursor`。首屏省略 `cursor`，续页把 `next_cursor` 原样传回，`is_end` 为 `true` 时停止；服务端不提供总数时 `total` 为 `null`。
 
 未实现或明确不做：本地媒体缓存类（`get_image` / `get_record`，WeqBot 不建本地
 存储）、依赖服务端临时目录的下载流、凭据类（`get_cookies` 等默认关）。

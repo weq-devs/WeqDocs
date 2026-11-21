@@ -20,6 +20,8 @@ pnpm dev -- --enable-dress-tools
 
 ## 修改后如何生效
 
+从系统菜单或托盘选择「重启 WeQ」时，原 `pnpm dev` 会话会重新启动 electron-vite 和 WeQ，并继续显示新一轮构建和启动日志。启动参数与用户数据目录会沿用，本轮已准备的依赖、native 和宿主会复用。选择「退出 WeQ」或在终端按 Ctrl+C 会结束开发会话。
+
 | 修改范围 | 开发行为 |
 | --- | --- |
 | 桌面 React 组件与样式 | Vite／React 热更新；兼容的组件修改保留状态 |
