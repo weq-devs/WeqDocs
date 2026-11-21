@@ -598,8 +598,8 @@ listProcessesWithModule(moduleHint: string): ProcessScanEntry[]
 
 ## 8. 通话与媒体编解码
 
-语音使用 QQ 安装目录的 Opus 实现，私聊视频使用 QQ 的 `t265`。群聊摄像头由渲染进程的
-WebCodecs 编码为 H.264 Annex B，接收画面也由 WebCodecs 解码。群聊音频继续使用下表的原生 Opus 接口。
+私聊语音使用 QQ 安装目录的 Opus 实现，私聊视频使用 QQ 的 `t265`。群聊音频通过 `silk-wasm`
+收发 16 kHz 单声道 SILK 帧，群聊视频通过 WebCodecs 收发 H.264 Annex B。
 
 `modulesDir` 传 QQ 的 `resources/app`（Linux 下的 `avsdk/libAVSDKPlugin.so` 也在这个目录树里）。
 每个编解码器**进程内只打开一次**，重复调用幂等；挂断时对应 `close*`。
