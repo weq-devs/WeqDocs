@@ -60,9 +60,9 @@
 | 特别关心 | `notification-specialCare` |  |  |
 | @自己 | `notification-mentionMe` |  |  |
 | @全体成员 | `notification-mentionAll` |  |  |
-| 引用／回复我 | `notification-replyMe` |  |  |
+| 群友回复 | `notification-replyMe` |  |  |
 | 红包消息 | `notification-redPacket` |  |  |
-| 关键词命中 | `notification-keyword` |  |  |
+| 群关键词 | `notification-keyword` |  |  |
 | 联系人与群通知 | `notification-contact` |  |  |
 | 任务或操作进行中 | `notification-progress` |  |  |
 | 后台任务完成 | `notification-taskComplete` |  |  |
