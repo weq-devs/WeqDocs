@@ -137,6 +137,31 @@ itemId 猜类型高位。找到后通过 `dress.fontId2Raw` **显式写入请求
 GeneralFlags tag 19 是扩展 bytes，内部 tag 15 为 packed mobile_custom_font，tag 56
 为铭牌；不能把“字节交换后的 itemId”当成完整字体值，也不能将 tag 56 当成另一个字体。
 
+### 用装扮里选用的字体发送
+
+`sendWithDressFont` 默认关闭。开启后 `MessageSendService` 的字体槽位改由
+`DressConfig.activeFont` 决定，并且**接管**语义：有选用值就发它，没有就不带字体，
+不再回落到 `sendWithQqFont`／`homeDress.fontId` —— 两个开关叠加时静默回落会让
+「发出去的到底是哪一款」不可预期，所以不做合并。
+
+`activeFont` 为 0、读取异常，或未以 `--enable-dress-tools` 启动开发宿主时，主机侧
+`app_context` 注入的回调返回 `undefined`，这条通路退化为不带字体。普通模式下装扮页
+与入口本就不渲染，`dressup.getState` 也会把 `activeFont` 归零，因此发布宿主不会
+因为残留配置改变发送。
+
+tag 15 原值对装扮字体**不查历史**，统一发 `0x10000 | swapFontId16(itemId)`：低 16 位
+字节序交换后置 bit 16，即 `feeType=1`。bit 16 决定收端能否正常显示，实测 1 即可；其余
+高位（字体类型／魔法字体）不影响正常显示，不查历史也就不会因为历史里那条消息带的高位
+不同而让同一款发成两种字节。编码与 WeqBot OneBot `send_msg` 的 `font_id` 一致
+（`vendor/weqbot/packages/bot/src/onebot-backend.ts` 的 `sendParams`），复用
+`@weqbot/protocol` 导出的 `swapFontId16`。选用的 itemId 超出 16 位时不发，避免被截断后
+发成另一款。QQ 账号字体那条通路保持原样：从历史找原值，找不到仍然不带、不猜高位。
+
+准备阶段（`prepareChatFont`）与真实请求共用 `resolveSendFontId` / `fontWireForSend`，
+`preparedChatFont` 照旧把同一份 `{ fontId, fontId2Raw }` 带进请求和本地回显，
+预览与 wire 不二次解析。`--enable-dress-tools` 的启用条件见
+[开发启动](./dev-startup.md)。
+
 ## 二、元素：收侧解码器的镜像
 
 发送端**没有**另写一份 schema：`msg/send-elements.ts` 产出的就是收侧
