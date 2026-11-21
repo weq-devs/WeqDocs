@@ -598,9 +598,8 @@ listProcessesWithModule(moduleHint: string): ProcessScanEntry[]
 
 ## 8. 通话与媒体编解码
 
-QQ 的语音 / 视频**不是标准编码**：语音是腾讯改过码表的 Opus，私聊视频用 `t265`（改过的 x265），
-群通话用 H.264。所以必须加载 QQ 安装目录里那一版插件，不能拿系统 libopus / libx265 代替 ——
-两边码表不一致时，对端听到的是噪声、看到的是一屏花屏。
+私聊语音使用 QQ 安装目录的 Opus 实现，私聊视频使用 QQ 的 `t265`。群聊音频通过 `silk-wasm`
+收发 16 kHz 单声道 SILK 帧，群聊视频通过 WebCodecs 收发 H.264 Annex B。
 
 `modulesDir` 传 QQ 的 `resources/app`（Linux 下的 `avsdk/libAVSDKPlugin.so` 也在这个目录树里）。
 每个编解码器**进程内只打开一次**，重复调用幂等；挂断时对应 `close*`。
@@ -612,7 +611,7 @@ QQ 的语音 / 视频**不是标准编码**：语音是腾讯改过码表的 Opu
 | `decodeCallFrame(opus)` | 一帧 Opus | `Buffer`（640 字节 PCM） | 反过来解一帧。 |
 | `openVideoEncoder(modulesDir, width?, height?, fps?, bitrateKbps?, keyint?, allIntra?)` | 可选参数缺省用与客户端一致的 640×360 / 15 fps / 400 kbps | `Promise<void>` | 私聊视频（H.265 / `t265`）。 |
 | `encodeVideoFrame(y, u, v)` | I420 三个平面（Y 全尺寸，U/V 各 1/4） | `VideoFrameResult \| null` | Annex B 裸流。编码器还在 lookahead 里攒帧时返回 `null`，下一帧再取。 |
-| `openH264Encoder(...)` / `encodeH264Frame(y, u, v)` / `closeH264Encoder()` / `isH264EncoderOpen()` | 同上 | 同上 | 群通话用的 H.264（`libopenh264.so`）。**目前只有 Linux 支持**：macOS / Windows 的 openh264 没有独立动态库。 |
+| `openH264Encoder(...)` / `encodeH264Frame(y, u, v)` / `closeH264Encoder()` / `isH264EncoderOpen()` | 同上 | 同上 | Linux 原生 H.264 编码接口，使用 QQ 的 `libopenh264.so`。 |
 
 `VideoFrameResult = { data: Buffer; keyframe: boolean }`（含 `00 00 00 01` 起始码）。
 
