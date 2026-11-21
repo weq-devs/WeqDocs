@@ -93,6 +93,13 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 邮件工具复用当前账号的 WeQ 邮箱连接，无法访问时报告实际错误，不从聊天里的邮箱提醒猜正文。切换账号后，旧附件 ID 不再可用。
 
+## 7. 群资源与本地搜索
+
+- 先用 `find_contact` 确认群号；`exactGroups: true` 只查精确群名、备注或群号，同名时用群号区分。`list_group_files` 从根目录开始，传 `folderId` 浏览子目录，传 `nextOffset` 读同一目录的下一页。
+- `get_group_albums` 返回相册 ID。以同一 `groupId` 和相册 `albumId` 调用 `get_group_album_photos`，用 `nextCursor` 分页读取照片和视频。群目录与相册媒体需要 QQ 在线；离线及服务端失败不会作为空列表返回。
+- `search_local_resources` 一次搜索一种来源：`chatAttachment`（聊天附件）、`groupFile`（已观察到的群文件）、`collection`（本地收藏）。同时返回结构化数据与 JSON 文本；`status: unavailable` 表示该来源未覆盖，`coverage.limited` 表示存在候选上限。`nextOffset` 仅延续相同关键词与来源的本地查询。
+- 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。`search_messages` 仍只搜索普通私聊／群聊正文。
+
 ---
 
 下一步 → [语音转文字](voice-transcribe.md)

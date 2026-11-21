@@ -134,6 +134,8 @@
 | 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
 | 从第一条新消息开始阅读 | `read-first-unread` | 第一条未读 | 从首条未读开始（全局） |
 | 保留尚未读到的消息的未读计数 | `preserve-unread-until-read` | 保留未读、按阅读进度标为已读 | 保留尚未读到的消息的未读计数（全局） |
+| 显示未读分界线 | `unread-divider` | 以下为未读消息、未读起点 | 显示未读分界线（全局） |
+| 触屏左滑引用 | `swipe-to-quote` | 滑动回复、左滑回复 | 触屏左滑引用（全局） |
 | 查看时自动拉取缺失的消息 | `auto-fetch-missing-messages` | 自动补全消息、漫游消息 | 查看时自动拉取缺失的消息（全局） |
 | 定位到缺失消息时自动拉取上下文 | `auto-fetch-missing-context` |  | 定位到缺失消息时自动拉取上下文（全局） |
 | 自动拉取上下文条数 | `missing-message-context-count` |  | 自动拉取上下文条数（全局） |
@@ -142,6 +144,7 @@
 | 向下滚动时显示定位到底部按钮 | `scroll-to-bottom-button` | 快速到底部 | 回到底部按钮（全局） |
 | 语音消息自动转文字 | `auto-transcribe-voice` | 语音自动识别 | 语音自动转文字（全局） |
 | 内容显示 | `custom-message-display` | 自定义消息显示 |  |
+| 合并连续发言 | `group-consecutive-messages` | 连续发言分组、消息分组 | 合并连续发言（全局） |
 | 显示消息序号（seq） | `message-seq` | 消息序号 | 消息序号（全局） |
 | 显示发送日期 | `message-date` | 消息日期 yyyy-mm-dd | 消息日期（全局） |
 | 显示发送时间 | `message-time` | 显示发送时间（精确到秒）、消息时间 精确到秒 | 消息时间（全局） |
@@ -270,7 +273,7 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 已保存的服务商 | `llm-providers` | 已保存的 provider、API Key、Base URL、服务商 |  |
-| 默认聊天模型 | `llm-default-model` | LLM 默认聊天模型、默认模型、LLM 默认模型 | 默认聊天模型（全局） |
+| 默认聊天模型 | `llm-default-model` | LLM 默认聊天模型、默认模型、LLM 默认模型、默认聊天模型在哪里设置 | 默认聊天模型（全局） |
 | 默认上下文窗口 | `llm-default-context-window` | 上下文预算、上下文长度 | 默认上下文窗口（全局） |
 | 默认最大输出 | `llm-default-max-output` | 输出上限、最大输出 Token | 默认最大输出（全局） |
 | 默认视觉模型 | `llm-default-vision-model` | 图片分析模型 | 默认视觉模型（全局） |
@@ -360,6 +363,7 @@
 | 助手模型设置 | `weq-assistant-model-settings` |  |  |
 | 助手默认聊天模型 | `weq-assistant-default-model` |  | 助手生成与执行（全局） |
 | 助手默认思考强度 | `weq-assistant-default-effort` |  |  |
+| 本地模型轻量模式 | `weq-assistant-local-lightweight` |  |  |
 | 运行模式 | `weq-assistant-permission` |  |  |
 | 额外提示词 | `weq-assistant-customPrompt` |  |  |
 | 外部 MCP 服务器 | `weq-assistant-mcpServers` |  |  |
