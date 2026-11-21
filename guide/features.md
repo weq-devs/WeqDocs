@@ -34,7 +34,7 @@
 | 群聊在线声线 · 在群聊 AI 声聊面板浏览当前群的声线、试听并发送。 | `messages.ai-voice-catalog` | — | 需要账号与数据源、群 | — |
 | 翻译英文消息 · 在消息菜单请求 QQ 翻译，并在原消息下方查看译文。 | `messages.translate-en-zh` | — | 需要账号与数据源、消息 | — |
 | 搜索聊天记录 · 在搜索界面组合关键词、发送者、日期和类型，也可限定在当前会话。 · [说明](./chat-view.md#feature-messages.history.search) | `messages.history.search` | — | 需要账号与数据源 | `search_messages`、`search_in_conversation`、`inspect_timeline`、`get_messages_by_date`、`fetch_history_window` |
-| 共享媒体 · 从会话标题栏浏览图片、视频和文件，也可定位原消息。 · [说明](./chat-view.md#feature-messages.history.shared-media) | `messages.history.shared-media` | — | 需要账号与数据源、会话 | — |
+| 共享媒体 · 从会话标题栏浏览图片、视频和文件，也可定位原消息。 · [说明](./chat-view.md#feature-messages.history.shared-media) | `messages.history.shared-media` | — | 需要账号与数据源、会话 | `search_local_resources` |
 | 连续发言分组 · 主聊天按发送者和时间归组，保留每条消息的引用、定位与多选。 · [说明](./chat-view.md#feature-messages.timeline.grouping) | `messages.timeline.grouping` | — | 需要账号与数据源、会话 | — |
 | 聊天内未读分界 · 在时间线标出未读起点，浏览历史时显示剩余未读条数。 · [说明](./chat-view.md#feature-messages.timeline.unread-boundary) | `messages.timeline.unread-boundary` | — | 需要账号与数据源、会话 | — |
 | 触屏横滑引用 · 向左滑动消息气泡，松手引用并聚焦输入框。 · [说明](./chat-view.md#feature-messages.reply.touch) | `messages.reply.touch` | — | 需要账号与数据源、消息 | — |
@@ -86,14 +86,14 @@
 | --- | --- | --- | --- | --- |
 | 群通知 | `groups.notices` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 群交集 · [说明](./relation-graph.md#feature-groups.intersection) | `groups.intersection` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
-| 群相册 · 从指定群查看群相册及其媒体。 · [说明](./album-qzone.md#feature-groups.albums) | `groups.albums` | — | 需要账号与数据源、群 | `get_group_albums` |
+| 群相册 · 从指定群查看群相册及其媒体。 · [说明](./album-qzone.md#feature-groups.albums) | `groups.albums` | — | 需要账号与数据源、群 | `get_group_albums`、`get_group_album_photos` |
 | 群名片与群资料 · 查看群基本资料、角色和已有群状态。 · [说明](./contact-card.md#feature-groups.profile) | `groups.profile` | — | 需要账号与数据源、群 | `get_group_info` |
 | 群成员 · 从群资料或聊天侧栏搜索并分页浏览成员。 | `groups.members` | — | 需要账号与数据源、群 | `list_group_members` |
 | 群公告 · 在当前群的公告入口查看公告。 · [说明](./album-qzone.md#feature-groups.announcements) | `groups.announcements` | — | 需要账号与数据源、群 | `get_group_bulletins` |
 | 群待办 · 查看指定群的待办项目。 | `groups.todos` | — | 需要账号与数据源、群 | — |
 | 群精华 · 查看已设为精华的群消息。 · [说明](./album-qzone.md#feature-groups.essence) | `groups.essence` | — | 需要账号与数据源、群 | `get_group_essence` |
 | 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 需要账号与数据源、群 | `send_group_signup` |
-| 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | — | 需要账号与数据源、群 | — |
+| 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源、群 | `list_group_files`、`search_local_resources` |
 | 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 需要账号与数据源、群 | — |
 | 接收验证消息 · 群主可在管理员权限里为单个管理员开启或关闭接收验证消息。 | `groups.admin-verification` | — | 需要账号与数据源、群 | — |
 | 群管理 · 在当前群的会话设置查看适用的管理操作。 | `groups.management` | — | 需要账号与数据源、群 | — |
@@ -105,7 +105,7 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| 收藏 · 查看已有本地收藏，页面在有可用票据时补充在线结果。 | `collections.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | `list_collections` |
+| 收藏 · 查看已有本地收藏，页面在有可用票据时补充在线结果。 | `collections.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | `list_collections`、`search_local_resources`、`get_local_collection` |
 | 搜索收藏 · 在现有收藏页按关键词与材料类型查找条目。 · [说明](./collection.md#feature-collections.search) | `collections.search` | — | 需要账号与数据源 | — |
 | 打开收藏内容 · 根据收藏类型打开正文、图片、链接或其他内容。 | `collections.detail` | — | 需要账号与数据源、内容项 | — |
 
@@ -126,10 +126,10 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| QQ 邮箱 | `mail.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | — |
-| 查看邮件 · 从邮箱列表选择邮件以读正文和附件。 · [说明](./qqmail.md#feature-mail.message.read) | `mail.message.read` | — | 需要账号与数据源、内容项 | — |
+| QQ 邮箱 | `mail.inbox` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | `list_mail_folders`、`list_mail_messages` |
+| 查看邮件 · 从邮箱列表选择邮件以读正文和附件。 · [说明](./qqmail.md#feature-mail.message.read) | `mail.message.read` | — | 需要账号与数据源、内容项 | `get_mail_message` |
 | 写信与草稿 · 在邮箱使用已有编辑器，保留草稿保存与退出确认。 · [说明](./qqmail.md#feature-mail.compose) | `mail.compose` | — | 需要账号与数据源 | — |
-| 保存邮件附件 · 在已打开的邮件中按当前端的保存流程另存附件。 · [说明](./qqmail.md#feature-mail.attachment.save) | `mail.attachment.save` | — | 需要账号与数据源、内容项 | — |
+| 保存邮件附件 · 在已打开的邮件中按当前端的保存流程另存附件。 · [说明](./qqmail.md#feature-mail.attachment.save) | `mail.attachment.save` | — | 需要账号与数据源、内容项 | `download_mail_attachment` |
 
 ## QQ 频道
 

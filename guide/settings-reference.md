@@ -269,7 +269,7 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 已保存的服务商 | `llm-providers` | 已保存的 provider、API Key、Base URL、服务商 |  |
-| 默认聊天模型 | `llm-default-model` | LLM 默认聊天模型、默认模型、LLM 默认模型 | 默认聊天模型（全局） |
+| 默认聊天模型 | `llm-default-model` | LLM 默认聊天模型、默认模型、LLM 默认模型、默认聊天模型在哪里设置 | 默认聊天模型（全局） |
 | 默认上下文窗口 | `llm-default-context-window` | 上下文预算、上下文长度 | 默认上下文窗口（全局） |
 | 默认最大输出 | `llm-default-max-output` | 输出上限、最大输出 Token | 默认最大输出（全局） |
 | 默认视觉模型 | `llm-default-vision-model` | 图片分析模型 | 默认视觉模型（全局） |
@@ -359,6 +359,7 @@
 | 助手模型设置 | `weq-assistant-model-settings` |  |  |
 | 助手默认聊天模型 | `weq-assistant-default-model` |  | 助手生成与执行（全局） |
 | 助手默认思考强度 | `weq-assistant-default-effort` |  |  |
+| 本地模型轻量模式 | `weq-assistant-local-lightweight` |  |  |
 | 运行模式 | `weq-assistant-permission` |  |  |
 | 额外提示词 | `weq-assistant-customPrompt` |  |  |
 | 外部 MCP 服务器 | `weq-assistant-mcpServers` |  |  |
