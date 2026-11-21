@@ -37,7 +37,7 @@
 | 共享媒体 · 从会话标题栏浏览图片、视频和文件，也可定位原消息。 · [说明](./chat-view.md#feature-messages.history.shared-media) | `messages.history.shared-media` | — | 需要账号与数据源、会话 | — |
 | 连续发言分组 · 主聊天按发送者和时间归组，保留每条消息的引用、定位与多选。 · [说明](./chat-view.md#feature-messages.timeline.grouping) | `messages.timeline.grouping` | — | 需要账号与数据源、会话 | — |
 | 聊天内未读分界 · 在时间线标出未读起点，浏览历史时显示剩余未读条数。 · [说明](./chat-view.md#feature-messages.timeline.unread-boundary) | `messages.timeline.unread-boundary` | — | 需要账号与数据源、会话 | — |
-| 触屏横滑引用 · 从可引用的消息气泡向右滑，将原消息加入输入框。 · [说明](./chat-view.md#feature-messages.reply.touch) | `messages.reply.touch` | — | 需要账号与数据源、消息 | — |
+| 触屏横滑引用 · 向左滑动消息气泡，松手引用并聚焦输入框。 · [说明](./chat-view.md#feature-messages.reply.touch) | `messages.reply.touch` | — | 需要账号与数据源、消息 | — |
 | 预览会话 · 在浮窗查看具体会话的本地记录，保留当前聊天与读状态。 · [说明](./chat-view.md#feature-messages.conversation.preview) | `messages.conversation.preview` | — | 需要账号与数据源、会话 | — |
 | 我的设备 · 查看数据线会话，区分本机和其他设备的消息。 · [说明](./chat-view.md#feature-messages.devices) | `messages.devices` | — | 需要账号与数据源 | `list_dataline_conversations`、`get_dataline_messages` |
 | 标记已读或未读 · 按会话处理已读状态，手动未读保留提醒。 | `messages.unread` | — | 需要账号与数据源、会话 | — |
