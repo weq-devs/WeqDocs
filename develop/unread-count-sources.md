@@ -24,11 +24,9 @@ Desktop、Web、Remote 统一消费 `UnreadInfoService.getUnreadInfos()` 的结�
 电脑自发、系统提示均排除。未读数字由 WeQ 本地查询提供。
 
 QQ 内存读取适配器保留为显式 `compareQqCounts()` 诊断，不自动定位、轮询或接管显示。
-适配器支持 macOS arm64／QQ `7.0.3-54395` 和 Windows x64／x64 QQ `9.9.37-54395`；
-读取端架构及 native 能力必须匹配对应布局，旧 native 不会启用 Windows 路径。
-Windows 主进程、启动代、实际加载模块与账号持库关系在 native 内核验；换 PID 清理旧定位，
-账号关闭时取消在途读取。冷定位不阻塞数据库角标，也不自动写入阅读位置。
-Windows 群会话研究读取已实测，正式 N-API 的目标机运行、私聊及换号／重启仍需独立验证。
+适配器按 native 的只读能力、覆盖范围与布局声明启用，覆盖 macOS ARM／Intel、Windows x64
+及 Linux x64／arm64。native 每次读取核验实际加载模块、QQ 进程与账号持库关系，旧 native
+缺接口或没有可用布局时跳过。换 PID 清理旧定位，冷定位不阻塞数据库角标。
 数据库已被 WeQ 标为已读、QQ 内存仍保留角标时，WeQ 按数据库显示，不来回切换来源。
 此规则不表示 QQ 本体界面会因外部 SQL 立即更新。
 
