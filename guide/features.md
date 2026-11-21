@@ -44,6 +44,9 @@
 | 重要消息 · 在群聊中查看并定位提及、回复、文件等重要消息。 | `messages.important` | — | 需要账号与数据源、群 | `find_people_who_mentioned` |
 | 发送消息 · 从输入区发送文本、媒体、文件和适用的卡片。 · [说明](./chat-view.md) | `messages.send` | — | 需要账号与数据源、会话 | `send_text_message`、`send_media_message`、`send_file_message`、`send_rich_message`、`send_tuwen_ark` |
 | 语音转文字 · 从语音消息查看已有文字或发起转写。 · [说明](./voice-transcribe.md) | `messages.voice.transcribe` | — | 需要账号与数据源、消息 | `transcribe_voice_message` |
+| 分享 QQ 闪传 · 在闪传文件列表获取分享链接。 | `messages.flash.share` | — | 需要账号与数据源、消息 | `get_flash_share_link` |
+| 发 QQ 红包 · 填写红包信息，生成二维码后在手机 QQ 支付。 | `messages.red-packet.send` | — | 需要账号与数据源、会话 | `get_red_bag_passwords`、`pack_red_bag` |
+| QQ 红包详情与领取 · 从红包消息查看领取记录或领取红包。 | `messages.red-packet.detail` | — | 需要账号与数据源、消息 | `get_red_bag_detail`、`grab_red_bag` |
 | 表情回应 · 在适用的群消息上添加或取消表情回应。 · [说明](./chat-view.md) | `messages.reaction` | — | 需要账号与数据源、消息 | `set_message_reaction` |
 | 戳一戳 · 从会话中的轻互动入口戳指定联系人。 | `messages.poke` | — | 需要账号与数据源、会话、联系人 | `send_poke` |
 | 查看合并转发 · 打开聊天记录卡片并查看其中的消息。 | `messages.forward.inspect` | — | 需要账号与数据源、消息 | `get_forward_messages` |
@@ -66,6 +69,7 @@
 | 礼物墙 | `contacts.self-gift-wall` | 桌面、Web、Remote | 全局搜索 | — |
 | 搜索联系人与群 · 按备注、昵称或号码查找好友和群聊。 · [说明](./contact-directory.md) | `contacts.directory.search` | — | 需要账号与数据源 | `search_buddies`、`search_groups` |
 | 联系人排序与分组 · 分别调整好友和群聊列表的分组及排序。 · [说明](./contact-directory.md#feature-contacts.directory.order) | `contacts.directory.order` | — | 需要账号与数据源 | — |
+| 好友亲密度排行 · 查看 QQ 资料中的好友亲密度排行；未知分值排在最后。 | `contacts.intimacy-ranking` | — | 需要账号与数据源 | `list_friends_by_intimacy` |
 | 联系人名片与资料 · 先显示本地资料，沿用设置中的名片内容及顺序。 · [说明](./contact-card.md#feature-contacts.profile) | `contacts.profile` | — | 需要账号与数据源、联系人 | `get_user_profile`、`get_peer_stats`、`get_friend_mutual_mark`、`get_friend_dress`、`get_qq_show_url` |
 | 共同群 · 查看与指定联系人共同加入的群。 | `contacts.shared-groups` | — | 需要账号与数据源、联系人 | `list_user_groups` |
 | 联系人资料历史 · 查看已有观察记录的字段历史。 | `contacts.profile-history` | — | 需要账号与数据源、联系人 | — |
@@ -166,7 +170,7 @@
 | 导出表情包 | `export.emoji-packs` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 群相册导出 | `export.group-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 群文件导出 | `export.group-files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
-| 明文数据库 | `export.database` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 明文数据库 | `export.database` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | `decrypt_database` |
 | 克隆体机器人 | `export.clone-bot` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 个人空间相册 | `export.qzone-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 当前任务 · 查看现有任务的状态、步骤和日志。 · [说明](./export.md#feature-export.tasks.current) | `export.tasks.current` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
@@ -185,6 +189,7 @@
 | 群聊分析 · 统计选定群的消息活动，沿用当前数据源与范围。 · [说明](./analytics.md#feature-analysis.group) | `analysis.group` | — | 需要账号与数据源、群 | `get_group_activity` |
 | 私聊分析 · 对选定好友会话生成统计与报告。 · [说明](./analytics.md#feature-analysis.buddy) | `analysis.buddy` | — | 需要账号与数据源、联系人 | `get_buddy_analytics` |
 | 群成员分析 · 按当前群、成员及时间范围分析消息。 | `analysis.group-member` | — | 需要账号与数据源、群、联系人 | — |
+| 好友与群聊活跃排行 · 按时间范围比较私聊消息量与群活跃度。 | `analysis.activity-ranking` | — | 需要账号与数据源 | `rank_friends_by_activity`、`rank_my_groups_by_activity` |
 | 按日与时段统计消息 · 通过实际时间范围查看分布或比较两段统计。 | `analysis.activity-period` | — | 需要账号与数据源 | `get_daily_digest`、`get_period_overview`、`compare_periods` |
 | 保存分析长图 · 由支持图片导出桥接的宿主捕获报告统计快照。 · [说明](./analytics.md#feature-analysis.report-image.save) | `analysis.report-image.save` | — | 需要账号与数据源、内容项 | — |
 
