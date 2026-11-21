@@ -93,7 +93,7 @@
 | 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
 | 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
 | 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
-| 会话互动红点 | `conversation-interaction-badge` | 戳一戳红点、撤回红点 | 会话互动红点（全局） |
+| 会话互动红点 | `conversation-interaction-badge` | 戳一戳红点、撤回红点 | 会话互动红点（全局）；会话互动红点（全局） |
 | 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
 | 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
 | 群助手 | `group-assistant-count` | 群助手未读汇总角标、群助手显示总消息数 | 群助手（全局）；群助手（全局） |
