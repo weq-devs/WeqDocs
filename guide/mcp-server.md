@@ -100,6 +100,11 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 - `search_local_resources` 一次搜索一种来源：`chatAttachment`（聊天附件）、`groupFile`（已观察到的群文件）、`collection`（本地收藏）。同时返回结构化数据与 JSON 文本；`status: unavailable` 表示该来源未覆盖，`coverage.limited` 表示存在候选上限。`nextOffset` 仅延续相同关键词与来源的本地查询。
 - 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。`search_messages` 仍只搜索普通私聊／群聊正文。
 
+## 8. 聊天视频
+
+- 读取私聊或群聊消息时设 `includeIds: true`，把同一个 `kind`、`conv` 和 `msgId` 传给 `download_chat_video`。同一条消息有多个视频时，传从 0 开始的 `videoIndex`。
+- 用同一个 MCP 服务地址和 Bearer 令牌对返回的 `downloadPath` 发起 `GET`。路径在 5 分钟内有效，切换账号后失效。仅下载原片（上限 64 MiB），没有本地原片时复用 WeQ 的在线播放链路；视频不可用时不会返回封面冒充原片。
+
 ---
 
 下一步 → [语音转文字](voice-transcribe.md)

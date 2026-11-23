@@ -56,7 +56,7 @@
 | 修改本地记录 · 从消息菜单打开原始元素编辑器。 | `messages.local-edit` | — | 需要账号与数据源、消息 | — |
 | 本地删除消息 · 可恢复地删除本地消息，按实际来源处理数据库或缓存。 | `messages.local-delete` | — | 需要账号与数据源、消息 | — |
 | 查看本地删除记录 · 从会话查看旧记录，按来源恢复或定位。 | `messages.local-delete.history` | — | 需要账号与数据源、会话 | `list_deleted_messages` |
-| 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 需要账号与数据源、消息 | — |
+| 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 需要账号与数据源、消息 | `download_chat_video` |
 
 ## 联系人
 
