@@ -6,7 +6,9 @@
 
 WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文字识别、语音及意图／画像包；独立装扮仓发布 `enhancement-pack.json`。开发版和正式版统一读取已发布、非草稿的指定渠道描述，再固定明确 tag、URL、长度与 SHA-256 下载，不下载浮动 latest 资产。运行时不读取本机 `.artifacts` 或安装包内生成的引擎下载清单；本地生成物仅用于打包、验证和发布。
 
-商城表情目录使用装扮资源仓的独立 `market-emoji-*` Release、`enhancement-market-emoji.json` 和 `weq-market-emoji-feed` 签名索引。宿主启用装扮工具时才显示和检查此包。各平台使用相同 CSV，长度、SHA-256 和目录格式校验通过后切换。已安装版本由增强包回执恢复，桌面和 Web 安装包均排除 `market.csv`。
+装扮索引与商城表情目录共用装扮资源仓的 `weq-resource-feed` 签名索引。索引按包和发布渠道记录已验证的 Release。装扮使用 `dress-index-*` 与 `enhancement-dress-v2.json`，商城表情使用 `market-emoji-*` 与 `enhancement-market-emoji.json`。两包可单独发布，更新检查分别核对签名描述与真实资产身份。未接入统一索引的包沿用旧发布入口。
+
+商城表情目录仅在宿主启用装扮工具时显示和检查。各平台下载相同的 `market.csv.gz`，哈希、解压和格式校验成功后切换，已安装版本由增强包回执恢复。资源仓里的首次发布快照和续爬脚本用于生成目录。
 
 过渡期间，同一个已发布 Release 缺少统一描述时，可读取其 `enhancement-engines-平台-架构.json` 或 `index-manifest.json` 并转换成统一描述。旧引擎格式的模型部分使用当前客户端登记的固定模型契约；引擎 URL 和装扮资产必须与该 Release 实际资产对应，不根据本机版本推测地址。同一个 Release 已提供统一描述时只读统一描述，解析失败不会切换旧格式或更旧版本。
 
@@ -15,7 +17,7 @@ WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文�
 - 引擎的 `compatibility` 保留冻结构建配方身份，`runtime` 描述运行接口，两者不再相互替代；v2.7.0 旧引擎回执继续可读。
 - 最低版本取各组件要求的最大值。现有独立引擎目录加载的最早正式版为 2.7.0；各配方和模型可分别登记更高要求，不把当次 WeQ 版本自动填进最低版本。数据或兼容依赖更新不提高接口基线。
 - 先解析稳定头部再解析组件，即使新版增加未知模型或格式，旧客户端也能显示最低版本及设置内升级链接。最新版不适用时不选择较旧的兼容更新。
-- 装扮沿用 NTDR v1，`nativeCommit` 仍绑定解密密钥来源；最低 WeQ 版本不能替代密钥及真实读取验证。本地源码 native 使用配套构建索引，不接入不匹配的发布版索引。
+- 装扮 NTDR v2 使用 AES-GCM，清单按 `keyId` 与 native 已内置的密钥匹配。使用同一密钥的资源可以独立更新。旧 NTDR v1 仍按 `nativeCommit` 取得其原密钥。源码版 native 可用测试密钥做新索引联调，正式发布仍须验证实际配套密钥。
 
 ## 协调与恢复
 
@@ -39,7 +41,7 @@ WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文�
 
 ## 发布验证
 
-正式应用打包前运行 `node scripts/verify-enhancement-engines.mjs --native-only`，验证正式 native 提供源密钥身份、异步校验／重载及缓存清除接口，并与应用索引清单配套。首次上线须先发布新 native 与装扮资源，再更新已验证的 native 和索引版本锚；只完成本机源码验证不等于已发布这些资产。
+正式应用打包前运行 `node scripts/verify-enhancement-engines.mjs --native-only`，验证正式 native 提供密钥身份、异步校验／重载及缓存清除接口。从 2.8.0 起还校验 native 带 NTDR v2 密钥，候选构建也可显式传 `--require-dress-v2`。准备并验签新资源，发布支持新格式的客户端，再启用统一索引。2.7.x 继续读取旧目录与签名索引。
 
 引擎仍由现有脚本收集目标平台依赖、裁剪、签名、生成哈希及探针验证；上传器只向草稿 Release 上传并发布统一描述，不改写正式版本。可用 `node scripts/verify-enhancement-engines.mjs --models-root 模型目录` 复用本机模型验证真实 OCR、筛图、Laya 与 SenseVoice，测试不会复制模型原件或访问聊天数据库。
 

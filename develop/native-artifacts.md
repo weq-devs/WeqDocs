@@ -128,6 +128,8 @@ QQ 在线协议与后台索引下载互不阻塞；QQ 不在线时，可通过�
 
 ## 当前发布链路
 
+NTDR v2 的加密打包在 `dress-resources` 的 **Release resource enhancements** 中进行。维护者提供已提交三份采集产物的私有 `nt_helper` 完整 SHA，工作流按资源仓的活跃密钥加密，并发布到统一签名索引。应用按 `keyId` 选择已内置的密钥，数据更新可以独立发布。加密密钥须先随正式 native 提供给目标客户端。下方链路继续提供 2.7.x 的 NTDR v1 资产与初始兼容清单。
+
 ```
 weq-devs/nt_helper (私有源码)
   Release：将指定 ref 转发到公开构建仓
