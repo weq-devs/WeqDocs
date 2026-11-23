@@ -168,7 +168,7 @@ pnpm browser:check webkit        # 只检查本次需要的引擎
 `ChatShell`、标题栏和会话控制器，覆盖 360/440/600/760/800/1180px、最小窗口高度、
 四套组件风格及深浅主题，检查单栏切换、正文宽度、返回列表、主页及底部导航。
 单栏直接使用 Remote 的 `MobileWebNavigation` 与 `mobile-web.css`，不加载独立桌面竖屏样式；
-检查四入口导航、宽窄切换后的草稿保留，以及桌面原生窗口栏的空间预留。
+检查底栏导航、宽窄切换后的草稿保留，以及桌面原生窗口栏的空间预留。
 设置 `WEQ_PORTRAIT_TARGET=web` 可用相同夹具检查 Remote/Web 构建，
 `WEQ_PORTRAIT_NATIVE=1` 模拟 macOS 原生窗口按钮的预加载接口（不冒称真实系统按钮验收）。
 桌面模式夹具只从 `styles/index.css` 加载模板样式，不再单独重复引入 `im-template/styles.css`，
