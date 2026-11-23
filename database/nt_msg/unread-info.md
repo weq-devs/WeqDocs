@@ -203,12 +203,11 @@ interface UnreadHighlight {
 有订阅者时再共享每 1.5 秒补查。前端首批统一交付，不维护精算队列。
 失败保留上一次结果；标记操作保存固定位置，写入失败自动重试，不扩大确认范围。
 
-### 可选服务端上报
+### 服务端上报
 
-全局偏好 `reportReadEnabled` 默认开启，已有配置沿用原值；会话列表设置不再提供上报开关。
-开启后，桌面端已读入口在本地写入完成后异步请求
-`trpc.msg.msg_svc.MsgService.SsoReadedReport`，不阻塞聊天页，也不批量补报开启之前的阅读。
-上报关闭时取消尚未发出的重试，但不能撤销已发出的网络请求。
+QQ 在线会话可用时，桌面端已读入口在本地写入完成后异步请求
+`trpc.msg.msg_svc.MsgService.SsoReadedReport`，不阻塞聊天页。
+在线能力停用或会话失效时取消尚未发出的重试。
 
 - 群聊：`group@1 { groupUin@1, sequence@2 }`。
 - 私聊：`c2c@2 { targetUid@2, timestamp@3, sequence@4 }`。序号取本地 `40003`，
