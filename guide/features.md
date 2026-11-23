@@ -113,7 +113,7 @@
 
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
-| QQ 空间 | `qzone.timeline` | 桌面、Web、Remote | 主导航；手机标签栏；全局搜索；需要账号与数据源 | `get_qzone_profile` |
+| QQ 空间 | `qzone.timeline` | 桌面、Web、Remote | 主导航；手机更多；全局搜索；需要账号与数据源 | `get_qzone_profile` |
 | 写说说 · 打开已有的说说编辑器，发布前可设置可见范围。 | `qzone.post.compose` | — | 需要账号与数据源 | — |
 | 说说互动 · 选定说说后查看已有点赞与评论，或使用适用操作。 | `qzone.post.interactions` | — | 需要账号与数据源、内容项 | — |
 | 好友动态 · 从已有空间栏目查看好友动态。 | `qzone.friend-feed` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
