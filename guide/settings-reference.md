@@ -33,10 +33,10 @@
 | 启用方式 | `full-feature-routes` | 原版 QQ、读取路线、QQ 在线能力启用 |  |
 | 启用 QQ 在线能力 | `auto-full-mode` | 自动启用 QQ 在线能力、自动读取 QQ 内存 | 启用 QQ 在线能力（全局） |
 | 在线能力受限时显示窗口提示 | `restricted-mode-indicator` | 在线能力受限标记、标题栏在线能力受限、受限状态显示、在线能力受限时在窗口右上角显示 | 在线能力受限时显示窗口提示（全局） |
-| QQ 代理连接 | `qq-proxy-connection` | 本机 QQ 同步、QQ 同步代理、代理端口、设置代理 |  |
-| 通过 QQ 代理加速实时更新 | `qq-live-messages` | 通过 QQ 代理实时接收消息、消息直推、实时收信、代理性能优化 | 通过 QQ 代理加速实时更新（全局） |
+| QQ 代理连接 | `qq-proxy-connection` | 本机 QQ 同步、QQ 同步代理、代理端口、设置代理 | QQ 代理（此设备，可能停用服务） |
+| 通过 QQ 代理加速实时更新 | `qq-live-messages` | 通过 QQ 代理实时接收消息、消息直推、实时收信、代理性能优化 | 通过 QQ 代理加速实时更新（当前账号） |
 | QQ 代理未连接时显示窗口提示 | `qq-proxy-indicator` | QQ 代理未连接、标题栏 QQ 代理、QQ 代理未连接时在窗口右上角显示 | QQ 代理未连接时显示窗口提示（全局） |
-| 自动同步本人消息与已读 | `qq-client-sync` | 补投本人消息 | 自动同步本人消息与已读（全局） |
+| 自动同步本人消息与已读 | `qq-client-sync` | 补投本人消息 | 自动同步本人消息与已读（当前账号） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
 
@@ -59,12 +59,12 @@
 | 事件通知 | `notification-events` |  | 事件通知（全局） |
 | 普通群聊消息 | `notification-groupMessage` |  |  |
 | 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
-| 特别关心 | `notification-specialCare` |  |  |
-| @自己 | `notification-mentionMe` |  |  |
-| @全体成员 | `notification-mentionAll` |  |  |
-| 群友回复 | `notification-replyMe` |  |  |
-| 红包消息 | `notification-redPacket` |  |  |
-| 群关键词 | `notification-keyword` |  |  |
+| 特别关心 | `notification-specialCare` |  | 特别关心提醒会话（当前账号） |
+| @自己 | `notification-mentionMe` |  | @自己提醒会话（当前账号） |
+| @全体成员 | `notification-mentionAll` |  | @全体成员提醒会话（当前账号） |
+| 群友回复 | `notification-replyMe` |  | 群友回复提醒会话（当前账号） |
+| 红包消息 | `notification-redPacket` |  | 红包消息提醒会话（当前账号） |
+| 群关键词 | `notification-keyword` |  | 群关键词提醒会话（当前账号） |
 | 联系人与群通知 | `notification-contact` |  |  |
 | 任务或操作进行中 | `notification-progress` |  |  |
 | 后台任务完成 | `notification-taskComplete` |  |  |
@@ -331,7 +331,7 @@
 | API 请求超时（秒） | `intent-tuning-apiTimeoutSeconds` |  | API 请求超时（秒）（全局） |
 | API 失败冷却（秒） | `intent-tuning-apiCooldownSeconds` |  | API 失败冷却（秒）（全局） |
 | 图片处理偏好 | `ai-images-intent` | 意图感知图片、意图 OCR | 图片处理偏好（全局） |
-| 意图模型资源 | `intent-model-resources` | 意图模型资源（全局）、使用下载镜像、hf-mirror.com 镜像 |  |
+| 意图模型资源 | `intent-model-resources` | 意图模型资源（全局）、使用下载镜像、hf-mirror.com 镜像 | 本地意图模型资源（全局） |
 | 常驻显示 | `intent-persistent-display` |  | 常驻显示（全局） |
 | 悬停显示 | `intent-hover-display` |  | 悬停显示（全局） |
 
@@ -436,7 +436,7 @@
 | 启动 WeQ 时自动允许本机浏览器访问 | `web-autostart` | 启动 WeQ 时自动开启 Web 服务 | Web 服务自动启动（全局） |
 | 允许远程连接 | `remote-enabled` | WeQ Remote、远程访问 | WeQ Remote（全局，可能停用服务） |
 | 局域网 IP | `remote-lan` | 局域网地址 |  |
-| Tailscale IP | `remote-tailscale` | Tailscale、跨网络连接、内网穿透 |  |
+| Tailscale IP | `remote-tailscale` | Tailscale、跨网络连接、内网穿透 | Tailscale 网络连接（全局，可能停用服务） |
 | 配对手机 | `remote-pairing` | 设备配对、手机配对、配对二维码 |  |
 | 已配对设备 | `remote-devices` | 设备授权、撤销设备授权 |  |
 
@@ -453,7 +453,7 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 网络配置 | `onebot-config` |  | OneBot 网络配置（全局，可能停用服务） |
+| 网络配置 | `onebot-config` |  | OneBot 网络连接（当前账号，可能停用服务） |
 
 ### SSE 推送
 
@@ -508,7 +508,7 @@
 | 性能监视 | `performance-monitor` | 性能记录、CPU、内存历史 | 性能记录档位（全局） |
 | 日志保留时长 | `log-retention` |  | 日志保留天数（全局） |
 | 日志文件夹 | `log-folder` |  |  |
-| 原生调试日志 | `native-debug-log` | 底层调试、调试模式 |  |
+| 原生调试日志 | `native-debug-log` | 底层调试、调试模式 | 原生调试日志（此设备） |
 
 ### 常见问题
 
