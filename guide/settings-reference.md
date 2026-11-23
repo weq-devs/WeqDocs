@@ -320,7 +320,7 @@
 | 自己发送后分析 | `intent-after-self` |  | 自己发送后分析（全局） |
 | 分析缓存 | `intent-cache` | 清空并重算 |  |
 | 意图感知显示方式 | `intent-advanced` | 意图感知高级设置 |  |
-| 显示分析等待动画 | `intent-loading-animation` |  | 分析等待动画（全局） |
+| 自动分析时显示胶囊动画 | `intent-loading-animation` | 显示分析等待动画、批量分析时显示胶囊动画 | 自动分析时显示胶囊动画（全局） |
 | 意图感知上文（条） | `intent-tuning-analysisContextMessages` | 意图感知上文条数 | 意图感知上文（条）（全局） |
 | 意图感知温度 | `intent-tuning-analysisTemperature` |  | 意图感知温度（全局） |
 | 自动补齐范围（条） | `intent-tuning-backfillMessages` |  | 自动补齐范围（条）（全局） |
