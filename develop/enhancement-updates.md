@@ -1,10 +1,12 @@
 # 增强包更新与兼容
 
-四类增强包共用宿主级更新控制器、`EnhancementPacks` 协调器及后台任务。设置页状态查询不发起更新，控制器在宿主启动后运行，监听应用级设置，退出时注销调度和网络观察者。账号、桌面、内嵌 Web 与 Remote 不各自启动控制器。
+增强包共用宿主级更新控制器、`EnhancementPacks` 协调器及后台任务。设置页状态查询不发起更新，控制器在宿主启动后运行，监听应用级设置，退出时注销调度和网络观察者。账号、桌面、内嵌 Web 与 Remote 不各自启动控制器。
 
 ## 发布描述
 
 WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文字识别、语音及意图／画像包；独立装扮仓发布 `enhancement-pack.json`。开发版和正式版统一读取已发布、非草稿的指定渠道描述，再固定明确 tag、URL、长度与 SHA-256 下载，不下载浮动 latest 资产。运行时不读取本机 `.artifacts` 或安装包内生成的引擎下载清单；本地生成物仅用于打包、验证和发布。
+
+商城表情目录使用装扮资源仓的独立 `market-emoji-*` Release、`enhancement-market-emoji.json` 和 `weq-market-emoji-feed` 签名索引。宿主启用装扮工具时才显示和检查此包。各平台使用相同 CSV，长度、SHA-256 和目录格式校验通过后切换。已安装版本由增强包回执恢复，桌面和 Web 安装包均排除 `market.csv`。
 
 过渡期间，同一个已发布 Release 缺少统一描述时，可读取其 `enhancement-engines-平台-架构.json` 或 `index-manifest.json` 并转换成统一描述。旧引擎格式的模型部分使用当前客户端登记的固定模型契约；引擎 URL 和装扮资产必须与该 Release 实际资产对应，不根据本机版本推测地址。同一个 Release 已提供统一描述时只读统一描述，解析失败不会切换旧格式或更旧版本。
 
