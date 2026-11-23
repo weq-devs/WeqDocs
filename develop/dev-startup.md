@@ -47,9 +47,9 @@ Web 开发服务只监听本机环回随机端口，由桌面 Vite 进程持有�
 
 少量 `react-icons` 图标统一从渲染层 `lib/reactIcons.ts` 导出，Web 开发服务只预构建该入口实际选用的图标并复用现有 React，不发送整套图标库；图形和属性仍来自原始依赖，不手抄 SVG。正式构建继续使用原有裁剪流程，不运行开发预构建插件。新增同类图标时维护该入口，避免绕回整库导入。
 
-新版 Remote 连接开发页时，资源统计通过本地桥独立上报，不改写恢复检查等阶段标题。圆环内显示已完成项数，下方显示确认的编码下载字节、缓存项数及来源待确认项数；旧手机壳仍可通过原有字符串接口读取这些统计。只有 iPhone WebView 的网络回执或原生代理提供明确网络来源时才累计下载量，不拿解压大小猜测。开发分包仍按需加载，没有固定总量，因此不显示百分比；正式静态页仍使用既有资源清单与比例进度。打包开发仍保留调试信息，实际下载量可能大于正式构建。
+Remote 连接打包开发页时，圆环按当前构建的入口及静态 JS/CSS 依赖的原始字节显示首批资源百分比，可用现有支持资源圆环的手机安装包。浏览器继续按需加载后续分包，账号检查和界面绘制各自上报实际阶段。确认下载量仍单独统计实际编码字节。逐模块开发模式与缺少清单时沿用完成项数，旧手机壳也可通过原有阶段文字读取这些统计。正式静态页继续使用正式首屏清单。
 
-正式构建不启动开发服务、不监听源码，继续生成并提供静态 Web 产物。定向真实浏览器验证使用 `node apps/desktop/test/browser/run-development-web.mjs`；可通过 `WEQ_PLAYWRIGHT_IMPORT`、`WEQ_BROWSER_EXECUTABLE` 复用已有 Playwright 与浏览器，验证 Remote 认证、React／CSS 热更新及计数、草稿和页面实例保留。
+正式构建不启动开发服务、不监听源码，继续生成并提供静态 Web 产物。定向真实浏览器验证使用 `node apps/desktop/test/browser/run-development-web.mjs`；可通过 `WEQ_PLAYWRIGHT_IMPORT`、`WEQ_BROWSER_EXECUTABLE` 复用已有 Playwright 与浏览器。指定 `WEQ_REMOTE_CLIENT_REPO` 后还会用手机仓库的进度脚本验证清单和百分比回执。首次接入需完整重跑 `pnpm dev`，让当前会话加载新插件和代理。
 
 日常只需 `pnpm dev`。排查 Vite 打包开发兼容问题时，可完整退出后用 `WEQ_DEV_WEB_UNBUNDLED=1 pnpm dev` 回到逐模块热更新。需对照正式静态分包时，仍可使用 `WEQ_DEV_WEB_STATIC=1 pnpm dev`；此模式下 Web 不热更新，修改 Web 源码需完整退出重开。三种方式都保留原开发配置、账号和配对。
 
