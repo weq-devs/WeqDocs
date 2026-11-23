@@ -49,6 +49,8 @@ Web 开发服务只监听本机环回随机端口，由桌面 Vite 进程持有�
 
 正式构建不启动开发服务、不监听源码，继续生成并提供静态 Web 产物。定向真实浏览器验证使用 `node apps/desktop/test/browser/run-development-web.mjs`；可通过 `WEQ_PLAYWRIGHT_IMPORT`、`WEQ_BROWSER_EXECUTABLE` 复用已有 Playwright 与浏览器，验证 Remote 认证、React／CSS 热更新及计数、草稿和页面实例保留。
 
+测速时可用 `WEQ_DEV_WEB_STATIC=1 pnpm dev`：桌面仍保留开发模式和热更新，Web／Remote 改用启动时生成的正式静态分包。保持原开发配置、账号和配对，修改 Web 源码后需完整退出并用同一命令重开才会重建，不影响默认 `pnpm dev` 的热更新行为。
+
 ## 基础环境
 
 - Node.js 至少 22.12.0，pnpm 使用根清单锁定的版本。
