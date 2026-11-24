@@ -27,7 +27,7 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 ### 账号切换
 
-- `list_accounts` 列出本令牌可访问的账号数据源，以 `configId` 区分在线库和静态备份。
+- `list_accounts` 列出本令牌可访问的账号数据源，以 `configId` 区分在线库和静态备份。`open: true` 表示可用 `select_open_account` 直接选择。
 - `switch_account` 等到目标账号就绪后返回，只改变当前 MCP 会话。目标尚未运行时，WeQ 会打开独立窗口。一个令牌只授权了一个账号时，可直接调用查询；有多个可用账号时先选账号。
 - 后台任务可用 `select_open_account` 选择已打开的授权数据源。参数同为 `configId`，目标未打开时返回错误。
 - 同一令牌的不同会话可以分别访问不同账号。更改令牌授权后，受影响的客户端需重新连接。切号会使当前会话原来的下载票据失效。
@@ -63,6 +63,7 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 逐查询记录有界且只保留在内存，不包含正文、SQL、参数或账号/会话标识。
 
 `get_messages`、`get_dataline_messages` 和 `get_guild_direct_messages` 翻页时，把上一页的 `nextBefore` 原样传给 `before`。游标是字符串，不是消息序号；它可以在同序号的多条消息之间续读。旧的数字序号游标仍可使用，但按原来的序号范围查询。
+`list_dataline_conversations` 从本地数据线消息表发现设备会话，即使会话已经离开最近列表也能找到。
 
 `get_messages` 在 `includeIds: true` 时附带 `elementCount` 与存在的 `deletedKind`、`recall` 标记。群消息原生 `@全体` 以 `mentionAll` 标出，`only` 表示除了全体提醒、空白文本和回复引用之外没有其他元素，`with_content` 表示同时有其他内容；键入同样的字样不生成该字段。`get_message_details` 也返回 `mentionAll`。
 
@@ -103,7 +104,7 @@ OneBot 来源需要当前在线账号已经启用 [OneBot](./onebot-cc-connect.m
 ## 6. QQ 邮箱
 
 - `list_mail_folders` 列出文件夹。`list_mail_messages` 按文件夹从第 0 页起查询；传 `keyword` 时走 QQ 邮箱在线搜索，不限于该文件夹。
-- `get_mail_message` 按 `id` 读取纯文本和附件清单，不标记已读。会话邮件先返回子邮件列表。传 `linkHosts: ["example.com"]` 才会提取对应主机的 HTTPS 链接，仅返回，不访问；正文里的第三方内容按普通邮件看待。
+- `get_mail_message` 按 `id` 预览邮件详情，保留未读状态。会话邮件先返回子邮件列表。`bodyAvailable: false` 表示 QQ 的简要详情未提供正文，可查看 `snippet` 或在邮箱中打开。可用的附件会附下载 ID。提供正文时，传 `linkHosts: ["example.com"]` 可提取指定主机的 HTTPS 链接。
 - `download_mail_attachment` 按附件 `id` 返回 `downloadPath`，客户端对同一个 MCP 服务地址发起 `GET`，并在请求头携带同一个 Bearer 令牌。支持已知大小且不超过 64 MiB 的文件；工具不写客户端磁盘，其他附件可在 QQ 邮箱界面下载。
 
 邮件工具复用当前账号的 WeQ 邮箱连接，无法访问时报告实际错误，不从聊天里的邮箱提醒猜正文。切换账号后，旧附件 ID 不再可用。
@@ -113,7 +114,10 @@ OneBot 来源需要当前在线账号已经启用 [OneBot](./onebot-cc-connect.m
 - 先用 `find_contact` 确认群号；`exactGroups: true` 只查精确群名、备注或群号，同名时用群号区分。`list_group_files` 从根目录开始，传 `folderId` 浏览子目录，传 `nextOffset` 读同一目录的下一页。
 - `get_group_albums` 返回相册 ID。以同一 `groupId` 和相册 `albumId` 调用 `get_group_album_photos`，用 `nextCursor` 分页读取照片和视频。群目录与相册媒体需要 QQ 在线；离线及服务端失败不会作为空列表返回。
 - `search_local_resources` 一次搜索一种来源：`chatAttachment`（聊天附件）、`groupFile`（已观察到的群文件）、`collection`（本地收藏）。同时返回结构化数据与 JSON 文本；`status: unavailable` 表示该来源未覆盖，`coverage.limited` 表示存在候选上限。`nextOffset` 仅延续相同关键词与来源的本地查询。
-- 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。`search_messages` 仍只搜索普通私聊／群聊正文。
+- 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。
+- `search_messages` 和 `search_in_conversation` 查询 QQ 本地消息索引。用返回的 `kind`、`conv` 和命中的 `msgId` 调用 `get_message_details`。刚收到或未进入索引的消息可按会话读取。
+- `get_messages_by_date` 直接查询某个北京时间日期的本地消息。`hasMore` 为 `true` 时，保持同一会话和 `date`，把 `nextBefore` 传给 `before` 继续向前翻页。
+- `get_daily_digest` 按同一日期口径统计近期会话中的活动。`coverage` 说明已扫描的会话数，以及候选会话或单会话消息是否触及上限。
 
 ## 8. 聊天视频
 
