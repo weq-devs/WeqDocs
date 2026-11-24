@@ -108,21 +108,13 @@
 | 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
 | 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
 | 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
+| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
 | 增强包更新 | `update-badge` |  | 增强包更新（全局） |
 | 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
-| 公众号 | `official-unread-badge` |  | 公众号（全局）；公众号（全局） |
-| 服务号 | `service-unread-badge` |  | 服务号（全局）；服务号（全局） |
-| 频道私聊 | `guild-unread-badge` |  | 频道私聊（全局）；频道私聊（全局） |
-| 已隐藏会话 | `hidden-unread-badge` |  | 已隐藏会话（全局）；已隐藏会话（全局） |
-| 已删除会话 | `deleted-unread-badge` |  | 已删除会话（全局）；已删除会话（全局） |
-| 克隆会话 | `clone-unread-badge` |  | 克隆会话（全局）；克隆会话（全局） |
-| WeQ 助手会话 | `assistant-aggregate-badge` |  | WeQ 助手会话（全局）；WeQ 助手会话（全局） |
 | 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
 | 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
-| 会话互动红点 | `conversation-interaction-badge` | 戳一戳红点、撤回红点 | 会话互动红点（全局）；会话互动红点（全局） |
 | 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
 | 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
-| 群助手 | `group-assistant-count` | 群助手未读汇总角标、群助手显示总消息数 | 群助手（全局）；群助手（全局） |
 | 未读角标 | `notification-badges` | 红点与未读标记 |  |
 
 ### 隐私
@@ -142,6 +134,16 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
+| 常规视图未读角标 | `conversation-markers` | 会话列表常规视图 |  |
+| 群助手 | `group-assistant-count` | 群助手未读汇总角标、群助手显示总消息数 | 群助手（全局） |
+| 公众号 | `official-unread-badge` |  | 公众号（全局） |
+| 服务号 | `service-unread-badge` |  | 服务号（全局） |
+| 频道私聊 | `guild-unread-badge` |  | 频道私聊（全局） |
+| 已隐藏会话 | `hidden-unread-badge` |  | 已隐藏会话（全局） |
+| 已删除会话 | `deleted-unread-badge` |  | 已删除会话（全局） |
+| 克隆会话 | `clone-unread-badge` |  | 克隆会话（全局） |
+| WeQ 助手会话 | `assistant-aggregate-badge` |  | WeQ 助手会话（全局） |
+| 会话互动红点 | `conversation-interaction-badge` | 戳一戳红点、撤回红点 | 会话互动红点（全局） |
 | 显示会话预览 | `show-conversation-preview` | 消息摘要、草稿预览 | 显示会话预览（全局） |
 | 重要消息标记 | `important-message-markers` | @我、@全体成员、回复我、特别关心、群提醒词、新文件、红包、群公告 | 重要消息标记（全局） |
 | 包含已隐藏会话 | `all-conversations-include-hidden` | 全部会话隐藏范围 | 包含已隐藏会话（全局） |
