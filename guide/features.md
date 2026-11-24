@@ -255,7 +255,7 @@
 | 配置备份与恢复 · 导出 WeQ 配置备份，或从备份文件导入。 · [说明](./settings.md) | `settings.page.backup` | 桌面、Web、Remote | 设置 / 应用 / 配置备份与恢复 | — |
 | 版本与更新 · 查看版本和内置组件，管理桌面端的更新检查和安装。 · [说明](./settings.md) | `settings.page.version` | 桌面、Web、Remote | 设置 / 关于 / 版本与更新 | — |
 | 常见问题 | `settings.page.faq` | 桌面、Web、Remote | 设置 / 关于 / 常见问题 | — |
-| 日志与性能 · 查看应用日志和性能记录，设置历史保留方式。 · [说明](./performance-monitor.md) | `settings.page.logs` | 桌面、Web、Remote | 设置 / 应用 / 日志与性能 | — |
+| 日志与性能 · 查看应用日志和性能记录，设置历史保留方式。 · [说明](./performance-monitor.md) | `settings.page.logs` | 桌面、Web、Remote | 设置 / 关于 / 日志与性能 | — |
 | 反馈 | `settings.page.feedback` | 桌面、Web、Remote | 设置 / 关于 / 反馈 | — |
 
 ## 维护与诊断
