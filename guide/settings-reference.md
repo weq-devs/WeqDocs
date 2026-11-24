@@ -8,16 +8,7 @@
 
 使用方法见[设置总览](./settings.md)，维护方式见[设置注册表](../develop/settings-registry.md)。
 
-## 常规
-
-### 启动与退出
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 自启时显示窗口 | `startup-show-window` | 启动显示窗口、隐藏启动 | 自启时显示窗口（全局） |
-| 关闭窗口时 | `window-close-behavior` | 关闭按钮行为、关闭按钮、最小化到托盘、退出时停止、关闭窗口、退出应用 | 关闭窗口时（全局） |
-| 启动时进入 | `startup-page` | 上次退出时所在页面、启动后打开、默认页面、启动页面 | 启动时进入（全局） |
-| 开机自动启动 | `startup-enabled` | 开机自动启动 WeQ、自启动 | 开机自动启动（全局） |
+## 能力
 
 ### QQ 在线能力
 
@@ -44,91 +35,20 @@
 | --- | --- | --- | --- |
 | 长期授权 | `long-term-authorization` | 权限助手、本机权限助手、免重复提权、管理员授权 |  |
 
-### 外观与布局
+### 增强包
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
-| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
-| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
-| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
-| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
-| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
-| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
+| 增强包自动更新 | `enhancement-updates` |  |  |
+| 增强包管理 | `enhancement-management` |  |  |
+| 自动检查增强包更新 | `enhancement-auto-check` | 增强包更新检查 | 自动检查增强包更新（全局） |
+| 自动安装增强包更新 | `enhancement-auto-install` | 增强包自动安装 | 自动安装增强包更新（全局） |
+| 本地文字识别 | `enhancement-text` | 识别模型、筛图模型、图片识别模型、OCR 模型 |  |
+| 本地语音转写 | `enhancement-voice` | 本地语音模型、SenseVoice、ASR、语音转文字、转写 |  |
+| 本地意图与画像 | `enhancement-intent` | Laya 模型下载、画像模型下载 |  |
+| 装扮离线索引 | `enhancement-dress` | 气泡索引、字体索引、挂件索引 |  |
 
-### 主页
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
-| 个性标签 | `home-tags` | 主页标签 |  |
-| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
-| 问候语 | `home-greeting` | 主页问候 |  |
-| 一言 | `home-hitokoto` | hitokoto |  |
-| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
-
-### 通知与提醒
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 事件通知 | `notification-events` |  | 事件通知（全局） |
-| 普通群聊消息 | `notification-groupMessage` |  |  |
-| 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
-| 特别关心 | `notification-specialCare` |  | 特别关心提醒会话（当前账号） |
-| @自己 | `notification-mentionMe` |  | @自己提醒会话（当前账号） |
-| @全体成员 | `notification-mentionAll` |  | @全体成员提醒会话（当前账号） |
-| 群友回复 | `notification-replyMe` |  | 群友回复提醒会话（当前账号） |
-| 红包消息 | `notification-redPacket` |  | 红包消息提醒会话（当前账号） |
-| 群关键词 | `notification-keyword` |  | 群关键词提醒会话（当前账号） |
-| 联系人与群通知 | `notification-contact` |  |  |
-| 任务或操作进行中 | `notification-progress` |  |  |
-| 后台任务完成 | `notification-taskComplete` |  |  |
-| 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
-| 发现新版本或增强包更新 | `notification-update` |  |  |
-| 重要官方公告 | `notification-officialAnnouncement` |  |  |
-| 连接中断或恢复 | `notification-connection` |  |  |
-| 有请求等待处理 | `notification-request` |  |  |
-| 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
-| 操作成功与普通提示 | `notification-success` |  |  |
-| 操作失败或结果未确认 | `notification-failure` |  |  |
-| 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
-| 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
-| 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
-| 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
-| 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
-| 功能受限或运行异常 | `restricted-mode-banner` | 在线能力受限时通知、在线能力受限时横幅提醒、受限横幅 |  |
-| 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
-| 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
-| 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
-
-### 未读角标
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
-| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
-| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
-| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
-| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
-| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
-| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
-| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
-| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
-| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
-| 未读角标 | `notification-badges` | 红点与未读标记 |  |
-
-### 隐私
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| WeQ 验证器 | `totp-authenticator` | 绑定验证器、TOTP |  |
-| 启用应用锁 | `app-lock` | 应用锁、锁屏、隐私锁 | 启用应用锁（全局） |
-| 解锁方式 | `unlock-method` | Touch ID、Windows Hello、验证器 | 解锁方式（全局） |
-| 空闲自动锁定 | `auto-lock` | 无操作自动上锁 | 自动锁定分钟（全局） |
-| 隐私模式 | `privacy-mode` | 隐藏个人信息 | 隐私模式（全局） |
-| 在菜单中截图瞬间临时启用隐私模式 | `privacy-menu-capture` | 截图隐私 | 截图临时隐私模式（全局） |
-
-## 基础功能
+## 聊天
 
 ### 会话列表
 
@@ -209,6 +129,27 @@
 | --- | --- | --- | --- |
 | 防撤回 | `anti-recall` | anti-recall | 防撤回方式（全局）；防撤回保护范围（全局）；防撤回会话选择（当前账号） |
 
+### 通话与录音
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 录音来源 | `call-mode` | 录制内容、录音模式、双方混合、仅本端、仅对方 | 录制内容（全局） |
+| 同时录电脑声音 | `call-system-audio` | 系统音频 | 电脑声音（全局） |
+| 保存位置 | `call-directory` | 录音目录 | 通话录音目录（全局，目录需选择） |
+| 禁用 P2P 直连 | `call-p2p` | 连接方式、通话中转 | 禁用 P2P（全局） |
+
+### 识别与转写
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| QQ 在线 OCR | `ocr-online` | 文字识别 |  |
+| 识别并发 | `ocr-online-concurrency` |  | 识别并发（全局） |
+| 转录并发 | `voice-online-concurrency` |  | 转录并发（全局） |
+| OCR 前先筛图 | `ocr-prefilter-enabled` | 筛图开关、自动 OCR 筛图 | OCR 前先筛图（全局） |
+| OCR 时自动获取原图 | `ocr-auto-download-original` | 识别原图、OCR 下载原图 | OCR 时自动获取原图（全局） |
+
+## 更多
+
 ### 联系人名片
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
@@ -253,15 +194,6 @@
 | 入群时间 | `contact-card-joinedAt` |  |  |
 | 最后群发言时间 | `contact-card-lastSpeakAt` |  |  |
 
-### 通话与录音
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 录音来源 | `call-mode` | 录制内容、录音模式、双方混合、仅本端、仅对方 | 录制内容（全局） |
-| 同时录电脑声音 | `call-system-audio` | 系统音频 | 电脑声音（全局） |
-| 保存位置 | `call-directory` | 录音目录 | 通话录音目录（全局，目录需选择） |
-| 禁用 P2P 直连 | `call-p2p` | 连接方式、通话中转 | 禁用 P2P（全局） |
-
 ### QQ 空间
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
@@ -280,30 +212,7 @@
 | --- | --- | --- | --- |
 | 邮件查询间隔 | `mail-poll-interval` | 邮件查询间隔（分钟）、邮箱同步频率、邮件轮询、自动收信 | 邮箱查询间隔（全局） |
 
-## 增强功能
-
-### 增强包
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 增强包自动更新 | `enhancement-updates` |  |  |
-| 增强包管理 | `enhancement-management` |  |  |
-| 自动检查增强包更新 | `enhancement-auto-check` | 增强包更新检查 | 自动检查增强包更新（全局） |
-| 自动安装增强包更新 | `enhancement-auto-install` | 增强包自动安装 | 自动安装增强包更新（全局） |
-| 本地文字识别 | `enhancement-text` | 识别模型、筛图模型、图片识别模型、OCR 模型 |  |
-| 本地语音转写 | `enhancement-voice` | 本地语音模型、SenseVoice、ASR、语音转文字、转写 |  |
-| 本地意图与画像 | `enhancement-intent` | Laya 模型下载、画像模型下载 |  |
-| 装扮离线索引 | `enhancement-dress` | 气泡索引、字体索引、挂件索引 |  |
-
-### 识别与转写
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| QQ 在线 OCR | `ocr-online` | 文字识别 |  |
-| 识别并发 | `ocr-online-concurrency` |  | 识别并发（全局） |
-| 转录并发 | `voice-online-concurrency` |  | 转录并发（全局） |
-| OCR 前先筛图 | `ocr-prefilter-enabled` | 筛图开关、自动 OCR 筛图 | OCR 前先筛图（全局） |
-| OCR 时自动获取原图 | `ocr-auto-download-original` | 识别原图、OCR 下载原图 | OCR 时自动获取原图（全局） |
+## AI
 
 ### API 配置
 
@@ -407,7 +316,7 @@
 | 运行中默认发送方式 | `weq-assistant-send-mode` |  |  |
 | 图片处理偏好 | `ai-images-assistant` |  | 图片处理偏好（全局） |
 
-## 凭据与数据
+## QQ
 
 ### 凭据管理
 
@@ -425,25 +334,6 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 设备标识与登录账号 | `qq-accounts` | QQ 登录记录管理、QQ 账号管理、设备 GUID、登录记录、登录账号列表、登录记录与设备标识 |  |
-
-### 资源加载
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
-| 完整消息预热内存预算 | `chat-message-prewarm` | 聊天快滚、消息预热 | 完整消息预热内存预算（全局） |
-| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
-| 优先直连 QQ 加载图片 | `prefer-cdn` | 优先使用 CDN、下载加速 | 优先 CDN（全局） |
-| Remote 缺少资源时优先直取 | `prefer-remote-cdn` | Remote 缺图时优先直取、手机直接加载图片、手机 CDN | Remote 缺少资源时优先直取（全局） |
-| 预览时自动获取原图 | `auto-download-preview-original` | 自动下载原图、聊天图片预览 | 预览时自动获取原图（全局） |
-| 外部安卓图片缓存 | `external-chatpic` | 允许使用外部安卓图片缓存、Android 图片 | 外部安卓图片缓存（全局）；外部安卓图片目录（全局，目录需选择） |
-| 外部 rKey 服务器 | `external-rkey` | 外部 rKey、外部 RKEY、已导入的服务器、HTTP 服务器地址、rKey access_token | 外部 RKEY 启用目标（全局） |
-
-### 省流量模式
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 启用方式与行为 | `data-saver` | 省流量模式、低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
 
 ### QQ 资源管理
 
@@ -473,7 +363,28 @@
 | 签名器（wrapper.node） | `signer-status` |  |  |
 | QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
 
-## WeQ 服务
+## 网络
+
+### 资源加载
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
+| 完整消息预热内存预算 | `chat-message-prewarm` | 聊天快滚、消息预热 | 完整消息预热内存预算（全局） |
+| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
+| 优先直连 QQ 加载图片 | `prefer-cdn` | 优先使用 CDN、下载加速 | 优先 CDN（全局） |
+| Remote 缺少资源时优先直取 | `prefer-remote-cdn` | Remote 缺图时优先直取、手机直接加载图片、手机 CDN | Remote 缺少资源时优先直取（全局） |
+| 预览时自动获取原图 | `auto-download-preview-original` | 自动下载原图、聊天图片预览 | 预览时自动获取原图（全局） |
+| 外部安卓图片缓存 | `external-chatpic` | 允许使用外部安卓图片缓存、Android 图片 | 外部安卓图片缓存（全局）；外部安卓图片目录（全局，目录需选择） |
+| 外部 rKey 服务器 | `external-rkey` | 外部 rKey、外部 RKEY、已导入的服务器、HTTP 服务器地址、rKey access_token | 外部 RKEY 启用目标（全局） |
+
+### 省流量模式
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 启用方式与行为 | `data-saver` | 省流量模式、低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
+
+## 服务
 
 ### Web 与 Remote
 
@@ -517,16 +428,100 @@
 | QQ 公众号推送端口 | `assistant-port` | 公众号端口 |  |
 | 启用 QQ 公众号推送 | `assistant-service` | 启用 WeQ 助手、QQ 公众号推送、推送与资源服务、公众号推送 | QQ 公众号推送（全局，可能停用服务） |
 
-## 关于 WeQ
+## 应用
 
-### 版本与更新
+### 启动与退出
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 内置组件 | `builtin-components` |  |  |
-| 软件更新 | `software-update` |  |  |
-| 自动检查更新频率 | `update-check-interval` | 更新间隔、更新分钟、永不检查更新 | 自动检查更新频率（全局） |
-| 检查测试版 | `update-prerelease` | 测试版更新、Beta 更新 | 检查测试版（全局） |
+| 自启时显示窗口 | `startup-show-window` | 启动显示窗口、隐藏启动 | 自启时显示窗口（全局） |
+| 关闭窗口时 | `window-close-behavior` | 关闭按钮行为、关闭按钮、最小化到托盘、退出时停止、关闭窗口、退出应用 | 关闭窗口时（全局） |
+| 启动时进入 | `startup-page` | 上次退出时所在页面、启动后打开、默认页面、启动页面 | 启动时进入（全局） |
+| 开机自动启动 | `startup-enabled` | 开机自动启动 WeQ、自启动 | 开机自动启动（全局） |
+
+### 外观与布局
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
+| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
+| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
+| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
+| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
+| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
+| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
+
+### 主页
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
+| 个性标签 | `home-tags` | 主页标签 |  |
+| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
+| 问候语 | `home-greeting` | 主页问候 |  |
+| 一言 | `home-hitokoto` | hitokoto |  |
+| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
+
+### 通知与提醒
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 事件通知 | `notification-events` |  | 事件通知（全局） |
+| 普通群聊消息 | `notification-groupMessage` |  |  |
+| 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
+| 特别关心 | `notification-specialCare` |  | 特别关心提醒会话（当前账号） |
+| @自己 | `notification-mentionMe` |  | @自己提醒会话（当前账号） |
+| @全体成员 | `notification-mentionAll` |  | @全体成员提醒会话（当前账号） |
+| 群友回复 | `notification-replyMe` |  | 群友回复提醒会话（当前账号） |
+| 红包消息 | `notification-redPacket` |  | 红包消息提醒会话（当前账号） |
+| 群关键词 | `notification-keyword` |  | 群关键词提醒会话（当前账号） |
+| 联系人与群通知 | `notification-contact` |  |  |
+| 任务或操作进行中 | `notification-progress` |  |  |
+| 后台任务完成 | `notification-taskComplete` |  |  |
+| 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
+| 发现新版本或增强包更新 | `notification-update` |  |  |
+| 重要官方公告 | `notification-officialAnnouncement` |  |  |
+| 连接中断或恢复 | `notification-connection` |  |  |
+| 有请求等待处理 | `notification-request` |  |  |
+| 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
+| 操作成功与普通提示 | `notification-success` |  |  |
+| 操作失败或结果未确认 | `notification-failure` |  |  |
+| 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
+| 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
+| 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
+| 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
+| 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
+| 功能受限或运行异常 | `restricted-mode-banner` | 在线能力受限时通知、在线能力受限时横幅提醒、受限横幅 |  |
+| 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
+| 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
+| 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
+
+### 未读角标
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
+| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
+| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
+| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
+| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
+| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
+| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
+| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
+| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
+| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
+| 未读角标 | `notification-badges` | 红点与未读标记 |  |
+
+### 隐私
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| WeQ 验证器 | `totp-authenticator` | 绑定验证器、TOTP |  |
+| 启用应用锁 | `app-lock` | 应用锁、锁屏、隐私锁 | 启用应用锁（全局） |
+| 解锁方式 | `unlock-method` | Touch ID、Windows Hello、验证器 | 解锁方式（全局） |
+| 空闲自动锁定 | `auto-lock` | 无操作自动上锁 | 自动锁定分钟（全局） |
+| 隐私模式 | `privacy-mode` | 隐藏个人信息 | 隐私模式（全局） |
+| 在菜单中截图瞬间临时启用隐私模式 | `privacy-menu-capture` | 截图隐私 | 截图临时隐私模式（全局） |
 
 ### WeQ 存储管理
 
@@ -556,6 +551,17 @@
 | 日志保留时长 | `log-retention` |  | 日志保留天数（全局） |
 | 日志文件夹 | `log-folder` |  |  |
 | 原生调试日志 | `native-debug-log` | 底层调试、调试模式 | 原生调试日志（此设备） |
+
+## 关于
+
+### 版本与更新
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 内置组件 | `builtin-components` |  |  |
+| 软件更新 | `software-update` |  |  |
+| 自动检查更新频率 | `update-check-interval` | 更新间隔、更新分钟、永不检查更新 | 自动检查更新频率（全局） |
+| 检查测试版 | `update-prerelease` | 测试版更新、Beta 更新 | 检查测试版（全局） |
 
 ### 常见问题
 

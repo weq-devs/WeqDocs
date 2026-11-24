@@ -212,51 +212,51 @@
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
 | 设置 · [说明](./settings.md) | `settings.workspace` | 桌面、Web、Remote | 主导航；手机更多 | — |
-| 联系人名片 | `settings.page.contact-card` | 桌面、Web、Remote | 设置 / 基础功能 / 联系人名片 | — |
-| 外观与布局 | `settings.page.appearance` | 桌面、Web、Remote | 设置 / 常规 / 外观与布局 | — |
-| 通知与提醒 | `settings.page.global` | 桌面、Web、Remote | 设置 / 常规 / 通知与提醒 | — |
-| 未读角标 | `settings.page.notification-badges` | 桌面、Web、Remote | 设置 / 常规 / 未读角标 | — |
-| 启动与退出 | `settings.page.startup` | 桌面、Web、Remote | 设置 / 常规 / 启动与退出 | — |
-| 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 常规 / 主页 | — |
-| WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 关于 WeQ / WeQ 存储管理 | — |
-| 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 基础功能 / 会话列表 | — |
-| 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 基础功能 / 会话浏览 | — |
-| 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 基础功能 / 消息显示 | — |
-| 消息输入与回复 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 基础功能 / 消息输入与回复 | — |
-| 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 基础功能 / 防撤回 | — |
-| 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 基础功能 / 通话与录音 | — |
-| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / 基础功能 / QQ 空间 | — |
-| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / 基础功能 / QQ 邮箱 | — |
-| API 配置 | `settings.page.agentlab` | 桌面、Web、Remote | 设置 / 增强功能 / API 配置 | — |
-| API 用量 | `settings.page.model-usage` | 桌面、Web、Remote | 设置 / 增强功能 / API 用量 | — |
-| 意图感知 | `settings.page.intent-sense` | 桌面、Web、Remote | 设置 / 增强功能 / 意图感知 | — |
-| 互动画像 | `settings.page.interaction-profile` | 桌面、Web、Remote | 设置 / 增强功能 / 互动画像 | — |
-| WeQ 助手 | `settings.page.weq-assistant` | 桌面、Web、Remote | 设置 / 增强功能 / WeQ 助手 | — |
-| 推荐回复 | `settings.page.reply-suggestions` | 桌面、Web、Remote | 设置 / 增强功能 / 推荐回复 | — |
-| 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 增强功能 / 增强包 | — |
-| 识别与转写 · 配置图中文字识别、语音转写及相关模型。 · [说明](./settings.md) · [说明 2](./voice-transcribe.md) | `settings.page.recognition` | 桌面、Web、Remote | 设置 / 增强功能 / 识别与转写 | `get_ocr_status`、`ocr_image_text` |
-| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / 常规 / QQ 在线能力 | — |
-| QQ 代理连接 | `settings.page.qq-proxy` | 桌面、Web、Remote | 设置 / 常规 / QQ 代理连接 | — |
-| 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 常规 / 长期授权 | — |
-| 凭据管理 | `settings.page.credentials` | 桌面、Web、Remote | 设置 / 凭据与数据 / 凭据管理 | — |
-| QQ 登录管理 | `settings.page.qq-accounts` | 桌面、Web | 设置 / 凭据与数据 / QQ 登录管理 | — |
-| WeQ 账号管理 · 查看和切换已配置的 QQ 账号与数据源。 · [说明](./settings.md) | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 关于 WeQ / WeQ 账号管理 | `list_accounts`、`switch_account` |
-| QQ 高级工具 | `settings.page.diagnostics` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 高级工具 | — |
-| QQ 数据库管理 · 设置 QQ 数据库的监听与读取，查看体检和修复入口，浏览或导出数据库。 · [说明](./settings.md) · [说明 2](./database-view.md) | `settings.page.database-management` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 数据库管理 | — |
-| QQ 资源管理 | `settings.page.qq-storage` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 资源管理 | — |
-| 资源加载 | `settings.page.resource-loading` | 桌面、Web、Remote | 设置 / 凭据与数据 / 资源加载 | — |
-| 省流量模式 | `settings.page.data-saver` | 桌面、Web、Remote | 设置 / 凭据与数据 / 省流量模式 | — |
-| Web 与 Remote · 查看本机浏览器访问地址，配对手机和管理已配对设备。 · [说明](./remote-web.md) | `settings.page.remote` | 桌面、Web、Remote | 设置 / WeQ 服务 / Web 与 Remote | — |
-| MCP 服务器 · 启停 MCP 服务器，查看连接信息或安装到本机 AI 客户端。 · [说明](./mcp-server.md) | `settings.page.mcp` | 桌面、Web、Remote | 设置 / WeQ 服务 / MCP 服务器 | `list_features`、`get_feature`、`list_settings` |
-| OneBot · 管理当前 QQ 账号的 OneBot 运行状态和网络连接，可接入 cc-connect。 · [说明](./onebot-cc-connect.md) | `settings.page.onebot` | 桌面、Web、Remote | 设置 / WeQ 服务 / OneBot | — |
-| SSE 推送 · 管理消息事件推送目标，并设置推送防抖和大量消息阈值。 · [说明](./settings.md) | `settings.page.sse` | 桌面、Web、Remote | 设置 / WeQ 服务 / SSE 推送 | — |
-| QQ 公众号推送 · 配置 QQ 公众号推送及资源服务，WeQ 运行期间提供资源。 · [说明](./settings.md) | `settings.page.assistant` | 桌面、Web、Remote | 设置 / WeQ 服务 / QQ 公众号推送 | — |
-| 隐私 | `settings.page.privacy` | 桌面、Web、Remote | 设置 / 常规 / 隐私 | — |
-| 配置备份与恢复 · 导出 WeQ 配置备份，或从备份文件导入。 · [说明](./settings.md) | `settings.page.backup` | 桌面、Web、Remote | 设置 / 关于 WeQ / 配置备份与恢复 | — |
-| 版本与更新 · 查看版本和内置组件，管理桌面端的更新检查和安装。 · [说明](./settings.md) | `settings.page.version` | 桌面、Web、Remote | 设置 / 关于 WeQ / 版本与更新 | — |
-| 常见问题 | `settings.page.faq` | 桌面、Web、Remote | 设置 / 关于 WeQ / 常见问题 | — |
-| 日志与性能 · 查看应用日志和性能记录，设置历史保留方式。 · [说明](./performance-monitor.md) | `settings.page.logs` | 桌面、Web、Remote | 设置 / 关于 WeQ / 日志与性能 | — |
-| 反馈 | `settings.page.feedback` | 桌面、Web、Remote | 设置 / 关于 WeQ / 反馈 | — |
+| 联系人名片 | `settings.page.contact-card` | 桌面、Web、Remote | 设置 / 更多 / 联系人名片 | — |
+| 外观与布局 | `settings.page.appearance` | 桌面、Web、Remote | 设置 / 应用 / 外观与布局 | — |
+| 通知与提醒 | `settings.page.global` | 桌面、Web、Remote | 设置 / 应用 / 通知与提醒 | — |
+| 未读角标 | `settings.page.notification-badges` | 桌面、Web、Remote | 设置 / 应用 / 未读角标 | — |
+| 启动与退出 | `settings.page.startup` | 桌面、Web、Remote | 设置 / 应用 / 启动与退出 | — |
+| 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 应用 / 主页 | — |
+| WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 应用 / WeQ 存储管理 | — |
+| 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 聊天 / 会话列表 | — |
+| 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 聊天 / 会话浏览 | — |
+| 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 聊天 / 消息显示 | — |
+| 消息输入与回复 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息输入与回复 | — |
+| 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 聊天 / 防撤回 | — |
+| 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 聊天 / 通话与录音 | — |
+| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / 更多 / QQ 空间 | — |
+| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / 更多 / QQ 邮箱 | — |
+| API 配置 | `settings.page.agentlab` | 桌面、Web、Remote | 设置 / AI / API 配置 | — |
+| API 用量 | `settings.page.model-usage` | 桌面、Web、Remote | 设置 / AI / API 用量 | — |
+| 意图感知 | `settings.page.intent-sense` | 桌面、Web、Remote | 设置 / AI / 意图感知 | — |
+| 互动画像 | `settings.page.interaction-profile` | 桌面、Web、Remote | 设置 / AI / 互动画像 | — |
+| WeQ 助手 | `settings.page.weq-assistant` | 桌面、Web、Remote | 设置 / AI / WeQ 助手 | — |
+| 推荐回复 | `settings.page.reply-suggestions` | 桌面、Web、Remote | 设置 / AI / 推荐回复 | — |
+| 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 能力 / 增强包 | — |
+| 识别与转写 · 配置图中文字识别、语音转写及相关模型。 · [说明](./settings.md) · [说明 2](./voice-transcribe.md) | `settings.page.recognition` | 桌面、Web、Remote | 设置 / 聊天 / 识别与转写 | `get_ocr_status`、`ocr_image_text` |
+| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / 能力 / QQ 在线能力 | — |
+| QQ 代理连接 | `settings.page.qq-proxy` | 桌面、Web、Remote | 设置 / 能力 / QQ 代理连接 | — |
+| 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 能力 / 长期授权 | — |
+| 凭据管理 | `settings.page.credentials` | 桌面、Web、Remote | 设置 / QQ / 凭据管理 | — |
+| QQ 登录管理 | `settings.page.qq-accounts` | 桌面、Web | 设置 / QQ / QQ 登录管理 | — |
+| WeQ 账号管理 · 查看和切换已配置的 QQ 账号与数据源。 · [说明](./settings.md) | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 应用 / WeQ 账号管理 | `list_accounts`、`switch_account` |
+| QQ 高级工具 | `settings.page.diagnostics` | 桌面、Web、Remote | 设置 / QQ / QQ 高级工具 | — |
+| QQ 数据库管理 · 设置 QQ 数据库的监听与读取，查看体检和修复入口，浏览或导出数据库。 · [说明](./settings.md) · [说明 2](./database-view.md) | `settings.page.database-management` | 桌面、Web、Remote | 设置 / QQ / QQ 数据库管理 | — |
+| QQ 资源管理 | `settings.page.qq-storage` | 桌面、Web、Remote | 设置 / QQ / QQ 资源管理 | — |
+| 资源加载 | `settings.page.resource-loading` | 桌面、Web、Remote | 设置 / 网络 / 资源加载 | — |
+| 省流量模式 | `settings.page.data-saver` | 桌面、Web、Remote | 设置 / 网络 / 省流量模式 | — |
+| Web 与 Remote · 查看本机浏览器访问地址，配对手机和管理已配对设备。 · [说明](./remote-web.md) | `settings.page.remote` | 桌面、Web、Remote | 设置 / 服务 / Web 与 Remote | — |
+| MCP 服务器 · 启停 MCP 服务器，查看连接信息或安装到本机 AI 客户端。 · [说明](./mcp-server.md) | `settings.page.mcp` | 桌面、Web、Remote | 设置 / 服务 / MCP 服务器 | `list_features`、`get_feature`、`list_settings` |
+| OneBot · 管理当前 QQ 账号的 OneBot 运行状态和网络连接，可接入 cc-connect。 · [说明](./onebot-cc-connect.md) | `settings.page.onebot` | 桌面、Web、Remote | 设置 / 服务 / OneBot | — |
+| SSE 推送 · 管理消息事件推送目标，并设置推送防抖和大量消息阈值。 · [说明](./settings.md) | `settings.page.sse` | 桌面、Web、Remote | 设置 / 服务 / SSE 推送 | — |
+| QQ 公众号推送 · 配置 QQ 公众号推送及资源服务，WeQ 运行期间提供资源。 · [说明](./settings.md) | `settings.page.assistant` | 桌面、Web、Remote | 设置 / 服务 / QQ 公众号推送 | — |
+| 隐私 | `settings.page.privacy` | 桌面、Web、Remote | 设置 / 应用 / 隐私 | — |
+| 配置备份与恢复 · 导出 WeQ 配置备份，或从备份文件导入。 · [说明](./settings.md) | `settings.page.backup` | 桌面、Web、Remote | 设置 / 应用 / 配置备份与恢复 | — |
+| 版本与更新 · 查看版本和内置组件，管理桌面端的更新检查和安装。 · [说明](./settings.md) | `settings.page.version` | 桌面、Web、Remote | 设置 / 关于 / 版本与更新 | — |
+| 常见问题 | `settings.page.faq` | 桌面、Web、Remote | 设置 / 关于 / 常见问题 | — |
+| 日志与性能 · 查看应用日志和性能记录，设置历史保留方式。 · [说明](./performance-monitor.md) | `settings.page.logs` | 桌面、Web、Remote | 设置 / 应用 / 日志与性能 | — |
+| 反馈 | `settings.page.feedback` | 桌面、Web、Remote | 设置 / 关于 / 反馈 | — |
 
 ## 维护与诊断
 
