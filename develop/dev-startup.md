@@ -55,7 +55,7 @@ Remote 连接打包开发页时，圆环按当前构建的入口及静态 JS/CSS
 
 ## 基础环境
 
-- Node.js 至少 22.12.0，pnpm 使用根清单锁定的版本。
+- 使用 Node.js 24 LTS（最低 24），pnpm 使用根清单锁定的版本。
 - 首次或网络助手源码变化时需要 Go，版本遵循仓库 `tools/remote-network/go.mod`。
 - 默认使用发布版 native，不要求 Rust 或 native 私有仓访问。本地源码模式需要对应平台的 Rust/Cargo、系统编译依赖及完整 native 源码和装扮原始输入。
 

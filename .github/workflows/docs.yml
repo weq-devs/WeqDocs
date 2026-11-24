@@ -27,13 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           # VitePress 的 lastUpdated 读 git 历史；浅克隆会让所有页面显示成当天。
           fetch-depth: 0
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v5
         with:
           # 显式指定版本，而不是靠 package.json 的 packageManager —— 那个字段会让
           # pnpm 把整个二进制写进 lockfile（packageManagerDependencies），对
@@ -41,9 +41,9 @@ jobs:
           version: 12.8.1
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
           cache: pnpm
 
       - name: Install dependencies
@@ -78,7 +78,7 @@ jobs:
         run: pnpm build
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: docs-site
           path: .vitepress/dist
@@ -86,7 +86,7 @@ jobs:
 
       - name: Upload Pages artifact
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: .vitepress/dist
 
@@ -109,4 +109,4 @@ jobs:
       cancel-in-progress: false
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

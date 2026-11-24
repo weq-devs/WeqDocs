@@ -28,7 +28,7 @@
 
 账号路径保持 `contacts/<configId>/<uin>/`，新增 `history.sqlite`。SQLite 在独立 worker 运行，使用 Node 自带模块；无需安装额外数据库原生扩展或重编 nt_helper。
 
-兼容最低 Node 22.12 时，仅为该 worker 启用 `--experimental-sqlite`，且不使用当时尚不存在的 `StatementSync.iterate()`；读取采用有界 SQL 分页。依据为 [Node 22.12 SQLite 官方接口](https://nodejs.org/download/release/v22.12.0/docs/api/sqlite.html)。
+Node.js 24 的 SQLite 模块无需额外启动参数。读取采用有界 SQL 分页。
 
 - `content` 保存按规范化内容计算 SHA-256 的数据。数组条目分别去重，根内容保存顺序引用；Brotli 压缩仅在更小时采用，压缩和数据库操作不占主线程。
 - `versions` 保存实体、类别、来源、分页范围、完整性、首次与最近观察时间、原始内容和有效资料的引用。部分字段在有效资料中按字段补全，明确 `null` 仍表示清空；原始部分回包单独保留。

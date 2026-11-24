@@ -14,6 +14,8 @@
 
 ## 本地预览
 
+使用 Node.js 24 LTS（最低 24）。
+
 ```bash
 pnpm install
 pnpm dev      # http://127.0.0.1:5174
