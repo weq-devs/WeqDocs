@@ -136,7 +136,11 @@
 | 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
 | 完整消息预热内存预算 | `chat-message-prewarm` | 聊天快滚、消息预热 | 完整消息预热内存预算（全局） |
 | 定位到上次阅读的位置 | `read-first-unread` | 续读、第一条未读、从第一条新消息开始阅读 | 定位到上次阅读的位置（全局） |
-| 显示跳转到上次阅读位置按钮 | `show-reading-position-button` | 手动续读 | 显示跳转到上次阅读位置按钮（全局） |
+| 上次阅读位置跳转 | `show-reading-position-button` | 显示跳转到上次阅读位置按钮、手动续读 | 上次阅读位置跳转（全局） |
+| 合并跳转按钮 | `merge-chat-jump-buttons` | 聊天跳转按钮、合并显示 | 合并跳转按钮（全局） |
+| 首条未读跳转 | `first-unread-jump-mode` |  | 首条未读跳转（全局） |
+| 重要消息跳转 | `important-jump-mode` |  | 重要消息跳转（全局） |
+| 合并后的跳转按钮 | `combined-chat-jump-mode` |  | 合并后的跳转按钮（全局） |
 | 保留尚未读到的消息的未读计数 | `preserve-unread-until-read` | 保留未读、按阅读进度标为已读 | 保留尚未读到的消息的未读计数（全局） |
 | 显示未读分界线 | `unread-divider` | 以下为未读消息、未读起点 | 显示未读分界线（全局） |
 | 触屏左滑引用 | `swipe-to-quote` | 滑动回复、左滑回复 | 触屏左滑引用（全局） |
