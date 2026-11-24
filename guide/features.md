@@ -220,8 +220,8 @@
 | 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 常规 / 主页 | — |
 | WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 关于 WeQ / WeQ 存储管理 | — |
 | 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 基础功能 / 会话列表 | — |
-| 消息阅读 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 基础功能 / 消息阅读 | — |
-| 内容显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 基础功能 / 内容显示 | — |
+| 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 基础功能 / 会话浏览 | — |
+| 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 基础功能 / 消息显示 | — |
 | 消息输入与回复 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 基础功能 / 消息输入与回复 | — |
 | 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 基础功能 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 基础功能 / 通话与录音 | — |
