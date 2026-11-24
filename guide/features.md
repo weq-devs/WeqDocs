@@ -235,7 +235,9 @@
 | 推荐回复 | `settings.page.reply-suggestions` | 桌面、Web、Remote | 设置 / 增强功能 / 推荐回复 | — |
 | 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 增强功能 / 增强包 | — |
 | 识别与转写 · 配置图中文字识别、语音转写及相关模型。 · [说明](./settings.md) · [说明 2](./voice-transcribe.md) | `settings.page.recognition` | 桌面、Web、Remote | 设置 / 增强功能 / 识别与转写 | `get_ocr_status`、`ocr_image_text` |
-| 在线能力与授权 | `settings.page.account` | 桌面、Web、Remote | 设置 / 常规 / 在线能力与授权 | — |
+| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / 常规 / QQ 在线能力 | — |
+| QQ 代理连接 | `settings.page.qq-proxy` | 桌面、Web、Remote | 设置 / 常规 / QQ 代理连接 | — |
+| 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 常规 / 长期授权 | — |
 | 凭据管理 | `settings.page.credentials` | 桌面、Web、Remote | 设置 / 凭据与数据 / 凭据管理 | — |
 | QQ 设备标识与登录账号 | `settings.page.qq-accounts` | 桌面、Web | 设置 / 凭据与数据 / QQ 设备标识与登录账号 | — |
 | WeQ 账号管理 · 查看和切换已配置的 QQ 账号与数据源。 · [说明](./settings.md) | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 关于 WeQ / WeQ 账号管理 | `list_accounts`、`switch_account` |
