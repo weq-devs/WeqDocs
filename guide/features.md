@@ -239,7 +239,7 @@
 | QQ 代理连接 | `settings.page.qq-proxy` | 桌面、Web、Remote | 设置 / 常规 / QQ 代理连接 | — |
 | 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 常规 / 长期授权 | — |
 | 凭据管理 | `settings.page.credentials` | 桌面、Web、Remote | 设置 / 凭据与数据 / 凭据管理 | — |
-| QQ 设备标识与登录账号 | `settings.page.qq-accounts` | 桌面、Web | 设置 / 凭据与数据 / QQ 设备标识与登录账号 | — |
+| QQ 登录管理 | `settings.page.qq-accounts` | 桌面、Web | 设置 / 凭据与数据 / QQ 登录管理 | — |
 | WeQ 账号管理 · 查看和切换已配置的 QQ 账号与数据源。 · [说明](./settings.md) | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 关于 WeQ / WeQ 账号管理 | `list_accounts`、`switch_account` |
 | QQ 高级工具 | `settings.page.diagnostics` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 高级工具 | — |
 | QQ 数据库管理 · 设置 QQ 数据库的监听与读取，查看体检和修复入口，浏览或导出数据库。 · [说明](./settings.md) · [说明 2](./database-view.md) | `settings.page.database-management` | 桌面、Web、Remote | 设置 / 凭据与数据 / QQ 数据库管理 | — |
