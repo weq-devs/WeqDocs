@@ -63,6 +63,8 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 `get_messages`、`get_dataline_messages` 和 `get_guild_direct_messages` 翻页时，把上一页的 `nextBefore` 原样传给 `before`。游标是字符串，不是消息序号；它可以在同序号的多条消息之间续读。旧的数字序号游标仍可使用，但按原来的序号范围查询。
 
+`get_message_details` 在 `includePayload: true` 时可回查回复引用。若在同一会话的本地记录中唯一定位到原消息，回复元素的 `payload.original` 返回 `msgId`、`msgSeq`、`sendTime`（Unix 秒），均为字符串。用同一个 `kind`、`conv` 和 `original.msgId` 读取原消息；`payload.origMsgId` 是 QQ 的引用字段，不能当作消息主键。没有 `original` 时，`quoteText` 只是引文预览，不会联网补拉。
+
 ## 5. 功能目录
 
 使用 `list_features` 按关键词、领域或类别搜索，再用 `get_feature` 查询某个稳定 ID。
