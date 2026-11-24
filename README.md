@@ -39,10 +39,12 @@ pnpm build    # 先 check 再构建，产物在 .vitepress/dist
 
 ## 这个仓库与主仓的关系
 
-它是 WeQ 的 `docs/` 目录（submodule）。改文档时：
+WeqDocs 是 WeQ 主仓的 `docs/` 子模块。无论从主仓的 `docs/` 还是独立检出编辑，都需要两个 Git 提交。
 
-- 直接在主仓的 `docs/` 里改，提交会同时更新 submodule 指针；
-- 或者在本仓库单独提交，再回主仓提交指针更新。
+1. 在 WeqDocs 仓库提交文档改动。
+2. 回到 WeQ 主仓，暂存 `docs/` 并提交子模块指针。暂存前核对 `docs/` 指向第一步的提交。
+
+对外推送主仓指针前，先确认它指向的提交能从 WeqDocs 远端取得。
 
 跨目录引用（源码、`CONTRIBUTING.md`、`CHANGELOG.md`）一律写 GitHub 绝对 URL ——
 `check-docs.mjs` 会检查这一点，因为相对路径在独立 checkout 下必然 404。
