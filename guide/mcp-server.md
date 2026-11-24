@@ -63,6 +63,10 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 `get_messages`、`get_dataline_messages` 和 `get_guild_direct_messages` 翻页时，把上一页的 `nextBefore` 原样传给 `before`。游标是字符串，不是消息序号；它可以在同序号的多条消息之间续读。旧的数字序号游标仍可使用，但按原来的序号范围查询。
 
+`get_messages` 在 `includeIds: true` 时附带 `elementCount` 与存在的 `deletedKind`、`recall` 标记。群消息原生 `@全体` 以 `mentionAll` 标出，`only` 表示除了全体提醒、空白文本和回复引用之外没有其他元素，`with_content` 表示同时有其他内容；键入同样的字样不生成该字段。`get_message_details` 也返回 `mentionAll`。
+
+`get_chat_image_file` 用 `kind`、`conv`、`msgId`、`imageIndex`（从 0 数图片元素）读取本机图片路径。缺少原图时沿 WeQ 已配置的下载链路尝试补图，失败可返回已缓存的缩略图。`variant` 区分 `original` 与 `thumbnail`，找不到返回 `found: false`。路径在 WeQ 主机上；该工具不调用 OCR 或视觉模型。
+
 `get_message_details` 在 `includePayload: true` 时可回查回复引用。若在同一会话的本地记录中唯一定位到原消息，回复元素的 `payload.original` 返回 `msgId`、`msgSeq`、`sendTime`（Unix 秒），均为字符串。用同一个 `kind`、`conv` 和 `original.msgId` 读取原消息；`payload.origMsgId` 是 QQ 的引用字段，不能当作消息主键。没有 `original` 时，`quoteText` 只是引文预览，不会联网补拉。
 
 ## 5. 功能目录
