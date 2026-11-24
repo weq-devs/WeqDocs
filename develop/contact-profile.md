@@ -73,6 +73,8 @@ UID 仅在开启该字段时进入身份区。`styles/contact-workspace.css` 承
 
 浏览器回归入口为 `apps/desktop/test/browser/run-contact-card.mjs`。通过 `WEQ_PLAYWRIGHT_IMPORT`、`WEQ_BROWSER_EXECUTABLE` 复用已有浏览器；`WEQ_CONTACT_CARD_QA` 指定截图和查询记录目录。脚本使用合成资料，禁止外网请求，退出时关闭自身浏览器和 Vite 服务。`WEQ_CONTACT_CARD_BASELINE=1` 可加载重构前的名片组件作同夹具对照。
 
+传 `--gestures` 只检查名片单双击、触屏横竖屏快捷操作和淡入淡出，使用 Playwright 安装的 Chromium 和 WebKit，不发送真实「戳一戳」。
+
 浏览器记录用于核对真实首帧、冷开与缓存复用、可选查询及响应式布局，不等同于真实 QQ 网络耗时或长期性能验收。
 
 四页资料工作区回归入口为 `apps/desktop/test/browser/run-contact-workspace.mjs`，沿用相同浏览器环境变量，以 `WEQ_CONTACT_WORKSPACE_QA` 指定截图和检查记录目录；覆盖教育／共同群／项目历史旁侧弹窗、QQ 秀顺序与对齐、紧凑标识、常驻画像、切群及所选群发言、四种宽度与深浅主题。模型与页内测试为 `contact_workspace_model.test.ts`、`contact_workspace_sections.test.ts`、`contact_field_history_ui.test.ts`；项目历史 worker 回归在 service 的 `contact_field_history.test.ts`，原始留存回归在 `contact_history.test.ts`。
