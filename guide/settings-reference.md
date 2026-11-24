@@ -408,6 +408,12 @@
 | 密钥扫描 | `key-scan` |  |  |
 | 其他设备密钥 | `other-device-key` | 其它设备密钥 |  |
 
+### QQ 登录记录与设备标识
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 登录记录与设备标识 | `qq-accounts` | QQ 登录记录管理、QQ 账号管理、设备 GUID、登录记录 |  |
+
 ### 资源加载
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
@@ -454,7 +460,6 @@
 | 记录 UDP 流量 | `call-udp-trace` | udp 抓包、pcapng、通话抓包 | 记录 UDP 流量（全局） |
 | 签名器（wrapper.node） | `signer-status` |  |  |
 | QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
-| 登录记录与设备标识 | `qq-accounts` | QQ 登录记录管理、QQ 账号管理、设备 GUID、登录记录 |  |
 
 ## WeQ 服务
 
