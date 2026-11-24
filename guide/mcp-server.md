@@ -61,6 +61,8 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 额外返回匿名请求编号、查询指纹、源码调用点和在途关联。
 逐查询记录有界且只保留在内存，不包含正文、SQL、参数或账号/会话标识。
 
+`get_messages`、`get_dataline_messages` 和 `get_guild_direct_messages` 翻页时，把上一页的 `nextBefore` 原样传给 `before`。游标是字符串，不是消息序号；它可以在同序号的多条消息之间续读。旧的数字序号游标仍可使用，但按原来的序号范围查询。
+
 ## 5. 功能目录
 
 使用 `list_features` 按关键词、领域或类别搜索，再用 `get_feature` 查询某个稳定 ID。
