@@ -22,12 +22,16 @@
 
 `settings_registry.test.ts` 检查 ID 唯一性、字段绑定、页面归属、默认值来源与全局恢复策略。桌面恢复测试逐页检查登记的全局字段都有真实适配器；搜索覆盖测试从实际控件读取标签或注册身份，避免目录与测试同时漏抄同一项。
 
-## MCP
+## 功能目录与工具
 
-[功能参考](../guide/features.md)与设置项参考各自由源码生成。
+[功能参考和工具索引](../guide/features.md)由 [feature_catalog](https://github.com/weq-devs/WeQ/tree/dev/packages/service/src/common/feature_catalog)、搜索和导航绑定、助手工具及 MCP 注册规则生成。设置定义继续由设置注册表提供。
 标注已有教程时，在相应操作之前放置 `<a id="feature-稳定ID"></a>`，
 然后在功能定义中引用此锚点。既有教程标题可以独立调整。
+
+登记 `navigation: 'search'` 时同时绑定真实的搜索入口，点击后打开页面或选择器。
+仅在特定会话、群或内容中出现的操作使用 `navigation: 'context'`，并登记所需对象。
+新增工具应关联可以解释它的功能 ID，并沿用各调用面的注册规则。
 更改目录、导航、关联工具或教程后，在 WeQ 主仓根目录运行 `pnpm features:docs`。
-提交文档前可用 `pnpm features:docs:check` 核对引用与生成结果。设置页继续用 `pnpm settings:docs` 更新。
+提交文档前可用 `pnpm features:docs:check` 核对工具关联、可链接的真实入口、教程锚点与生成结果。设置页继续用 `pnpm settings:docs` 更新。
 
 `list_settings` 直接使用注册表的公开枚举，支持按 `page`、`query` 筛选，返回稳定 ID、路径、别名、恢复字段和作用域。不返回当前设置、凭据或账号内容，也不提供泛化配置写入。各项业务操作仍使用原有接口。

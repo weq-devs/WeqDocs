@@ -85,7 +85,7 @@ curl -H 'Authorization: Bearer <令牌>' \
 
 ## 支持的 action
 
-完整列表见动作列表（按域分组）。常用的：
+完整列表见 [WeqBot 动作参考](https://weq-devs.github.io/WeqBotDocs/onebot/actions.html)。常用的：
 
 - **消息**：`send_msg` / `send_private_msg` / `send_group_msg`、撤回、已读上报、
   `get_msg`、历史消息、合并转发（发与收）、自定义表情。
@@ -98,6 +98,10 @@ curl -H 'Authorization: Bearer <令牌>' \
 
 未实现或明确不做：本地媒体缓存类（`get_image` / `get_record`，WeqBot 不建本地
 存储）、依赖服务端临时目录的下载流、凭据类（`get_cookies` 等默认关）。
+
+## 用 MCP 按需调用
+
+已在 WeQ 启用 OneBot 的在线账号，可以从 [WeQ MCP](./mcp-server.md#按需查询和调用) 选择 `source: "onebot"`，按领域查看实际注册的动作。使用桌面 MCP 的账号授权，读写能力按令牌与账号子项生效。动作索引仅在按需查询时展开。
 
 ## 排障
 
