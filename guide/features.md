@@ -215,11 +215,15 @@
 | 联系人名片 | `settings.page.contact-card` | 桌面、Web、Remote | 设置 / 基础功能 / 联系人名片 | — |
 | 外观与布局 | `settings.page.appearance` | 桌面、Web、Remote | 设置 / 常规 / 外观与布局 | — |
 | 通知与提醒 | `settings.page.global` | 桌面、Web、Remote | 设置 / 常规 / 通知与提醒 | — |
+| 未读角标 | `settings.page.notification-badges` | 桌面、Web、Remote | 设置 / 常规 / 未读角标 | — |
 | 启动与退出 | `settings.page.startup` | 桌面、Web、Remote | 设置 / 常规 / 启动与退出 | — |
+| 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 常规 / 主页 | — |
 | WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 关于 WeQ / WeQ 存储管理 | — |
 | 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 基础功能 / 会话列表 | — |
 | 消息阅读 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 基础功能 / 消息阅读 | — |
-| 互动与防撤回 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 基础功能 / 互动与防撤回 | — |
+| 内容显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 基础功能 / 内容显示 | — |
+| 消息输入与回复 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 基础功能 / 消息输入与回复 | — |
+| 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 基础功能 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 基础功能 / 通话与录音 | — |
 | QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / 基础功能 / QQ 空间 | — |
 | QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / 基础功能 / QQ 邮箱 | — |
