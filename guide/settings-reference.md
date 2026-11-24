@@ -272,6 +272,7 @@
 | 识别并发 | `ocr-online-concurrency` |  | 识别并发（全局） |
 | 转录并发 | `voice-online-concurrency` |  | 转录并发（全局） |
 | OCR 前先筛图 | `ocr-prefilter-enabled` | 筛图开关、自动 OCR 筛图 | OCR 前先筛图（全局） |
+| OCR 时自动获取原图 | `ocr-auto-download-original` | 识别原图、OCR 下载原图 | OCR 时自动获取原图（全局） |
 
 ### API 配置
 
