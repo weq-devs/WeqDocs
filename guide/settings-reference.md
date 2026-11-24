@@ -38,13 +38,13 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 基础模式 | `theme-mode` | 浅色模式、深色模式、暗色模式、跟随系统 | 基础模式（全局） |
+| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
+| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
 | 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
 | 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
 | 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
 | 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
 | 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
-| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
 
 ### 主页
 
