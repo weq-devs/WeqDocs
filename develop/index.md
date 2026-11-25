@@ -47,6 +47,7 @@ pnpm dev           # 自动补齐依赖、native 和必要构建后启动
 - [原生二进制与装扮资源的分发](native-artifacts.md) — `pnpm native:fetch`、发布链路、历史清洗记录
 - [一行命令开发启动](dev-startup.md) — 自动补依赖、构建与启动，发布版／本地 native 来源配置
 - [测试约定](testing.md) — `@weq/testkit`
+- [发布说明与更新日志](https://github.com/weq-devs/WeQ/blob/dev/CONTRIBUTING.md#更新日志) — 测试版累计正文、正式版归档与比较基线。
 - [WeQ 存储管理](storage-management.md)：统计范围、嵌套目录去重、只读数据与缓存清理白名单。
 - [图文 Ark 卡片发送](ark-send.md) — OIDB 0xdc2_34 的下发结果解析，以及 PC/Linux 端的已知实现缺口
 - [推荐联系人 / 推荐群卡片](contact-ark.md) — 0x12b6_0 / 0x8b7_5 取卡 + PbSendMsg 直接发送（两步合一）
