@@ -45,6 +45,109 @@
 | 本地意图与画像 | `enhancement-intent` | Laya 模型下载、画像模型下载 |  |
 | 装扮离线索引 | `enhancement-dress` | 气泡索引、字体索引、挂件索引 |  |
 
+## 通用
+
+### 启动与退出
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 自启时显示窗口 | `startup-show-window` | 启动显示窗口、隐藏启动 | 自启时显示窗口（全局） |
+| 关闭窗口时 | `window-close-behavior` | 关闭按钮行为、关闭按钮、最小化到托盘、退出时停止、关闭窗口、退出应用 | 关闭窗口时（全局） |
+| 启动时进入 | `startup-page` | 上次退出时所在页面、启动后打开、默认页面、启动页面 | 启动时进入（全局） |
+| 开机自动启动 | `startup-enabled` | 开机自动启动 WeQ、自启动 | 开机自动启动（全局） |
+
+### 外观与布局
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
+| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
+| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
+| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
+| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
+| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
+| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
+
+### 主页
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
+| 个性标签 | `home-tags` | 主页标签 |  |
+| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
+| 问候语 | `home-greeting` | 主页问候 |  |
+| 一言 | `home-hitokoto` | hitokoto |  |
+| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
+
+### 通知与提醒
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 事件通知 | `notification-events` |  | 事件通知（全局） |
+| 普通群聊消息 | `notification-groupMessage` |  |  |
+| 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
+| 特别关心 | `notification-specialCare` |  | 特别关心提醒会话（当前账号） |
+| @自己 | `notification-mentionMe` |  | @自己提醒会话（当前账号） |
+| @全体成员 | `notification-mentionAll` |  | @全体成员提醒会话（当前账号） |
+| 群友回复 | `notification-replyMe` |  | 群友回复提醒会话（当前账号） |
+| 红包消息 | `notification-redPacket` |  | 红包消息提醒会话（当前账号） |
+| 群关键词 | `notification-keyword` |  | 群关键词提醒会话（当前账号） |
+| 联系人与群通知 | `notification-contact` |  |  |
+| 任务或操作进行中 | `notification-progress` |  |  |
+| 后台任务完成 | `notification-taskComplete` |  |  |
+| 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
+| 发现新版本或增强包更新 | `notification-update` |  |  |
+| 重要官方公告 | `notification-officialAnnouncement` |  |  |
+| 连接中断或恢复 | `notification-connection` |  |  |
+| 有请求等待处理 | `notification-request` |  |  |
+| 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
+| 操作成功与普通提示 | `notification-success` |  |  |
+| 操作失败或结果未确认 | `notification-failure` |  |  |
+| 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
+| 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
+| 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
+| 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
+| 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
+| 功能受限或运行异常 | `restricted-mode-banner` |  |  |
+| 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
+| 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
+| 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
+
+### 未读角标
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
+| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
+| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
+| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
+| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
+| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
+| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
+| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
+| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
+| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
+| 未读角标 | `notification-badges` | 红点与未读标记 |  |
+
+### 资源加载
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
+| 完整消息预热内存预算 | `chat-message-prewarm` | 聊天快滚、消息预热 | 完整消息预热内存预算（全局） |
+| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
+| 优先直连 QQ 加载图片 | `prefer-cdn` | 优先使用 CDN、下载加速 | 优先 CDN（全局） |
+| Remote 缺少资源时优先直取 | `prefer-remote-cdn` | Remote 缺图时优先直取、手机直接加载图片、手机 CDN | Remote 缺少资源时优先直取（全局） |
+| 预览时自动获取原图 | `auto-download-preview-original` | 自动下载原图、聊天图片预览 | 预览时自动获取原图（全局） |
+| 外部安卓图片缓存 | `external-chatpic` | 允许使用外部安卓图片缓存、Android 图片 | 外部安卓图片缓存（全局）；外部安卓图片目录（全局，目录需选择） |
+| 外部 rKey 服务器 | `external-rkey` | 外部 rKey、外部 RKEY、已导入的服务器、HTTP 服务器地址、rKey access_token | 外部 RKEY 启用目标（全局） |
+
+### 省流量模式
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 启用方式与行为 | `data-saver` | 省流量模式、低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
+
 ## 聊天
 
 ### 会话列表
@@ -360,27 +463,6 @@
 | 签名器（wrapper.node） | `signer-status` |  |  |
 | QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
 
-## 网络
-
-### 资源加载
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 图片预览内存预算 | `chat-image-cache` | 图片与表情、内存缓存、图片缓存、表情缓存 | 图片预览内存预算（全局） |
-| 完整消息预热内存预算 | `chat-message-prewarm` | 聊天快滚、消息预热 | 完整消息预热内存预算（全局） |
-| QQ 秀缓存有效期 | `chat-qqshow-days` |  | QQ 秀缓存有效期（全局） |
-| 优先直连 QQ 加载图片 | `prefer-cdn` | 优先使用 CDN、下载加速 | 优先 CDN（全局） |
-| Remote 缺少资源时优先直取 | `prefer-remote-cdn` | Remote 缺图时优先直取、手机直接加载图片、手机 CDN | Remote 缺少资源时优先直取（全局） |
-| 预览时自动获取原图 | `auto-download-preview-original` | 自动下载原图、聊天图片预览 | 预览时自动获取原图（全局） |
-| 外部安卓图片缓存 | `external-chatpic` | 允许使用外部安卓图片缓存、Android 图片 | 外部安卓图片缓存（全局）；外部安卓图片目录（全局，目录需选择） |
-| 外部 rKey 服务器 | `external-rkey` | 外部 rKey、外部 RKEY、已导入的服务器、HTTP 服务器地址、rKey access_token | 外部 RKEY 启用目标（全局） |
-
-### 省流量模式
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 启用方式与行为 | `data-saver` | 省流量模式、低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
-
 ## 服务
 
 ### Web 与 Remote
@@ -426,88 +508,6 @@
 | 启用 QQ 公众号推送 | `assistant-service` | 启用 WeQ 助手、QQ 公众号推送、推送与资源服务、公众号推送 | QQ 公众号推送（全局，可能停用服务） |
 
 ## 应用
-
-### 启动与退出
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 自启时显示窗口 | `startup-show-window` | 启动显示窗口、隐藏启动 | 自启时显示窗口（全局） |
-| 关闭窗口时 | `window-close-behavior` | 关闭按钮行为、关闭按钮、最小化到托盘、退出时停止、关闭窗口、退出应用 | 关闭窗口时（全局） |
-| 启动时进入 | `startup-page` | 上次退出时所在页面、启动后打开、默认页面、启动页面 | 启动时进入（全局） |
-| 开机自动启动 | `startup-enabled` | 开机自动启动 WeQ、自启动 | 开机自动启动（全局） |
-
-### 外观与布局
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
-| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
-| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
-| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
-| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
-| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
-| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
-
-### 主页
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
-| 个性标签 | `home-tags` | 主页标签 |  |
-| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
-| 问候语 | `home-greeting` | 主页问候 |  |
-| 一言 | `home-hitokoto` | hitokoto |  |
-| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
-
-### 通知与提醒
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 事件通知 | `notification-events` |  | 事件通知（全局） |
-| 普通群聊消息 | `notification-groupMessage` |  |  |
-| 收到助手或克隆体的新回复 | `notification-assistantReply` |  |  |
-| 特别关心 | `notification-specialCare` |  | 特别关心提醒会话（当前账号） |
-| @自己 | `notification-mentionMe` |  | @自己提醒会话（当前账号） |
-| @全体成员 | `notification-mentionAll` |  | @全体成员提醒会话（当前账号） |
-| 群友回复 | `notification-replyMe` |  | 群友回复提醒会话（当前账号） |
-| 红包消息 | `notification-redPacket` |  | 红包消息提醒会话（当前账号） |
-| 群关键词 | `notification-keyword` |  | 群关键词提醒会话（当前账号） |
-| 联系人与群通知 | `notification-contact` |  |  |
-| 任务或操作进行中 | `notification-progress` |  |  |
-| 后台任务完成 | `notification-taskComplete` |  |  |
-| 后台任务失败或部分失败 | `notification-taskFailure` |  |  |
-| 发现新版本或增强包更新 | `notification-update` |  |  |
-| 重要官方公告 | `notification-officialAnnouncement` |  |  |
-| 连接中断或恢复 | `notification-connection` |  |  |
-| 有请求等待处理 | `notification-request` |  |  |
-| 省流量模式自动开启或关闭 | `notification-dataSaver` |  |  |
-| 操作成功与普通提示 | `notification-success` |  |  |
-| 操作失败或结果未确认 | `notification-failure` |  |  |
-| 成功通知停留时长 | `toast-success` | 通知时间 | 成功通知停留时长（全局） |
-| 失败通知停留时长 | `toast-failure` | 通知时间 | 失败通知停留时长（全局） |
-| 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
-| 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
-| 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
-| 功能受限或运行异常 | `restricted-mode-banner` |  |  |
-| 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
-| 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
-| 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
-
-### 未读角标
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
-| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
-| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
-| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
-| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
-| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
-| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
-| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
-| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
-| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
-| 未读角标 | `notification-badges` | 红点与未读标记 |  |
 
 ### 隐私
 
