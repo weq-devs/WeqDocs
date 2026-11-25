@@ -239,12 +239,15 @@ SQLite 的保留页按**文件**设置：QQ 库因 1024 字节头保留 `262144`
 | `executeSqlSalvageScanWithKey(...)` | 同上 + key + algo | 同上 | 带密钥版本。 |
 | `closeSalvageDb(dbPath)` | 路径 | `number` | **只**释放该库的 salvage 只读连接（严格连接一律不动），并清掉该库的 L3 隔离记录。用户把宽容级别调回严格时用它。 |
 | `scanBadPages(dbPath, key, algo, onProgress?)` | 路径 + key + algo + 可选进度回调 | `Promise<BadPageScanResult>` | 逐页复算页 HMAC，产出物理坏页清单（“坏页地图”）。回调包含实际已处理页数、总页数及累计坏页／全零页数。⚠ `usedHmac=false` 时 `badPages` 必为空 —— 那不是“库是好的”，而是“这个库没开页 HMAC（或压根是明文库，见 `plaintext`），地图没有意义”。只读密文。 |
+| `scanBadPagesFrom(dbPath, key, algo, firstPage, onProgress, onCheckpoint)`（可选） | 路径 + key + algo + 起始页 + 进度与检查点回调 | `Promise<BadPageScanResult>` | 从指定的 1-based 页继续到文件末尾。每批回报连续页区间 `[firstPage, nextPage)` 及新增坏页和全零页。返回整库页数及本次扫描区间的异常页，调用方核对原库身份后合并前缀。 |
 | `listQuarantinedTables()` | — | `QuarantinedTable[]` | 当前被 L3（整表放弃）隔离的表。**进程内**状态，条目默认 300 秒自动失效（到点自动再试）。 |
 | `clearQuarantinedTables(dbPath?, table?)` | 可选两级过滤 | `number` | 清掉隔离记录让那些表立刻再试。只给 `dbPath` → 清该库；再加 `table` → 只清那一张；都不给 → 全清。 |
 
 数据库维护进度回调遵循 N-API 的 `(error, progress)` 约定。`DatabaseProgress` 包含 `step`、`message` 和可选的 `completed`、`total`、`unit`、`objectName`、`badPages`、`zeroPages`；计数是实际工作量，`total` 缺省表示没有可靠分母。`recoverDatabase` 保留旧的 `phase`／估算 `percent`／`message`，并在 `detail` 中补充同一结构的页扫描、解密、字段解析及产物检查进度。字段计数不是消息条数，当前遇到的最大页号也不是已处理页数。原生线程通常每 200ms 最多回报一次，步骤切换及末次页计数始终回报；不改变最终报告的判断口径。旧组件未提供这些回调或 `detail` 时，应用仅展示阶段与耗时，不从旧估算值补造百分比。
 
 维护编排在 `DatabaseMaintenance` 中按账号与数据源管理，窗口不拥有任务生命周期。持锁、扫描／深度检查、临时重建分别使用独立进程：POSIX 记录锁属于进程，若主进程持锁后又为备份、哈希打开并关闭同一文件的其他 fd，会意外释放锁，因此不能把持续锁迁回普通业务进程。持锁进程准备好后持续接收产物保护与结束命令；父进程退出、stdin 关闭时释放锁。意外退出会结束本次维护，旧报告保留，但旧结果不能继续提交修复。
+
+页签名检查每 4,096 页及扫描结束时回报检查点，宿主在本轮维护内保留连续批次，暂停后核对原库身份再续扫。检查点只在内存中保留，整库页检查完成后才产生可供修复使用的扫描结果。旧原生模块沿用整库页扫描。
 
 常规扫描先收集修复必需的页信息与布局，深度体检再执行额外结构检查。已完成结果留在维护会话中，停止额外检查不撤销它们。扫描和重建进程都等真实退出后才算停止；重建尚未提交时可以中断并清理本次私有目录，已经提交成功的数据库不回退，单库失败不阻止后续库。扫描结束保持锁等待决定，修复批次结束统一释放。
 
