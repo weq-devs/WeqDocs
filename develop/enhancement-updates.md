@@ -12,6 +12,8 @@ WeQ Release 按平台发布 `enhancement-packs-平台-架构.json`，描述文�
 
 过渡期间，同一个已发布 Release 缺少统一描述时，可读取其 `enhancement-engines-平台-架构.json` 或 `index-manifest.json` 并转换成统一描述。旧引擎格式的模型部分使用当前客户端登记的固定模型契约；引擎 URL 和装扮资产必须与该 Release 实际资产对应，不根据本机版本推测地址。同一个 Release 已提供统一描述时只读统一描述，解析失败不会切换旧格式或更旧版本。
 
+支持 PP-OCRv6 small 的客户端读取旧文字识别包清单时，先校验原清单的内容身份，再沿用其中的引擎和筛图组件，按客户端内置的固定契约准备 v6 small。安装成功后记录新包的内容身份；升级前仍可使用已经安装的 v5 mobile。
+
 每包包含 `id`、`contentVersion`、`minWeqVersion`、`runtime` 和 `components`。组件分模型文件、预编译引擎及装扮索引；内容版本根据组件文件身份计算，不包含 Release tag、镜像 URL 或发布时间。相同内容换发布地址不会重复更新。
 
 - 引擎的 `compatibility` 保留冻结构建配方身份，`runtime` 描述运行接口，两者不再相互替代；v2.7.0 旧引擎回执继续可读。
