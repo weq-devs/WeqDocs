@@ -94,7 +94,7 @@ Remote 连接打包开发页时，圆环按当前构建的入口及静态 JS/CSS
 | `native.mode: local` | 检查配置源码的构建输入，变化时自动编译、验证并安装，不再等待回车确认 |
 | `native.source` | 本地 native 仓库路径，`local` 模式必填 |
 | `native.jobs` | Cargo 构建任务数，默认 2 |
-| `userDataDir` | 默认 `.dev-profile`。设为 `null` 时，沿用账号多开机制启动开发账号选择窗口，复用该窗口的 Electron 目录并与正式版共用 WeQ 账号和设置。命令行的 `--user-data-dir` 优先。 |
+| `userDataDir` | 默认 `.dev-profile`。设为 `null` 时，复用开发窗口的 Electron 目录并与正式版共用 WeQ 账号和设置。默认账号可用且未在其他窗口打开时自动进入，否则显示账号选择。命令行的 `--user-data-dir` 优先。 |
 
 `WEQ_NATIVE_MODE`、`WEQ_NATIVE_SOURCE` 可覆盖 native 模式与源码目录。发布版模式沿用现有 `NT_HELPER_RELEASE_REPO`、`NT_HELPER_RELEASE_BASE_URL`、`NT_HELPER_VERSION` 和代理配置；版本覆盖必须是明确 tag。Electron 镜像沿用 `ELECTRON_MIRROR` 等安装器配置，启动器不写死镜像、用户路径或包管理器安装位置。
 
