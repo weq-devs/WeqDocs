@@ -38,7 +38,7 @@
 | 群聊在线声线 · 在群聊 AI 声聊面板浏览当前群的声线、试听并发送。 | `messages.ai-voice-catalog` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 翻译英文消息 · 在消息菜单请求 QQ 翻译，并在原消息下方查看译文。 | `messages.translate-en-zh` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 搜索聊天记录 · 在搜索界面组合关键词、发送者、日期和类型，也可限定在当前会话。 · [说明](./chat-view.md#feature-messages.history.search) | `messages.history.search` | — | 需要账号与数据源 | `search_messages`、`search_in_conversation`、`inspect_timeline`、`get_messages_by_date`、`fetch_history_window` |
-| 共享媒体 · 从会话标题栏浏览图片、视频和文件，也可定位原消息。 · [说明](./chat-view.md#feature-messages.history.shared-media) | `messages.history.shared-media` | — | 从对应工作区打开；需要账号与数据源、会话 | `search_local_resources` |
+| 会话内搜索 · 从会话标题栏按发送者、日期和消息类型查找聊天记录与媒体，并可定位原消息。 · [说明](./chat-view.md#feature-messages.history.shared-media) | `messages.history.shared-media` | — | 从对应工作区打开；需要账号与数据源、会话 | `search_local_resources` |
 | 连续发言分组 · 可开启聊天和合并转发记录的同人发言分组，保留单条消息的引用、定位与多选。 · [说明](./chat-view.md#feature-messages.timeline.grouping) | `messages.timeline.grouping` | — | 需要账号与数据源、会话 | — |
 | 聊天内未读分界 · 可开关时间线上的未读分界线，浏览历史时仍可查看剩余未读条数。 · [说明](./chat-view.md#feature-messages.timeline.unread-boundary) | `messages.timeline.unread-boundary` | — | 需要账号与数据源、会话 | — |
 | 触屏横滑引用 · 默认开启。向左滑动消息，松手引用并聚焦输入框。 · [说明](./chat-view.md#feature-messages.reply.touch) | `messages.reply.touch` | — | 需要账号与数据源、消息 | — |
