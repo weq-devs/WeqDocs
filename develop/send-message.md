@@ -101,8 +101,10 @@ u32 fileSizeLow / offsetLow / chunkLength / fileSizeHigh / offsetHigh
 
 ### 自动跟随当前聊天字体
 
-输入框「个性字体」的全局偏好通过 `composerFont` 保存，两个账号初始化路径均动态读取。
-默认选择 QQ 同款并开启发送字体。选择普通字体或关闭发送时跳过字体查找，常规发送只保留气泡和挂件字段。输入框预览独立开关。
+`defaultMessageFont` 是所有账号窗口共用的默认字体，默认使用账号字体。普通私聊和群临时
+会话由发送服务按这项设置解析字体。群聊选择已添加的字体时，`composerFont.choice` 优先，
+同一选款应用于所有群聊。输入框使用普通字形，群聊选款面板保留字形预览。旧配置里选择
+普通字体或关闭发送的偏好迁为默认使用普通字体，已添加字体的选款保留。设备会话沿用数据线发送。
 各端提交后先在本端建立消息预览，再执行目录、媒体读取及网络请求；Remote 不需要电脑响应就能回显。
 装扮查询、图片解码和字体文件加载不阻塞任何消息正文，已缓存资源直接复用，缺失资源异步补齐。
 实际发送由服务端读取当前账号字体原值，保留账号／数据源／PID 校验，不为本地预览增加准备接口往返。
@@ -139,19 +141,18 @@ GeneralFlags tag 19 是扩展 bytes，内部 tag 15 为 packed mobile_custom_fon
 
 ### 用菜单中选定的装扮字体发送
 
-开发装扮模式下，可在「个性字体」菜单添加并选择已装字体，选择以 itemId 保存，独立于个性装扮页的本地显示覆盖。旧版启用装扮字体发送的配置继续读取原选用款，直到用户在新菜单中选择字体。普通模式下保留选择，按普通字体发送。
+群聊在开发装扮模式下可通过「个性字体」添加并选择字体，选择以 itemId 保存，独立于个性装扮页的本地显示覆盖。旧版启用装扮字体发送的配置继续读取原选用款，直到用户在新菜单中选择字体。普通模式下保留选择，按普通字体发送。
 
-tag 15 原值对装扮字体**不查历史**，统一发 `0x10000 | swapFontId16(itemId)`：低 16 位
-字节序交换后置 bit 16，即 `feeType=1`。bit 16 决定收端能否正常显示，实测 1 即可；其余
-高位（字体类型／魔法字体）不影响正常显示，不查历史也就不会因为历史里那条消息带的高位
-不同而让同一款发成两种字节。编码与 WeqBot OneBot `send_msg` 的 `font_id` 一致
+选款时直接用 `0x10000 | swapFontId16(itemId)` 构造 tag 15。低 16 位交换字节序，
+再置 bit 16。同一款选用字体采用固定的编码，编码与 WeqBot OneBot `send_msg` 的 `font_id` 一致
 （`vendor/weqbot/packages/bot/src/onebot-backend.ts` 的 `sendParams`），复用
 `@weqbot/protocol` 导出的 `swapFontId16`。选用的 itemId 超出 16 位时不发，避免被截断后
 发成另一款。QQ 账号字体那条通路保持原样：从历史找原值，找不到仍然不带、不猜高位。
 
-准备阶段（`prepareChatFont`）与真实请求共用 `resolveSendFontId` / `fontWireForSend`，
-`preparedChatFont` 照旧把同一份 `{ fontId, fontId2Raw }` 带进请求和本地回显，
-预览与 wire 不二次解析。`--enable-dress-tools` 的启用条件见
+准备阶段（`prepareChatFont`）与真实请求共用 `resolveSendFont`。群聊通过
+`preparedChatFont` 将同一份 `{ fontId, fontId2Raw }` 带入请求和本地回显。
+私聊在发送时按宿主设置取值，客户端的字体快照或 `dress` 字体字段不参与决策。
+`--enable-dress-tools` 的启用条件见
 [开发启动](./dev-startup.md)。
 
 ## 二、元素：收侧解码器的镜像

@@ -233,7 +233,7 @@
 | 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 聊天 / 会话列表 | — |
 | 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 聊天 / 会话浏览 | — |
 | 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 聊天 / 消息显示 | — |
-| 消息输入与回复 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息输入与回复 | — |
+| 消息发送 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息发送 | — |
 | 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 聊天 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 聊天 / 通话与录音 | — |
 | QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / 更多 / QQ 空间 | — |
