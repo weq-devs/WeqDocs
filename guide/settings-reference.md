@@ -55,29 +55,6 @@
 | 启动时进入 | `startup-page` | 上次退出时所在页面、启动后打开、默认页面、启动页面 | 启动时进入（全局） |
 | 开机自动启动 | `startup-enabled` | 开机自动启动 WeQ、自启动 | 开机自动启动（全局） |
 
-### 外观与布局
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
-| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
-| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
-| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
-| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
-| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
-| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
-
-### 主页
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
-| 个性标签 | `home-tags` | 主页标签 |  |
-| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
-| 问候语 | `home-greeting` | 主页问候 |  |
-| 一言 | `home-hitokoto` | hitokoto |  |
-| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
-
 ### 通知与提醒
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
@@ -107,26 +84,11 @@
 | 消息通知停留时长 | `toast-message` | 通知时间、重要消息横幅、消息横幅常驻 | 消息通知停留时长（全局） |
 | 新邮件 | `mail-banner` | 新邮件提醒、收到新邮件时横幅提醒、邮件通知设置 |  |
 | 普通私聊消息 | `message-system-notifications` | 新消息系统通知、消息弹窗提醒 |  |
+| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge、系统应用图标 | 应用图标未读角标（全局） |
 | 功能受限或运行异常 | `restricted-mode-banner` |  |  |
 | 数据库异常提醒 | `damage-reminder` | 数据库异常时弹窗提醒、损坏提醒、notification-databaseDamage |  |
 | 撤回提醒 | `recall-notifications` | 撤回时通知我、通知会话、撤回提醒设置 | 撤回通知会话选择（当前账号） |
 | 浏览器通知授权 | `web-notifications` | 网页通知、撤回、群关键词与邮件提醒 | 网页通知（全局） |
-
-### 未读角标
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
-| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
-| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
-| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
-| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
-| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
-| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
-| 应用图标未读角标 | `application-unread-badge` | Dock 任务栏 Badge | 应用图标未读角标（全局） |
-| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
-| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
-| 未读角标 | `notification-badges` | 红点与未读标记 |  |
 
 ### 资源加载
 
@@ -147,9 +109,44 @@
 | --- | --- | --- | --- |
 | 启用方式与行为 | `data-saver` | 省流量模式、低数据模式、计费网络、节省流量 | 临时省流量设置（全局）；省流量模式与行为（全局） |
 
-## 聊天
+## 外观
 
-### 会话列表
+### 主题与布局
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 使用仿 Windows 窗口按钮 | `windows-style-controls` | 窗口按钮、红绿灯、原生窗口、macOS、Linux | 仿 Windows 窗口按钮（全局） |
+| 主题模式 | `theme-mode` | 基础模式、浅色模式、深色模式、暗色模式、跟随系统 | 主题模式（全局） |
+| 主题色 | `theme-accent` | 强调色、主色、颜色 | 主题色（全局） |
+| 界面背景 | `theme-background` | 聊天背景、壁纸 | 界面背景（全局） |
+| 组件风格 | `component-style` | 皮肤、默认风格、经典、简约、立体、复古、QQ NT、QQNT | 组件风格（全局） |
+| 界面密度 | `interface-density` | 舒适、紧凑 | 界面密度（全局） |
+| 数字字体 | `special-number-font` | 特殊数字字体、跟随界面字体、数字排版 | 数字字体（全局） |
+
+### 主页
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 主页 | `home-settings` | 主页显示 | 主页显示与屏蔽词（全局） |
+| 个性标签 | `home-tags` | 主页标签 |  |
+| 优先展示 QQ 秀 | `home-prefer-qqshow` |  |  |
+| 问候语 | `home-greeting` | 主页问候 |  |
+| 一言 | `home-hitokoto` | hitokoto |  |
+| 一言屏蔽词 | `home-blocked-words` | 屏蔽词、过滤句子 |  |
+
+### 主导航
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 进行中任务 | `task-running-badge` |  | 进行中任务（全局） |
+| 已完成任务 | `task-result-badge` |  | 已完成任务（全局） |
+| 软件更新 | `software-update-badge` |  | 软件更新（全局） |
+| 增强包更新 | `update-badge` |  | 增强包更新（全局） |
+| 官方公告 | `official-announcement-badge` |  | 官方公告（全局） |
+| 邮箱导航未读角标 | `mail-unread-badge` | 显示未读邮件数、在邮箱图标上显示红点、邮箱红点 | 邮箱导航未读角标（全局）；邮箱导航未读角标（全局） |
+| 消息导航未读角标 | `message-unread-badge` | 消息图标红点、显示消息汇总红点、未读红点 | 消息导航未读角标（全局） |
+
+### 消息
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
@@ -169,6 +166,59 @@
 | 包含已删除会话 | `all-conversations-include-deleted` | 全部会话删除范围 | 包含已删除会话（全局） |
 | 鼠标停留时保持会话位置 | `keep-conversation-position-on-hover` | 会话排序、悬停排序 | 鼠标停留时保持会话位置（全局） |
 | 切换视图时关闭不在新视图中的会话 | `close-conversation-outside-view` | 切换会话视图、保留当前会话 | 切换视图时关闭不在新视图中的会话（全局） |
+
+### 联系人
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 好友与群通知未读角标 | `contact-request-badge` | 好友与群通知 | 好友与群通知未读角标（全局） |
+| 好友与群聊未读消息数 | `contact-unread-count` | 好友与群聊、联系人列表未读消息数、在联系人界面显示未读消息数 | 好友与群聊未读消息数（全局） |
+
+### 联系人名片
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 名片显示与顺序 | `contact-card-order` |  | 名片显示与顺序（全局） |
+| 全部字段 | `contact-card-all` |  |  |
+| 群内资料 | `contact-card-group-fields` |  |  |
+| 当前 QQ 秀 | `contact-card-qqShow` |  |  |
+| 头像挂件 | `contact-card-pendant` |  |  |
+| 当前签名 | `contact-card-signature` |  |  |
+| 签名更新时间 | `contact-card-signatureUpdated` |  |  |
+| 性别 | `contact-card-gender` |  |  |
+| 年龄 | `contact-card-age` |  |  |
+| 生日 | `contact-card-birthday` |  |  |
+| 星座 | `contact-card-constellation` |  |  |
+| 生肖 | `contact-card-zodiac` |  |  |
+| 血型 | `contact-card-bloodType` |  |  |
+| 所在地 | `contact-card-region` |  |  |
+| 职业 | `contact-card-occupation` |  |  |
+| 学校 | `contact-card-school` |  |  |
+| 标签 | `contact-card-labels` |  |  |
+| 精选图片 | `contact-card-photos` |  |  |
+| 在线状态 | `contact-card-status` |  |  |
+| 共同关系 | `contact-card-common` |  |  |
+| 好友分组 | `contact-card-category` |  |  |
+| QQ 亲密度 | `contact-card-intimacy` |  |  |
+| 关系标签 | `contact-card-relations` |  |  |
+| 互动标识摘要 | `contact-card-marks` |  |  |
+| 已开通特权 | `contact-card-privileges` |  |  |
+| QQ 等级 | `contact-card-level` |  |  |
+| QQ 能量值 | `contact-card-energy` |  |  |
+| 累计获赞 | `contact-card-likes` |  |  |
+| QID | `contact-card-qid` |  |  |
+| UID | `contact-card-uid` |  |  |
+| 个人说明 | `contact-card-description` |  |  |
+| 公司 | `contact-card-company` |  |  |
+| 邮箱 | `contact-card-email` |  |  |
+| 好友添加信息 | `contact-card-friendClue` |  |  |
+| 机器人简介 | `contact-card-botDescription` |  |  |
+| 机器人功能 | `contact-card-botFeatures` |  |  |
+| 群等级 | `contact-card-groupLevel` |  |  |
+| 入群时间 | `contact-card-joinedAt` |  |  |
+| 最后群发言时间 | `contact-card-lastSpeakAt` |  |  |
+
+## 聊天
 
 ### 会话浏览
 
@@ -249,50 +299,6 @@
 | OCR 时自动获取原图 | `ocr-auto-download-original` | 识别原图、OCR 下载原图 | OCR 时自动获取原图（全局） |
 
 ## 更多
-
-### 联系人名片
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 名片显示与顺序 | `contact-card-order` |  | 名片显示与顺序（全局） |
-| 全部字段 | `contact-card-all` |  |  |
-| 群内资料 | `contact-card-group-fields` |  |  |
-| 当前 QQ 秀 | `contact-card-qqShow` |  |  |
-| 头像挂件 | `contact-card-pendant` |  |  |
-| 当前签名 | `contact-card-signature` |  |  |
-| 签名更新时间 | `contact-card-signatureUpdated` |  |  |
-| 性别 | `contact-card-gender` |  |  |
-| 年龄 | `contact-card-age` |  |  |
-| 生日 | `contact-card-birthday` |  |  |
-| 星座 | `contact-card-constellation` |  |  |
-| 生肖 | `contact-card-zodiac` |  |  |
-| 血型 | `contact-card-bloodType` |  |  |
-| 所在地 | `contact-card-region` |  |  |
-| 职业 | `contact-card-occupation` |  |  |
-| 学校 | `contact-card-school` |  |  |
-| 标签 | `contact-card-labels` |  |  |
-| 精选图片 | `contact-card-photos` |  |  |
-| 在线状态 | `contact-card-status` |  |  |
-| 共同关系 | `contact-card-common` |  |  |
-| 好友分组 | `contact-card-category` |  |  |
-| QQ 亲密度 | `contact-card-intimacy` |  |  |
-| 关系标签 | `contact-card-relations` |  |  |
-| 互动标识摘要 | `contact-card-marks` |  |  |
-| 已开通特权 | `contact-card-privileges` |  |  |
-| QQ 等级 | `contact-card-level` |  |  |
-| QQ 能量值 | `contact-card-energy` |  |  |
-| 累计获赞 | `contact-card-likes` |  |  |
-| QID | `contact-card-qid` |  |  |
-| UID | `contact-card-uid` |  |  |
-| 个人说明 | `contact-card-description` |  |  |
-| 公司 | `contact-card-company` |  |  |
-| 邮箱 | `contact-card-email` |  |  |
-| 好友添加信息 | `contact-card-friendClue` |  |  |
-| 机器人简介 | `contact-card-botDescription` |  |  |
-| 机器人功能 | `contact-card-botFeatures` |  |  |
-| 群等级 | `contact-card-groupLevel` |  |  |
-| 入群时间 | `contact-card-joinedAt` |  |  |
-| 最后群发言时间 | `contact-card-lastSpeakAt` |  |  |
 
 ### QQ 空间
 

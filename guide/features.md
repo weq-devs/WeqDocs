@@ -223,14 +223,15 @@
 | 功能 | 稳定 ID | 支持端 | 入口或条件 | 关联工具 |
 | --- | --- | --- | --- | --- |
 | 设置 · [说明](./settings.md) | `settings.workspace` | 桌面、Web、Remote | 主导航；手机更多 | — |
-| 联系人名片 | `settings.page.contact-card` | 桌面、Web、Remote | 设置 / 更多 / 联系人名片 | — |
-| 外观与布局 | `settings.page.appearance` | 桌面、Web、Remote | 设置 / 通用 / 外观与布局 | — |
+| 联系人名片 | `settings.page.contact-card` | 桌面、Web、Remote | 设置 / 外观 / 联系人名片 | — |
+| 主题与布局 | `settings.page.appearance` | 桌面、Web、Remote | 设置 / 外观 / 主题与布局 | — |
 | 通知与提醒 | `settings.page.global` | 桌面、Web、Remote | 设置 / 通用 / 通知与提醒 | — |
-| 未读角标 | `settings.page.notification-badges` | 桌面、Web、Remote | 设置 / 通用 / 未读角标 | — |
+| 主导航 | `settings.page.main-navigation` | 桌面、Web、Remote | 设置 / 外观 / 主导航 | — |
+| 联系人 | `settings.page.contacts` | 桌面、Web、Remote | 设置 / 外观 / 联系人 | — |
 | 启动与退出 | `settings.page.startup` | 桌面、Web、Remote | 设置 / 通用 / 启动与退出 | — |
-| 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 通用 / 主页 | — |
+| 主页 | `settings.page.home` | 桌面、Web、Remote | 设置 / 外观 / 主页 | — |
 | WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 应用 / WeQ 存储管理 | — |
-| 会话列表 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 聊天 / 会话列表 | — |
+| 消息 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 外观 / 消息 | — |
 | 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 聊天 / 会话浏览 | — |
 | 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 聊天 / 消息显示 | — |
 | 消息发送 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息发送 | — |
