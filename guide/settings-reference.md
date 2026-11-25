@@ -36,10 +36,9 @@
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
-| 增强包自动更新 | `enhancement-updates` |  |  |
-| 增强包管理 | `enhancement-management` |  |  |
+| 增强包更新设置 | `enhancement-updates` |  |  |
+| 增强包管理 | `enhancement-management` | 增强包自动更新、增强包自动安装、自动安装增强包更新 | 各增强包的自动更新（全局） |
 | 自动检查增强包更新 | `enhancement-auto-check` | 增强包更新检查 | 自动检查增强包更新（全局） |
-| 自动安装增强包更新 | `enhancement-auto-install` | 增强包自动安装 | 自动安装增强包更新（全局） |
 | 本地文字识别 | `enhancement-text` | 识别模型、筛图模型、图片识别模型、OCR 模型 |  |
 | 本地语音转写 | `enhancement-voice` | 本地语音模型、SenseVoice、ASR、语音转文字、转写 |  |
 | 本地意图与画像 | `enhancement-intent` | Laya 模型下载、画像模型下载 |  |
