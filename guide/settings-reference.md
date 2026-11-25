@@ -562,6 +562,9 @@
 | --- | --- | --- | --- |
 | 性能监视 | `performance-monitor` | 性能记录、CPU、内存历史 | 性能记录档位（全局） |
 | 日志保留时长 | `log-retention` |  | 日志保留天数（全局） |
+| 日志容量上限 | `log-capacity` |  | 日志容量上限（全局） |
+| 应用日志占用 | `log-storage` | 清空应用日志、清理日志 |  |
+| 性能记录文件夹 | `performance-folder` |  |  |
 | 日志文件夹 | `log-folder` |  |  |
 | 原生调试日志 | `native-debug-log` | 底层调试、调试模式 | 原生调试日志（此设备） |
 
