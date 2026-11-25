@@ -18,7 +18,7 @@
 | 启用方式 | `full-feature-routes` | 原版 QQ、读取路线、QQ 在线能力启用 |  |
 | 启用 QQ 在线能力 | `auto-full-mode` | 自动启用 QQ 在线能力、自动读取 QQ 内存 | 启用 QQ 在线能力（全局） |
 | QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
-| 代理连接 | `qq-proxy-connection` | QQ 代理连接、本机 QQ 同步、QQ 同步代理、代理端口、设置代理 | QQ 代理（此设备，可能停用服务） |
+| 代理连接 | `qq-proxy-connection` | QQ 代理连接、本机 QQ 同步、QQ 同步代理、代理端口、设置代理 | QQ 代理（运行 WeQ 的电脑，可能停用服务） |
 | 同步与实时更新 | `qq-sync-and-live` |  |  |
 | 通过 QQ 代理加速实时更新 | `qq-live-messages` | 通过 QQ 代理实时接收消息、消息直推、实时收信、代理性能优化 | 通过 QQ 代理加速实时更新（当前账号） |
 | 自动同步本人消息与已读 | `qq-client-sync` | 补投本人消息 | 自动同步本人消息与已读（当前账号） |
@@ -569,7 +569,7 @@
 | 性能记录存储占用 | `performance-storage` | 清空性能历史、清理性能记录 |  |
 | 性能记录文件夹 | `performance-folder` |  |  |
 | 应用日志文件夹 | `log-folder` |  |  |
-| 原生调试日志 | `native-debug-log` | 底层调试、调试模式 | 原生调试日志（此设备） |
+| 原生调试日志 | `native-debug-log` | 底层调试、调试模式 | 原生调试日志（运行 WeQ 的电脑） |
 
 ### 反馈
 
