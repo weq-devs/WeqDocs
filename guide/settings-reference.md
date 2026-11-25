@@ -416,6 +416,50 @@
 | 运行中默认发送方式 | `weq-assistant-send-mode` |  |  |
 | 图片处理偏好 | `ai-images-assistant` |  | 图片处理偏好（全局） |
 
+## 服务
+
+### Web 与 Remote
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 允许本机浏览器访问 | `web-enabled` | 启用 Web 服务、浏览器访问 | 本机浏览器访问（全局，可能停用服务） |
+| 启动 WeQ 时自动允许本机浏览器访问 | `web-autostart` | 启动 WeQ 时自动开启 Web 服务 | Web 服务自动启动（全局） |
+| 允许远程连接 | `remote-enabled` | WeQ Remote、远程访问 | WeQ Remote（全局，可能停用服务） |
+| 局域网 IP | `remote-lan` | 局域网地址 |  |
+| Tailscale IP | `remote-tailscale` | Tailscale、跨网络连接、内网穿透 | Tailscale 网络连接（全局，可能停用服务） |
+| 配对手机 | `remote-pairing` | 设备配对、手机配对、配对二维码 |  |
+| 已配对设备 | `remote-devices` | 设备授权、撤销设备授权 |  |
+
+### MCP 服务器
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 启用 MCP 服务器 | `mcp-enabled` |  | MCP 服务（全局，可能停用服务） |
+| MCP 端口 | `mcp-port` |  |  |
+| 连接信息 | `mcp-connection` | MCP 客户端配置、复制客户端配置、MCP 令牌 |  |
+| 安装到本机 AI 客户端 | `mcp-install` | 安装 MCP、MCP 自动配置 |  |
+
+### OneBot
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 网络配置 | `onebot-config` |  | OneBot 网络连接（当前账号，可能停用服务） |
+
+### SSE 推送
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 推送调优 | `sse-tuning` | 防抖毫秒、大量消息阈值 | SSE 推送调优（全局） |
+| 已配置的推送目标 | `sse-targets` | 推送地址、SSE access_token、添加推送目标 | SSE 推送（全局，可能停用服务） |
+
+### QQ 公众号推送
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 资源服务 | `assistant-resource` | 公众号资源地址 |  |
+| QQ 公众号推送端口 | `assistant-port` | 公众号端口 |  |
+| 启用 QQ 公众号推送 | `assistant-service` | 启用 WeQ 助手、QQ 公众号推送、推送与资源服务、公众号推送 | QQ 公众号推送（全局，可能停用服务） |
+
 ## QQ
 
 ### 凭据管理
@@ -462,50 +506,6 @@
 | 记录 UDP 流量 | `call-udp-trace` | udp 抓包、pcapng、通话抓包 | 记录 UDP 流量（全局） |
 | 签名器（wrapper.node） | `signer-status` |  |  |
 | QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
-
-## 服务
-
-### Web 与 Remote
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 允许本机浏览器访问 | `web-enabled` | 启用 Web 服务、浏览器访问 | 本机浏览器访问（全局，可能停用服务） |
-| 启动 WeQ 时自动允许本机浏览器访问 | `web-autostart` | 启动 WeQ 时自动开启 Web 服务 | Web 服务自动启动（全局） |
-| 允许远程连接 | `remote-enabled` | WeQ Remote、远程访问 | WeQ Remote（全局，可能停用服务） |
-| 局域网 IP | `remote-lan` | 局域网地址 |  |
-| Tailscale IP | `remote-tailscale` | Tailscale、跨网络连接、内网穿透 | Tailscale 网络连接（全局，可能停用服务） |
-| 配对手机 | `remote-pairing` | 设备配对、手机配对、配对二维码 |  |
-| 已配对设备 | `remote-devices` | 设备授权、撤销设备授权 |  |
-
-### MCP 服务器
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 启用 MCP 服务器 | `mcp-enabled` |  | MCP 服务（全局，可能停用服务） |
-| MCP 端口 | `mcp-port` |  |  |
-| 连接信息 | `mcp-connection` | MCP 客户端配置、复制客户端配置、MCP 令牌 |  |
-| 安装到本机 AI 客户端 | `mcp-install` | 安装 MCP、MCP 自动配置 |  |
-
-### OneBot
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 网络配置 | `onebot-config` |  | OneBot 网络连接（当前账号，可能停用服务） |
-
-### SSE 推送
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 推送调优 | `sse-tuning` | 防抖毫秒、大量消息阈值 | SSE 推送调优（全局） |
-| 已配置的推送目标 | `sse-targets` | 推送地址、SSE access_token、添加推送目标 | SSE 推送（全局，可能停用服务） |
-
-### QQ 公众号推送
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 资源服务 | `assistant-resource` | 公众号资源地址 |  |
-| QQ 公众号推送端口 | `assistant-port` | 公众号端口 |  |
-| 启用 QQ 公众号推送 | `assistant-service` | 启用 WeQ 助手、QQ 公众号推送、推送与资源服务、公众号推送 | QQ 公众号推送（全局，可能停用服务） |
 
 ## 应用
 
