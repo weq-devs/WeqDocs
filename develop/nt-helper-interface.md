@@ -604,6 +604,10 @@ listProcessesWithModule(moduleHint: string): ProcessScanEntry[]
 `modulesDir` 传 QQ 的 `resources/app`（Linux 下的 `avsdk/libAVSDKPlugin.so` 也在这个目录树里）。
 每个编解码器**进程内只打开一次**，重复调用幂等；挂断时对应 `close*`。
 
+私聊的 `CallManager` 在发起视频通话时打开视频编码器，语音通话在首次开启摄像头时打开。
+初始化成功后，`CallSession.setCamera(true, encoder)` 接收已打开的编码器并启动视频发送。
+初始化失败时保留语音通话并提示重试。关闭摄像头或挂断会取消待完成的开启，初始化返回后释放编码器。
+
 | JS 函数 | 参数 | 返回 | 说明 |
 | ---- | ---- | ---- | ---- |
 | `openCallCodec(modulesDir)` / `closeCallCodec()` / `isCallCodecOpen()` | QQ `resources/app` | `Promise<void>` / `void` / `boolean` | 语音编解码器。 |
