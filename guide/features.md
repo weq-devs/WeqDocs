@@ -46,7 +46,7 @@
 | 我的设备 · 查看数据线会话，区分本机和其他设备的消息。 · [说明](./chat-view.md#feature-messages.devices) | `messages.devices` | — | 需要账号与数据源 | `list_dataline_conversations`、`get_dataline_messages` |
 | 标记已读或未读 · 按会话处理已读状态，手动未读保留提醒。 | `messages.unread` | — | 从对应工作区打开；需要账号与数据源、会话 | — |
 | 重要消息 · 在群聊中查看并定位提及、回复、文件等重要消息。 | `messages.important` | — | 从对应工作区打开；需要账号与数据源、群 | `find_people_who_mentioned` |
-| 发送消息 · 从输入区发送文本、媒体、文件和适用的卡片。 · [说明](./chat-view.md) | `messages.send` | — | 从对应工作区打开；需要账号与数据源、会话 | `send_text_message`、`send_media_message`、`send_file_message`、`send_rich_message`、`send_tuwen_ark` |
+| 发送消息 · 从输入区发送文本、媒体、文件和适用的卡片。 · [说明](./chat-view.md) | `messages.send` | — | 从对应工作区打开；需要账号与数据源、会话 | `send_text_message`、`send_media_message`、`send_file_message`、`send_rich_message` |
 | 语音转文字 · 从语音消息查看已有文字或发起转写。 · [说明](./voice-transcribe.md) | `messages.voice.transcribe` | — | 从对应工作区打开；需要账号与数据源、消息 | `transcribe_voice_message` |
 | 分享 QQ 闪传 · 在闪传文件列表获取分享链接。 | `messages.flash.share` | — | 从对应工作区打开；需要账号与数据源、消息 | `get_flash_share_link` |
 | 发 QQ 红包 · 填写红包信息，生成二维码后在手机 QQ 支付。 | `messages.red-packet.send` | — | 从对应工作区打开；需要账号与数据源、会话 | `get_red_bag_passwords`、`pack_red_bag` |
@@ -98,7 +98,7 @@
 | 群公告 · 在当前群的公告入口查看公告。 · [说明](./album-qzone.md#feature-groups.announcements) | `groups.announcements` | — | 从对应工作区打开；需要账号与数据源、群 | `get_group_bulletins` |
 | 群待办 · 查看指定群的待办项目。 | `groups.todos` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 群精华 · 查看已设为精华的群消息。 · [说明](./album-qzone.md#feature-groups.essence) | `groups.essence` | — | 从对应工作区打开；需要账号与数据源、群 | `get_group_essence` |
-| 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 从对应工作区打开；需要账号与数据源、群 | `send_group_signup` |
+| 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源、群 | `list_group_files`、`download_group_file`、`search_local_resources` |
 | 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 接收验证消息 · 群主可在管理员权限里为单个管理员开启或关闭接收验证消息。 | `groups.admin-verification` | — | 从对应工作区打开；需要账号与数据源、群 | — |
@@ -360,7 +360,6 @@
 | `get_qq_show_url` | — | — | 可注册 | `contacts.profile` |
 | `get_flash_share_link` | — | — | 可注册 | `messages.flash.share` |
 | `fetch_history_window` | — | — | 可注册 | `messages.history.search` |
-| `send_tuwen_ark` | — | — | 可注册 | `messages.send` |
 | `send_text_message` | 授权后按需 | — | 可注册 | `messages.send` |
 | `send_media_message` | — | — | 可注册 | `messages.send` |
 | `send_file_message` | — | — | 可注册 | `messages.send` |
@@ -368,7 +367,6 @@
 | `send_forward_message` | — | — | 可注册 | `messages.forward.send` |
 | `send_poke` | 授权后按需 | — | 可注册 | `messages.poke` |
 | `set_message_reaction` | 授权后按需 | — | 可注册 | `messages.reaction` |
-| `send_group_signup` | 授权后按需 | — | 可注册 | `groups.sign` |
 | `get_group_honor` | 可注册 | 可注册 | 可注册 | `groups.honor` |
 | `get_group_albums` | 可注册 | 可注册 | 可注册 | `groups.albums` |
 | `list_group_files` | 可注册 | 可注册 | 可注册 | `groups.files` |
@@ -422,7 +420,7 @@
 | --- | ---: | ---: | ---: |
 | 消息 (`message`) | 8 | 10 | 5 |
 | 联系人 (`contact`) | 7 | 0 | 0 |
-| 群管理 (`group-admin`) | 6 | 22 | 1 |
+| 群管理 (`group-admin`) | 6 | 21 | 2 |
 | 互动 (`interaction`) | 0 | 7 | 0 |
 | 群文件 (`group-file`) | 5 | 8 | 2 |
 | 扩展 (`extended`) | 17 | 13 | 4 |
