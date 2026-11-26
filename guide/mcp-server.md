@@ -118,6 +118,7 @@ OneBot 来源需要当前在线账号已经启用 [OneBot](./onebot-cc-connect.m
 ## 7. 群资源与本地搜索
 
 - 先用 `find_contact` 确认群号；`exactGroups: true` 只查精确群名、备注或群号，同名时用群号区分。`list_group_files` 从根目录开始，传 `folderId` 浏览子目录，传 `nextOffset` 读同一目录的下一页。
+- 用 `list_group_files` 返回的 `groupCode`、`folderId` 和文件的 `fileId` 调用 `download_group_file`。该工具需要 QQ 在线，不依赖 OneBot；下载方法见下一节。
 - `get_group_albums` 返回相册 ID。以同一 `groupId` 和相册 `albumId` 调用 `get_group_album_photos`，用 `nextCursor` 分页读取照片和视频。群目录与相册媒体需要 QQ 在线；离线及服务端失败不会作为空列表返回。
 - `search_local_resources` 一次搜索一种来源：`chatAttachment`（聊天附件）、`groupFile`（已观察到的群文件）、`collection`（本地收藏）。同时返回结构化数据与 JSON 文本；`status: unavailable` 表示该来源未覆盖，`coverage.limited` 表示存在候选上限。`nextOffset` 仅延续相同关键词与来源的本地查询。
 - 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。
@@ -125,10 +126,12 @@ OneBot 来源需要当前在线账号已经启用 [OneBot](./onebot-cc-connect.m
 - `get_messages_by_date` 直接查询某个北京时间日期的本地消息。`hasMore` 为 `true` 时，保持同一会话和 `date`，把 `nextBefore` 传给 `before` 继续向前翻页。
 - `get_daily_digest` 按同一日期口径统计近期会话中的活动。`coverage` 说明已扫描的会话数，以及候选会话或单会话消息是否触及上限。
 
-## 8. 聊天视频
+## 8. 聊天媒体与转发
 
-- 读取私聊或群聊消息时设 `includeIds: true`，把同一个 `kind`、`conv` 和 `msgId` 传给 `download_chat_video`。同一条消息有多个视频时，传从 0 开始的 `videoIndex`。
-- 用同一个 MCP 服务地址和 Bearer 令牌对返回的 `downloadPath` 发起 `GET`。路径在 5 分钟内有效，切换账号后失效。仅下载原片（上限 64 MiB），没有本地原片时复用 WeQ 的在线播放链路；视频不可用时不会返回封面冒充原片。
+- 读取私聊或群聊消息时设 `includeIds: true`，把同一个 `kind`、`conv` 和 `msgId` 传给 `download_chat_file`（普通附件）、`download_chat_voice`（WAV）或 `download_chat_video`（视频原片）。同一消息有多个同类元素时，用从 0 开始的 `fileIndex`、`voiceIndex` 或 `videoIndex`，默认取第一个。本地缺文件时复用 WeQ 已有的在线链路。
+- 用同一个 MCP 服务地址和 Bearer 令牌对返回的 `downloadPath` 发起 `GET`。路径在 5 分钟内有效，切换账号后失效。每个文件上限 64 MiB；视频不可用时不会用封面代替原片。
+- `transcribe_voice_message` 用 WeQ 已安装的本地模型转写已缓存的聊天语音。结果只返回本次调用，不写回 QQ 聊天记录。
+- `get_forward_messages` 优先读取本地合并转发缓存。传入 `kind`、`msgId` 和对应的 `conv` 后，在没有缓存时可从该消息在线补拉；只传 `kind` 和 `msgId` 仍只查本地。
 
 ---
 

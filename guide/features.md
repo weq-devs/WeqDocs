@@ -60,7 +60,7 @@
 | 修改本地记录 · 从消息菜单打开原始元素编辑器。 | `messages.local-edit` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 本地删除消息 · 可恢复地删除本地消息，按实际来源处理数据库或缓存。 | `messages.local-delete` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 查看本地删除记录 · 从会话查看旧记录，按来源恢复或定位。 | `messages.local-delete.history` | — | 从对应工作区打开；需要账号与数据源、会话 | `list_deleted_messages` |
-| 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 从对应工作区打开；需要账号与数据源、消息 | `download_chat_video` |
+| 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 从对应工作区打开；需要账号与数据源、消息 | `download_chat_video`、`download_chat_file`、`download_chat_voice` |
 
 ## 联系人
 
@@ -99,7 +99,7 @@
 | 群待办 · 查看指定群的待办项目。 | `groups.todos` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 群精华 · 查看已设为精华的群消息。 · [说明](./album-qzone.md#feature-groups.essence) | `groups.essence` | — | 从对应工作区打开；需要账号与数据源、群 | `get_group_essence` |
 | 群打卡 · 在群聊侧栏打开原有打卡入口。 | `groups.sign` | — | 从对应工作区打开；需要账号与数据源、群 | `send_group_signup` |
-| 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源、群 | `list_group_files`、`search_local_resources` |
+| 群文件 · 在绑定当前群的资源窗口浏览文件夹与文件。 · [说明](./album-qzone.md#feature-groups.files) | `groups.files` | 桌面、Web、Remote | 全局搜索；需要账号与数据源、群 | `list_group_files`、`download_group_file`、`search_local_resources` |
 | 群文件管理 · 选定文件后，按当前账号和群权限使用已有文件操作。 · [说明](./qq-actions.md#feature-groups.files.manage) | `groups.files.manage` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 接收验证消息 · 群主可在管理员权限里为单个管理员开启或关闭接收验证消息。 | `groups.admin-verification` | — | 从对应工作区打开；需要账号与数据源、群 | — |
 | 群管理 · 在当前群的会话设置查看适用的管理操作。 · [说明](./qq-actions.md) | `groups.management` | — | 从对应工作区打开；需要账号与数据源、群 | — |
@@ -237,8 +237,8 @@
 | 消息发送 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息发送 | — |
 | 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 聊天 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 聊天 / 通话与录音 | — |
-| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / 更多 / QQ 空间 | — |
-| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / 更多 / QQ 邮箱 | — |
+| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / QQ / QQ 空间 | — |
+| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / QQ / QQ 邮箱 | — |
 | API 配置 | `settings.page.agentlab` | 桌面、Web、Remote | 设置 / AI / API 配置 | — |
 | API 用量 | `settings.page.model-usage` | 桌面、Web、Remote | 设置 / AI / API 用量 | — |
 | 意图感知 | `settings.page.intent-sense` | 桌面、Web、Remote | 设置 / AI / 意图感知 | — |
@@ -332,7 +332,10 @@
 | `get_message_details` | 可注册 | 可注册 | 可注册 | `messages.locate` |
 | `get_chat_image_file` | 可注册 | 可注册 | 可注册 | `messages.image.preview` |
 | `download_chat_video` | 可注册 | 可注册 | 可注册 | `messages.media.save` |
-| `transcribe_voice_message` | — | — | 可注册 | `messages.voice.transcribe` |
+| `download_group_file` | 可注册 | 可注册 | 可注册 | `groups.files` |
+| `download_chat_file` | 可注册 | 可注册 | 可注册 | `messages.media.save` |
+| `download_chat_voice` | 可注册 | 可注册 | 可注册 | `messages.media.save` |
+| `transcribe_voice_message` | 可注册 | 可注册 | 可注册 | `messages.voice.transcribe` |
 | `analyze_chat_image` | 可注册 | 可注册 | 可注册 | `assistant.message-image` |
 | `get_ocr_status` | 可注册 | 可注册 | 可注册 | `settings.page.recognition` |
 | `ocr_image_text` | — | — | 可注册 | `settings.page.recognition` |
