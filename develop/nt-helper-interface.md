@@ -598,22 +598,22 @@ listProcessesWithModule(moduleHint: string): ProcessScanEntry[]
 
 ## 8. 通话与媒体编解码
 
-私聊语音使用 QQ 安装目录的 Opus 实现，私聊视频使用 QQ 的 `t265`。群聊音频通过 `silk-wasm`
-收发 16 kHz 单声道 SILK 帧，群聊视频通过 WebCodecs 收发 H.264 Annex B。
+私聊语音使用 QQ 安装目录的 Opus 实现。私聊和群聊的视频上行通过 WebCodecs 编码 H.264 Annex B，
+私聊接收支持 H.264 和 H.265。群聊音频通过 `silk-wasm` 收发 16 kHz 单声道 SILK 帧。
 
 `modulesDir` 传 QQ 的 `resources/app`（Linux 下的 `avsdk/libAVSDKPlugin.so` 也在这个目录树里）。
 每个编解码器**进程内只打开一次**，重复调用幂等；挂断时对应 `close*`。
 
-私聊的 `CallManager` 在发起视频通话时打开视频编码器，语音通话在首次开启摄像头时打开。
-初始化成功后，`CallSession.setCamera(true, encoder)` 接收已打开的编码器并启动视频发送。
-初始化失败时保留语音通话并提示重试。关闭摄像头或挂断会取消待完成的开启，初始化返回后释放编码器。
+私聊的 `CallManager` 维护采集规格，渲染层打开摄像头或共享屏幕后创建 WebCodecs 编码器。
+编码帧通过二进制通道送往 `CallSession` 封包，Web 端使用 tRPC。采集标识随开关和切换来源更新，
+旧采集帧会被丢弃。摄像头使用 320×240、10 fps、200 kbps 的初始规格。
 
 | JS 函数 | 参数 | 返回 | 说明 |
 | ---- | ---- | ---- | ---- |
 | `openCallCodec(modulesDir)` / `closeCallCodec()` / `isCallCodecOpen()` | QQ `resources/app` | `Promise<void>` / `void` / `boolean` | 语音编解码器。 |
 | `encodeCallFrame(pcm)` | **640 字节** 16 kHz 单声道 16-bit PCM（小端） | `Buffer`（Opus） | 一帧固定 20 ms（320 采样），**不接受其它长度** —— 服务端按 20 ms 排帧。 |
 | `decodeCallFrame(opus)` | 一帧 Opus | `Buffer`（640 字节 PCM） | 反过来解一帧。 |
-| `openVideoEncoder(modulesDir, width?, height?, fps?, bitrateKbps?, keyint?, allIntra?)` | 可选参数缺省用与客户端一致的 640×360 / 15 fps / 400 kbps | `Promise<void>` | 私聊视频（H.265 / `t265`）。 |
+| `openVideoEncoder(modulesDir, width?, height?, fps?, bitrateKbps?, keyint?, allIntra?)` | 可选参数缺省用与客户端一致的 640×360 / 15 fps / 400 kbps | `Promise<void>` | 原生 H.265 / `t265` 视频编码接口。 |
 | `encodeVideoFrame(y, u, v)` | I420 三个平面（Y 全尺寸，U/V 各 1/4） | `VideoFrameResult \| null` | Annex B 裸流。编码器还在 lookahead 里攒帧时返回 `null`，下一帧再取。 |
 | `openH264Encoder(...)` / `encodeH264Frame(y, u, v)` / `closeH264Encoder()` / `isH264EncoderOpen()` | 同上 | 同上 | Linux 原生 H.264 编码接口，使用 QQ 的 `libopenh264.so`。 |
 
