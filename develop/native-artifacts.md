@@ -215,6 +215,9 @@ CI 的 Web 构建冒烟仍执行 `--require-fresh --verify`，不等同于桌面
 打包之前就失败，而不是发出一个起不来的安装包；`--verify` 在 runner 上真的 `require()` 一次
 并跑 `getInitStatus()`，二进制有问题当场失败，而不是等用户装上才发现。
 
+桌面发布还用包内组件在合成数据库上验证页检查续作、快修资格核验、流式重建和重建进度。
+临时卷支持同卷克隆时执行实际快修，其余情况下核对组件能报告克隆不可用。
+
 `pnpm native:fetch --write-pin` 会把二进制自报的 `builtAt` / `expiresAt` 一起写进
 `native/pinned.json`；WeQ 的 Release 说明就取这两个值（不再单独跑构建去问）。
 

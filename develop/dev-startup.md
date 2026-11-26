@@ -22,6 +22,8 @@ pnpm dev -- --enable-dress-tools
 
 从系统菜单或托盘选择「重启 WeQ」时，WeQ 完成正常退出清理，由原 `pnpm dev` 会话重新启动 Electron。桌面和内置 Web 的 Vite 服务、源码监听、启动参数及用户数据目录继续沿用。选择「退出 WeQ」或在终端按 Ctrl+C 会结束开发会话。
 
+开发版已在运行时，再次运行 `pnpm dev` 或桌面启动脚本会打开新的账号选择窗口，使用当前会话的启动配置。首次启动还未就绪时，后续请求会等到窗口可以打开。需要调整数据目录或其他启动参数时，完整退出后重新启动。`--prepare-only` 仍用于单独准备开发环境。
+
 | 修改范围 | 开发行为 |
 | --- | --- |
 | 桌面 React 组件与样式 | Vite／React 热更新；兼容的组件修改保留状态 |
@@ -94,7 +96,7 @@ Remote 连接打包开发页时，圆环按当前构建的入口及静态 JS/CSS
 | `native.mode: local` | 检查配置源码的构建输入，变化时自动编译、验证并安装，不再等待回车确认 |
 | `native.source` | 本地 native 仓库路径，`local` 模式必填 |
 | `native.jobs` | Cargo 构建任务数，默认 2 |
-| `userDataDir` | 默认 `.dev-profile`，隔离开发数据；设为 `null` 则使用应用原有默认用户目录 |
+| `userDataDir` | 默认 `.dev-profile`。设为 `null` 时，复用开发窗口的 Electron 目录并与正式版共用 WeQ 账号和设置。默认账号可用且未在其他窗口打开时自动进入，否则显示账号选择。命令行的 `--user-data-dir` 优先。 |
 
 `WEQ_NATIVE_MODE`、`WEQ_NATIVE_SOURCE` 可覆盖 native 模式与源码目录。发布版模式沿用现有 `NT_HELPER_RELEASE_REPO`、`NT_HELPER_RELEASE_BASE_URL`、`NT_HELPER_VERSION` 和代理配置；版本覆盖必须是明确 tag。Electron 镜像沿用 `ELECTRON_MIRROR` 等安装器配置，启动器不写死镜像、用户路径或包管理器安装位置。
 

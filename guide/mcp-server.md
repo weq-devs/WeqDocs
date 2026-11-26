@@ -3,7 +3,7 @@
 WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客户端（Claude Desktop 等）
 通过本地 HTTP 接口读取已授权账号的聊天数据和 QQ 邮箱。
 
-打开位置：**设置 → WeQ 服务 → MCP 服务器**。
+打开位置：**设置 → 服务 → MCP 服务器**。
 
 `list_settings` 可列出 WeQ 的设置名称、稳定 ID、所属页面、搜索别名和页面恢复范围，与设置前端、全局搜索及[设置项参考](./settings-reference.md)共用同一注册表。可按 `page` 或 `query` 筛选；它只返回公开定义，不读取当前设置值，也不修改设置。
 
@@ -11,24 +11,31 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 - **启用 MCP 服务器**：开启后开始监听；首次开启会自动生成令牌；
 - 桌面端所有账号窗口共用一个服务入口。各 MCP 会话独立选择账号；
-- 关闭窗口默认只最小化到托盘，服务继续监听；完全退出 WeQ 时才停止。运行状态也可在「WeQ 服务 → 后台服务」页统一查看；
+- 关闭窗口默认只最小化到托盘，服务继续监听；完全退出 WeQ 时才停止。在本页可查看运行状态；
 - 只绑 `127.0.0.1`，每个请求都需要带 **Bearer 令牌**；
 - 状态行显示服务的运行情况与实际访问地址，可一键复制。
 - 读取失败显示原因并可重试，不把未知状态当作已停止；未读取到状态时不能切换服务或重新生成令牌。
 
 ## 2. 连接信息
 
-该服务器只注册审核过的工具。令牌不能执行 SQL、发送或回应消息、修改防撤回设置、导出/解密任意文件、操作红包或提取账号凭据，也不能运行脚本；内置助手开启任意权限不会改变此令牌的权限。查询仍可能按工具约定访问 QQ 在线接口，不表示完全离线。
+在桌面端的「令牌可访问的账号」中，为每个令牌下的账号选择权限。
 
-在「令牌可访问的账号」中为每个令牌勾选账号。旧令牌可沿用，选定账号后恢复访问。客户端需支持有会话的 Streamable HTTP。
+- **不授权**：客户端无法访问该账号的这份数据源。
+- **只读**：客户端可以查询这份数据源，查询仍可能访问 QQ 在线接口。
+- **读取和操作**：客户端还可以用 `call_capability` 执行已登记的 QQ 操作，例如发送文本、管理群或更新空间内容。
 
-创建新令牌后，WeQ 会定位到对应的授权子卡片。点击「复制令牌」保存，然后在卡片内勾选可访问的账号。
+静态备份只提供「不授权」和「只读」。「读取和操作」适用于已登记的 QQ 操作，宿主命令、任意文件、凭据、SQL 与支付操作没有接入该授权。
+
+为默认令牌设置账号权限后，从「连接信息」复制默认令牌或客户端配置。也可以另外创建令牌，为不同客户端设置各自的权限。客户端使用有会话的 Streamable HTTP。
+
+创建新令牌后，WeQ 会定位到对应的授权子卡片。点击「复制令牌」保存，然后在卡片内设置各账号权限。
 新令牌默认未授权任何账号，收起创建提示或离开设置页后无法再次查看该令牌的原文。
 
 ### 账号切换
 
-- `list_accounts` 列出本令牌可访问的账号数据源，以 `configId` 区分在线库和静态备份。
+- `list_accounts` 列出本令牌可访问的账号数据源，以 `configId` 区分在线库和静态备份。`open: true` 表示可用 `select_open_account` 直接选择。
 - `switch_account` 等到目标账号就绪后返回，只改变当前 MCP 会话。目标尚未运行时，WeQ 会打开独立窗口。一个令牌只授权了一个账号时，可直接调用查询；有多个可用账号时先选账号。
+- 后台任务可用 `select_open_account` 选择已打开的授权数据源。参数同为 `configId`，目标未打开时返回错误。
 - 同一令牌的不同会话可以分别访问不同账号。更改令牌授权后，受影响的客户端需重新连接。切号会使当前会话原来的下载票据失效。
 
 | 项 | 说明 |
@@ -62,6 +69,7 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 逐查询记录有界且只保留在内存，不包含正文、SQL、参数或账号/会话标识。
 
 `get_messages`、`get_dataline_messages` 和 `get_guild_direct_messages` 翻页时，把上一页的 `nextBefore` 原样传给 `before`。游标是字符串，不是消息序号；它可以在同序号的多条消息之间续读。旧的数字序号游标仍可使用，但按原来的序号范围查询。
+`list_dataline_conversations` 从本地数据线消息表发现设备会话，即使会话已经离开最近列表也能找到。
 
 `get_messages` 在 `includeIds: true` 时附带 `elementCount` 与存在的 `deletedKind`、`recall` 标记。群消息原生 `@全体` 以 `mentionAll` 标出，`only` 表示除了全体提醒、空白文本和回复引用之外没有其他元素，`with_content` 表示同时有其他内容；键入同样的字样不生成该字段。`get_message_details` 也返回 `mentionAll`。
 
@@ -71,19 +79,38 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 
 ## 5. 功能目录
 
-使用 `list_features` 按关键词、领域或类别搜索，再用 `get_feature` 查询某个稳定 ID。
-已收录的功能及导航见[功能参考](./features.md)。
+使用 `list_features` 按名称、别名、拼音、稳定 ID、领域或类别搜索，再用 `get_feature` 查稳定 ID 的详情。两者同时返回结构化数据与 JSON 文本。
+已收录的能力、导航和各模式注册情况见[功能参考与工具索引](./features.md#工具索引)。
 列表默认每页 20 项，最多 50 项，按返回的 `nextOffset` 继续翻页。
 已知用户使用哪个客户端时，可以指定 `desktop`、`web` 或 `remote`。
 
 例如先查询「默认聊天模型」，再查询 `setting:llm-default-model`，可分别看到设置位置和当前默认模型是否可用。
-群相册的详情会指出需要群上下文，工具列表只表示本次 MCP 连接实际注册了哪些关联工具。
-外部 MCP 会返回入口描述，页面由用户在 WeQ 中打开。
+群相册的详情会指出需要群上下文。`tools[].exposed` 表示关联工具是否注册在当前连接，具体查询仍受账号和运行条件影响。外部 MCP 返回入口描述，用户可在 WeQ 中打开对应页面。
+
+### 按需查询和调用
+
+桌面 MCP 支持两种地址，使用同一个端口和 Bearer 令牌。
+
+| 地址路径 | 客户端加载的工具 |
+| --- | --- |
+| `/mcp` | 兼容已有配置，保留原来的直接查询工具，并提供按需目录 |
+| `/mcp/compact` | 八个工具，涵盖账号选择、功能查找及能力发现和调用 |
+
+新接入的通用助手可以点设置页的「复制精简地址」，已有自动化仍可使用原地址。使用流程如下。
+
+1. 连接并选择账号。仅授权一个数据源时可直接查询，多账号按 `configId` 选择。
+2. 调用 `list_capabilities`。传 `source: "weq"`（默认）查看应用能力，传 `source: "onebot"` 查看当前账号在线的 OneBot 动作。可用 `group` 或 `query` 缩小范围。默认每页 15 项，最多 50 项，使用 `nextOffset` 续页。列表只返回名称、简述、领域和操作级别。
+3. 调用 `get_capability`，传相同的 `source` 和所选 `name`，取得单项说明与 `inputSchema`。
+4. 调用 `call_capability`，传相同的 `source`、`name` 及对象 `arguments`。每次返回最多 128 KiB，可通过缩小范围和翻页控制上下文。
+
+例如可按关键词 `search_global_content` 查找当前账号的应用搜索，再按类别查找 `file`、`qzone` 或 `mailMessage`。传 `sources: ["assistant"]` 与 `category: "chatRecord"` 可查助手记录。搜索使用 WeQ 的现有索引和当前数据源范围。
+
+OneBot 来源需要当前在线账号已经启用 [OneBot](./onebot-cc-connect.md)。它沿用 daemon 的实际注册、参数校验与回执，同一个动作是否上线取决于当前后端。精简地址无需再配置外部 OneBot HTTP 地址或令牌。只有文本参数的 QQ 消息、公告和说说可经 MCP 发送或发布。需要向宿主提交文件的动作仍沿用原 OneBot 客户端。遇到写入结果不确定时，先查实际状态再决定是否重试。
 
 ## 6. QQ 邮箱
 
 - `list_mail_folders` 列出文件夹。`list_mail_messages` 按文件夹从第 0 页起查询；传 `keyword` 时走 QQ 邮箱在线搜索，不限于该文件夹。
-- `get_mail_message` 按 `id` 读取纯文本和附件清单，不标记已读。会话邮件先返回子邮件列表。传 `linkHosts: ["example.com"]` 才会提取对应主机的 HTTPS 链接，仅返回，不访问；正文里的第三方内容按普通邮件看待。
+- `get_mail_message` 按 `id` 预览邮件详情，保留未读状态。会话邮件先返回子邮件列表。`bodyAvailable: false` 表示 QQ 的简要详情未提供正文，可查看 `snippet` 或在邮箱中打开。可用的附件会附下载 ID。提供正文时，传 `linkHosts: ["example.com"]` 可提取指定主机的 HTTPS 链接。
 - `download_mail_attachment` 按附件 `id` 返回 `downloadPath`，客户端对同一个 MCP 服务地址发起 `GET`，并在请求头携带同一个 Bearer 令牌。支持已知大小且不超过 64 MiB 的文件；工具不写客户端磁盘，其他附件可在 QQ 邮箱界面下载。
 
 邮件工具复用当前账号的 WeQ 邮箱连接，无法访问时报告实际错误，不从聊天里的邮箱提醒猜正文。切换账号后，旧附件 ID 不再可用。
@@ -91,14 +118,20 @@ WeQ 内置一个 **MCP（Model Context Protocol）服务器**，让外部 AI 客
 ## 7. 群资源与本地搜索
 
 - 先用 `find_contact` 确认群号；`exactGroups: true` 只查精确群名、备注或群号，同名时用群号区分。`list_group_files` 从根目录开始，传 `folderId` 浏览子目录，传 `nextOffset` 读同一目录的下一页。
+- 用 `list_group_files` 返回的 `groupCode`、`folderId` 和文件的 `fileId` 调用 `download_group_file`。该工具需要 QQ 在线，不依赖 OneBot；下载方法见下一节。
 - `get_group_albums` 返回相册 ID。以同一 `groupId` 和相册 `albumId` 调用 `get_group_album_photos`，用 `nextCursor` 分页读取照片和视频。群目录与相册媒体需要 QQ 在线；离线及服务端失败不会作为空列表返回。
 - `search_local_resources` 一次搜索一种来源：`chatAttachment`（聊天附件）、`groupFile`（已观察到的群文件）、`collection`（本地收藏）。同时返回结构化数据与 JSON 文本；`status: unavailable` 表示该来源未覆盖，`coverage.limited` 表示存在候选上限。`nextOffset` 仅延续相同关键词与来源的本地查询。
-- 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。`search_messages` 仍只搜索普通私聊／群聊正文。
+- 聊天附件的 `target` 可交给 `get_message_details`；群文件按 `target.groupCode`、`target.folderId` 浏览并用 `target.fileId` 区分同名文件；收藏的 `cid` 可交给 `get_local_collection`。本地查询不联网补历史。
+- `search_messages` 和 `search_in_conversation` 查询 QQ 本地消息索引。用返回的 `kind`、`conv` 和命中的 `msgId` 调用 `get_message_details`。刚收到或未进入索引的消息可按会话读取。
+- `get_messages_by_date` 直接查询某个北京时间日期的本地消息。`hasMore` 为 `true` 时，保持同一会话和 `date`，把 `nextBefore` 传给 `before` 继续向前翻页。
+- `get_daily_digest` 按同一日期口径统计近期会话中的活动。`coverage` 说明已扫描的会话数，以及候选会话或单会话消息是否触及上限。
 
-## 8. 聊天视频
+## 8. 聊天媒体与转发
 
-- 读取私聊或群聊消息时设 `includeIds: true`，把同一个 `kind`、`conv` 和 `msgId` 传给 `download_chat_video`。同一条消息有多个视频时，传从 0 开始的 `videoIndex`。
-- 用同一个 MCP 服务地址和 Bearer 令牌对返回的 `downloadPath` 发起 `GET`。路径在 5 分钟内有效，切换账号后失效。仅下载原片（上限 64 MiB），没有本地原片时复用 WeQ 的在线播放链路；视频不可用时不会返回封面冒充原片。
+- 读取私聊或群聊消息时设 `includeIds: true`，把同一个 `kind`、`conv` 和 `msgId` 传给 `download_chat_file`（普通附件）、`download_chat_voice`（WAV）或 `download_chat_video`（视频原片）。同一消息有多个同类元素时，用从 0 开始的 `fileIndex`、`voiceIndex` 或 `videoIndex`，默认取第一个。本地缺文件时复用 WeQ 已有的在线链路。
+- 用同一个 MCP 服务地址和 Bearer 令牌对返回的 `downloadPath` 发起 `GET`。路径在 5 分钟内有效，切换账号后失效。每个文件上限 64 MiB；视频不可用时不会用封面代替原片。
+- `transcribe_voice_message` 用 WeQ 已安装的本地模型转写已缓存的聊天语音。结果只返回本次调用，不写回 QQ 聊天记录。
+- `get_forward_messages` 优先读取本地合并转发缓存。传入 `kind`、`msgId` 和对应的 `conv` 后，在没有缓存时可从该消息在线补拉；只传 `kind` 和 `msgId` 仍只查本地。
 
 ---
 

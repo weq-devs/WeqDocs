@@ -37,26 +37,24 @@ PP-OCR 的「检测（DBNet）+ 方向分类 + 识别（CRNN/SVTR）」三段式
 
 ## 二、选的模型
 
-上游是 ModelScope 的 `RapidAI/RapidOCR`（PaddleOCR 官方 PP-OCR 模型的 ONNX 版，与官方
-发布同源）：
-
-`https://modelscope.cn/models/RapidAI/RapidOCR/resolve/master/`
-
-`resolve/master` 会 302 跳 CDN，下载器（`model_store.ts`）已经处理重定向与 Range 分片。
+模型来自 [ModelScope 的 RapidAI/RapidOCR](https://modelscope.cn/models/RapidAI/RapidOCR)
+固定提交。下载器处理 CDN 重定向和 Range 续传，并校验文件长度与 SHA-256。
 
 | 用途 | 注册表 id | 档位 | 文件 | 体积 |
 | --- | --- | --- | --- | --- |
-| 识别（出文字） | `ppocr-v5-mobile` | PP-OCRv5 mobile | det + rec + cls + dict | 21.5 MB |
-| 筛图（只判断有没有文字） | `ppocr-v6-det-tiny` | PP-OCRv6 det tiny | det | 1.7 MB |
+| 识别（出文字） | `ppocr-v6-small` | PP-OCRv6 small | det + rec + cls + dict | 30.8 MiB |
+| 筛图（只判断有没有文字） | `ppocr-v6-det-tiny` | PP-OCRv6 det tiny | det | 1.7 MiB |
 
 精确字节数、落盘文件名与 URL 都写在注册表里（**唯一事实源**，别在这份文档里抄第二份）：
 
 | 文件角色 | 落盘名 |
 | --- | --- |
-| `det` | `ch_PP-OCRv5_det_mobile.onnx` / `PP-OCRv6_det_tiny.onnx` |
-| `rec` | `ch_PP-OCRv5_rec_mobile.onnx` |
+| `det` | `PP-OCRv6_det_small.onnx` / `PP-OCRv6_det_tiny.onnx` |
+| `rec` | `PP-OCRv6_rec_small.onnx` |
 | `cls` | `ch_PP-LCNet_x0_25_textline_ori_cls_mobile.onnx` |
-| `dict` | `ppocrv5_dict.txt` |
+| `dict` | `ppocrv6_dict.txt` |
+
+已经安装的 v5 mobile 可以用到 v6 small 安装成功。新版使用独立的模型 ID 和缓存身份。
 
 ### 为什么筛图用「检测模型」而不是一个分类器
 
@@ -64,10 +62,8 @@ PP-OCR 的「检测（DBNet）+ 方向分类 + 识别（CRNN/SVTR）」三段式
 里最省的档位（1.7 MB），还不需要字典与识别网络 —— 不需要再单独训一个"截图 / 风景"
 分类器。
 
-代价：tiny 档在小字、低分辨率、低对比上更保守，可能把「文字很少」的图判成没有文字。
-实测结论在第五节（真实抽样 140 张，与识别模型的检测头一致率 95%，误判两个方向都有）；
-接线时按那里给的判据收紧，或者把筛图换成 `ch_PP-OCRv5_det_mobile`（4.6 MB，更稳）。
-**加档位是纯注册表改动**，UI 逐条渲染。
+tiny 档可能漏掉紧裁小图中的文字，筛图因此默认关闭。第五节保留与旧版 v5 检测头
+对照的历史抽样结果。
 
 ## 三、存储与下载
 
@@ -149,10 +145,10 @@ PP-OCR 的「检测（DBNet）+ 方向分类 + 识别（CRNN/SVTR）」三段式
 
 - `source`：`online` / `local`；全局筛图判断无文字、跳过 OCR 时为 `filter`，同时返回 `skipped: true`；
 - `engine`：中文说明，如「在线接口（QQ 图片文字识别 OIDB 0xe07_0）」/「本地离线模型
-  （ppocr-v5-mobile，本机推理，未联网）」；
+  （ppocr-v6-small，本机推理，未联网）」；
 - `offline`：布尔，`true` 即本地处理（离线识别或筛图，这次没有任何图片内容离开本机）。
 
-`settings.ocr.prefilterEnabled` 默认 `true`，全局控制非手动 OCR 的预筛选。导出及助手／MCP 工具先复用识别缓存，未命中时再按该开关筛图；关闭时也不采用旧的无文字筛图结论。筛图不可用或失败则继续 OCR 并记录原因，不自动下载模型。图片灯箱不筛图，点「重新识别」或 MCP 指定 `refresh` 时跳过旧结果。宿主的本地识别按实际字节和模型合并在途推理，QQ 在线按账号进程、图片身份和坐标尺寸合并；原图、缩略图或不同模型不会共用在途的本地结果。该开关属于应用设置，与模型资源引用独立保存，不接受导出旧任务参数覆盖。
+`settings.ocr.prefilterEnabled` 默认 `false`，全局控制非手动 OCR 的预筛选，已有保存值继续使用。导出及助手／MCP 工具先复用识别缓存，未命中时再按该开关筛图；关闭时也不采用旧的无文字筛图结论。筛图不可用或失败则继续 OCR 并记录原因，不自动下载模型。图片灯箱不筛图，点「重新识别」或 MCP 指定 `refresh` 时跳过旧结果。宿主的本地识别按实际字节和模型合并在途推理，QQ 在线按账号进程、图片身份和坐标尺寸合并；原图、缩略图或不同模型不会共用在途的本地结果。该开关属于应用设置，与模型资源引用独立保存，不接受导出旧任务参数覆盖。
 
 另外 `notes[]` 记录中途的回退与跳过原因（例如「在线接口没成：服务端已经取不到这张图了」
 「本机没有已下载的识别模型，本地这条腿走不了」），失败时返回 `ok: false` + `error` +

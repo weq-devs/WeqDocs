@@ -1,5 +1,7 @@
 # 图文 Ark 卡片发送（OIDB 0xdc2_34）
 
+当前 WeQ 与内置 WeqBot 已停用此专用发送路径，包括群反馈的 Issue／PR 卡片。下文记录停用前的协议与实测。
+
 > 实现：`packages/protocol/src/oidb/send-tuwen-ark.ts`（协议层）、
 > `packages/service/src/account/flash_transfer.ts`（`sendTuwenArk` / `sendTuwenArkToGroup`）、
 > `apps/desktop/src/main/mcp/tools.ts`（MCP 工具 `send_tuwen_ark`）。
