@@ -238,18 +238,18 @@
 | 消息发送 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息发送 | — |
 | 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 聊天 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 聊天 / 通话与录音 | — |
-| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | 设置 / QQ / QQ 空间 | — |
-| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | 设置 / QQ / QQ 邮箱 | — |
+| QQ 空间 | `settings.page.qzone` | 桌面、Web、Remote | QQ 空间 / 设置 | — |
+| QQ 邮箱 | `settings.page.mail` | 桌面、Web、Remote | QQ 邮箱 / 设置 | — |
 | API 配置 | `settings.page.agentlab` | 桌面、Web、Remote | 设置 / AI / API 配置 | — |
 | API 用量 | `settings.page.model-usage` | 桌面、Web、Remote | 设置 / AI / API 用量 | — |
 | 意图感知 | `settings.page.intent-sense` | 桌面、Web、Remote | 设置 / AI / 意图感知 | — |
 | 互动画像 | `settings.page.interaction-profile` | 桌面、Web、Remote | 设置 / AI / 互动画像 | — |
 | WeQ 助手 | `settings.page.weq-assistant` | 桌面、Web、Remote | 设置 / AI / WeQ 助手 | — |
 | 推荐回复 | `settings.page.reply-suggestions` | 桌面、Web、Remote | 设置 / AI / 推荐回复 | — |
-| 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 能力 / 增强包 | — |
+| 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 应用 / 增强包 | — |
 | 识别与转写 · 配置图中文字识别、语音转写及相关模型。 · [说明](./settings.md) · [说明 2](./voice-transcribe.md) | `settings.page.recognition` | 桌面、Web、Remote | 设置 / 聊天 / 识别与转写 | `get_ocr_status`、`ocr_image_text` |
-| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / 能力 / QQ 在线能力 | — |
-| 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 能力 / 长期授权 | — |
+| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / QQ / QQ 在线能力 | — |
+| 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 应用 / 长期授权 | — |
 | 凭据管理 · 查看 QQ 会话凭据与在线能力相关配置。 · [说明](./settings.md) | `settings.page.credentials` | 桌面、Web、Remote | 设置 / QQ / 凭据管理 | `get_web_tokens`、`get_client_key`、`get_download_rkeys`、`get_ptlogin_jump_url` |
 | QQ 登录管理 | `settings.page.qq-accounts` | 桌面、Web | 设置 / QQ / QQ 登录管理 | — |
 | WeQ 账号管理 · 查看和切换已配置的 QQ 账号与数据源。 · [说明](./settings.md) | `settings.page.accounts` | 桌面、Web、Remote | 设置 / 应用 / WeQ 账号管理 | `list_accounts`、`switch_account`、`select_open_account` |
