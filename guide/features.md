@@ -248,7 +248,7 @@
 | 推荐回复 | `settings.page.reply-suggestions` | 桌面、Web、Remote | 设置 / AI / 推荐回复 | — |
 | 增强包 | `settings.page.enhancement-packs` | 桌面、Web、Remote | 设置 / 应用 / 增强包 | — |
 | 识别与转写 · 配置图中文字识别、语音转写及相关模型。 · [说明](./settings.md) · [说明 2](./voice-transcribe.md) | `settings.page.recognition` | 桌面、Web、Remote | 设置 / 聊天 / 识别与转写 | `get_ocr_status`、`ocr_image_text` |
-| QQ 在线能力 | `settings.page.account` | 桌面、Web、Remote | 设置 / QQ / QQ 在线能力 | — |
+| QQ 能力档位 | `settings.page.account` | 桌面、Web、Remote | 设置 / QQ / QQ 能力档位 | — |
 | 长期授权 | `settings.page.long-term-authorization` | 桌面、Web | 设置 / 应用 / 长期授权 | — |
 | 凭据管理 · 查看 QQ 会话凭据与在线能力相关配置。 · [说明](./settings.md) | `settings.page.credentials` | 桌面、Web、Remote | 设置 / QQ / 凭据管理 | `get_web_tokens`、`get_client_key`、`get_download_rkeys`、`get_ptlogin_jump_url` |
 | QQ 登录管理 | `settings.page.qq-accounts` | 桌面、Web | 设置 / QQ / QQ 登录管理 | — |
