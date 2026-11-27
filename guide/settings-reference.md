@@ -258,6 +258,8 @@
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | QQ 在线 OCR | `ocr-online` | 文字识别 |  |
+| 图片文字识别优先使用 | `ocr-recognition-priority` |  | 图片文字识别优先使用（全局） |
+| 语音转写优先使用 | `voice-recognition-priority` |  | 语音转写优先使用（全局） |
 | 识别并发 | `ocr-online-concurrency` |  | 识别并发（全局） |
 | 转录并发 | `voice-online-concurrency` |  | 转录并发（全局） |
 | OCR 前先筛图 | `ocr-prefilter-enabled` | 筛图开关、自动 OCR 筛图 | OCR 前先筛图（全局） |
