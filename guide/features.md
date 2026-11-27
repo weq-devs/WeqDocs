@@ -57,7 +57,7 @@
 | 转发消息 · 选择目标后转发，可多选逐条转发或合并转发。 | `messages.forward.send` | — | 从对应工作区打开；需要账号与数据源、消息 | `send_forward_message` |
 | 撤回消息 · 在 QQ 在线且有相应权限时撤回适用的消息。 | `messages.recall` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 查看已撤回消息 · 查看符合当前防撤回设置且已有记录的撤回消息。 | `messages.recall.history` | — | 从对应工作区打开；需要账号与数据源、会话 | `list_recalled_messages`、`get_anti_recall_status` |
-| 修改本地记录 · 从消息菜单打开原始元素编辑器。 | `messages.local-edit` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
+| 修改本地记录 · 从消息详情的结构化数据中编辑本地元素。 | `messages.local-edit` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 本地删除消息 · 可恢复地删除本地消息，按实际来源处理数据库或缓存。 | `messages.local-delete` | — | 从对应工作区打开；需要账号与数据源、消息 | — |
 | 查看本地删除记录 · 从会话查看旧记录，按来源恢复或定位。 | `messages.local-delete.history` | — | 从对应工作区打开；需要账号与数据源、会话 | `list_deleted_messages` |
 | 保存消息媒体 · 按所选端的保存方式另存媒体或文件。 | `messages.media.save` | — | 从对应工作区打开；需要账号与数据源、消息 | `download_chat_video`、`download_chat_file`、`download_chat_voice` |
