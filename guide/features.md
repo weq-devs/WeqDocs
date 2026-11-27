@@ -258,7 +258,8 @@
 | 资源管理 | `settings.page.qq-storage` | 桌面、Web、Remote | 设置 / QQ / 资源管理 | — |
 | 资源加载 | `settings.page.resource-loading` | 桌面、Web、Remote | 设置 / 通用 / 资源加载 | — |
 | 省流量模式 | `settings.page.data-saver` | 桌面、Web、Remote | 设置 / 通用 / 省流量模式 | — |
-| Web 与 Remote · 查看本机浏览器访问地址，配对手机和管理已配对设备。 · [说明](./remote-web.md) | `settings.page.remote` | 桌面、Web、Remote | 设置 / 服务 / Web 与 Remote | — |
+| 浏览器访问 · 启停本机浏览器访问，查看地址、复制访问令牌和设置自动启动。 · [说明](./remote-web.md) | `settings.page.browser-access` | 桌面、Web、Remote | 设置 / 服务 / 浏览器访问 | — |
+| Remote 服务器 · 启停 WeQ Remote、配对设备和管理跨网络连接。 · [说明](./remote-web.md) | `settings.page.remote` | 桌面、Web、Remote | 设置 / 服务 / Remote 服务器 | — |
 | MCP 服务器 · 启停 MCP 服务器，查看连接信息或安装到本机 AI 客户端。 · [说明](./mcp-server.md) | `settings.page.mcp` | 桌面、Web、Remote | 设置 / 服务 / MCP 服务器 | `list_features`、`get_feature`、`list_settings`、`list_capabilities`、`get_capability`、`call_capability` |
 | OneBot · 管理当前 QQ 账号的 OneBot 运行状态和网络连接，可接入 cc-connect。 · [说明](./onebot-cc-connect.md) | `settings.page.onebot` | 桌面、Web、Remote | 设置 / 服务 / OneBot | — |
 | SSE 推送 · 管理消息事件推送目标，并设置推送防抖和大量消息阈值。 · [说明](./settings.md) | `settings.page.sse` | 桌面、Web、Remote | 设置 / 服务 / SSE 推送 | — |

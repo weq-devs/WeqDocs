@@ -123,7 +123,7 @@ WSL），或想从别的设备访问。
 开启的内置 Web / Remote 可复用电脑离屏渲染。空间使用共享业务页，频道网站等外部网页入口
 在浏览器新标签页打开；独立部署的导出默认落到 `WEQ_EXPORT_DIR`，浏览器下载位置另由浏览器控制。
 
-已有桌面版时，可从「设置 → 服务 → Web 与 Remote」开启内置 Web，无需再启动另一份
+已有桌面版时，可从「设置 → 服务 → 浏览器访问」开启内置 Web，无需再启动另一份
 后端。手机配对与文件发送的边界见[Web 服务与手机连接](remote-web.md)；独立部署详见
 [apps/web/README.md](https://github.com/weq-devs/WeQ/blob/dev/apps/web/README.md)。
 

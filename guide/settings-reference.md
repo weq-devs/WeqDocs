@@ -265,6 +265,66 @@
 | OCR 前先筛图 | `ocr-prefilter-enabled` | 筛图开关、自动 OCR 筛图 | OCR 前先筛图（全局） |
 | OCR 时自动获取原图 | `ocr-auto-download-original` | 识别原图、OCR 下载原图 | OCR 时自动获取原图（全局） |
 
+## QQ
+
+### 能力档位
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| QQ 能力档位 | `full-features` | QQ 在线能力、在线能力与授权、功能差异、在线能力受限、漫游消息、发送消息 |  |
+| 准备本机 QQ | `full-feature-routes` | 启用方式、原版 QQ、读取路线、QQ 在线能力启用 |  |
+| 选择 QQ 能力档位 | `auto-full-mode` | 启用 QQ 在线能力、自动启用 QQ 在线能力、自动读取 QQ 内存、只读模式、本地模式、离线模式、在线模式、完整模式 | QQ 能力档位（全局） |
+| QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
+| 连接本机 QQ | `qq-proxy-connection` | 代理连接、QQ 代理连接、本机 QQ 同步、QQ 同步代理、代理端口、设置代理、同步与实时更新、通过 QQ 代理加速实时更新、代理实时接收消息、消息直推、自动同步本人消息与已读、补投本人消息 |  |
+| 状态提醒 | `qq-status-reminders` |  |  |
+| 显示 QQ 功能状态提示 | `qq-status-indicator` | 在线能力受限时显示窗口提示、在线能力受限标记、标题栏在线能力受限、受限状态显示、在线能力受限时在窗口右上角显示、QQ 代理未连接时显示窗口提示、QQ 代理未连接、标题栏 QQ 代理、QQ 代理未连接时在窗口右上角显示 | 显示 QQ 功能状态提示（全局） |
+| 在线能力受限时通知 | `qq-online-notification` | 在线能力受限时横幅提醒、受限横幅 | 在线能力受限时通知（全局） |
+
+### 凭据管理
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 数据库密钥 | `database-key` |  |  |
+| 会话密钥 | `session-key` |  |  |
+| 下载 rKey | `download-rkey` |  |  |
+| ClientKey | `client-key` |  |  |
+| 密钥扫描 | `key-scan` |  |  |
+| 其他设备密钥 | `other-device-key` | 其它设备密钥 |  |
+
+### 登录管理
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 设备标识与登录账号 | `qq-accounts` | QQ 登录记录管理、QQ 账号管理、设备 GUID、登录记录、登录账号列表、登录记录与设备标识 |  |
+
+### 资源管理
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 占用概览 | `qq-storage-analysis` | 占用分析、存储占用 |  |
+| 资源清理 | `qq-storage-cleanup` | 缓存清理、清理缓存 |  |
+| 资源浏览 | `resource-viewer` | 资源查看、本地缓存 |  |
+
+### 数据库管理
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 启用数据库监听 | `realtime-enabled` | 自动刷新消息 | 数据库监听（全局） |
+| 数据库读取并发上限 | `database-read-concurrency` | 连接池、并行读取、查询排队、读取性能 | 数据库读取并发上限（全局） |
+| 监听与读取 | `database-listening` | 接入与监听、实时监听 |  |
+| 数据库检查与修复 | `database-repair` | 数据库修复、损坏与修复、数据库容错、修复数据库 |  |
+| 数据库浏览 | `database-manager` | 数据库管理 |  |
+| 导出明文数据库 | `database-export` | 数据库解密 |  |
+
+### 高级工具
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| Protobuf / JCE 逆向 | `protocol-reverse` |  |  |
+| 记录 UDP 流量 | `call-udp-trace` | udp 抓包、pcapng、通话抓包 | 记录 UDP 流量（全局） |
+| 签名器（wrapper.node） | `signer-status` |  |  |
+| QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
+
 ## AI
 
 ### API 配置
@@ -371,17 +431,22 @@
 
 ## 服务
 
-### Web 与 Remote
+### 浏览器访问
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
 | --- | --- | --- | --- |
 | 允许本机浏览器访问 | `web-enabled` | 启用 Web 服务、浏览器访问 | 本机浏览器访问（全局，可能停用服务） |
 | 启动 WeQ 时自动允许本机浏览器访问 | `web-autostart` | 启动 WeQ 时自动开启 Web 服务 | Web 服务自动启动（全局） |
-| 允许远程连接 | `remote-enabled` | WeQ Remote、远程访问 | WeQ Remote（全局，可能停用服务） |
-| 局域网 IP | `remote-lan` | 局域网地址 |  |
-| Tailscale IP | `remote-tailscale` | Tailscale、跨网络连接、内网穿透 | Tailscale 网络连接（全局，可能停用服务） |
-| 配对手机 | `remote-pairing` | 设备配对、手机配对、配对二维码 |  |
-| 已配对设备 | `remote-devices` | 设备授权、撤销设备授权 |  |
+
+### Remote 服务器
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 允许 Remote 连接 | `remote-enabled` | 允许远程连接、远程访问 | WeQ Remote（全局，可能停用服务） |
+| 网络详情 | `remote-lan` | 局域网 IP、局域网地址 |  |
+| 跨网络连接 | `remote-tailscale` | 电脑端 Tailscale、Tailscale IP、Tailscale 地址、Tailscale、内网穿透 | Tailscale 网络连接（全局，可能停用服务） |
+| 配对新设备 | `remote-pairing` | 配对手机、设备配对、手机配对、配对二维码 |  |
+| 已配对设备 | `remote-devices` | 已配对手机、设备授权、撤销设备授权 |  |
 
 ### MCP 服务器
 
@@ -412,66 +477,6 @@
 | 资源服务 | `assistant-resource` | 公众号资源地址 |  |
 | 公众号本地推送端口 | `assistant-port` | 公众号端口、QQ 公众号推送端口 |  |
 | 启用公众号本地推送 | `assistant-service` | 启用 WeQ 助手、QQ 公众号推送、启用 QQ 公众号推送、推送与资源服务、公众号推送 | 公众号本地推送（全局，可能停用服务） |
-
-## QQ
-
-### 能力档位
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| QQ 能力档位 | `full-features` | QQ 在线能力、在线能力与授权、功能差异、在线能力受限、漫游消息、发送消息 |  |
-| 准备本机 QQ | `full-feature-routes` | 启用方式、原版 QQ、读取路线、QQ 在线能力启用 |  |
-| 选择 QQ 能力档位 | `auto-full-mode` | 启用 QQ 在线能力、自动启用 QQ 在线能力、自动读取 QQ 内存、只读模式、本地模式、离线模式、在线模式、完整模式 | QQ 能力档位（全局） |
-| QQ 调试副本 | `qq-debug-copy` | SIP、不关闭 SIP、副本更新、调试读取 |  |
-| 连接本机 QQ | `qq-proxy-connection` | 代理连接、QQ 代理连接、本机 QQ 同步、QQ 同步代理、代理端口、设置代理、同步与实时更新、通过 QQ 代理加速实时更新、代理实时接收消息、消息直推、自动同步本人消息与已读、补投本人消息 |  |
-| 状态提醒 | `qq-status-reminders` |  |  |
-| 显示 QQ 功能状态提示 | `qq-status-indicator` | 在线能力受限时显示窗口提示、在线能力受限标记、标题栏在线能力受限、受限状态显示、在线能力受限时在窗口右上角显示、QQ 代理未连接时显示窗口提示、QQ 代理未连接、标题栏 QQ 代理、QQ 代理未连接时在窗口右上角显示 | 显示 QQ 功能状态提示（全局） |
-| 在线能力受限时通知 | `qq-online-notification` | 在线能力受限时横幅提醒、受限横幅 | 在线能力受限时通知（全局） |
-
-### 凭据管理
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 数据库密钥 | `database-key` |  |  |
-| 会话密钥 | `session-key` |  |  |
-| 下载 rKey | `download-rkey` |  |  |
-| ClientKey | `client-key` |  |  |
-| 密钥扫描 | `key-scan` |  |  |
-| 其他设备密钥 | `other-device-key` | 其它设备密钥 |  |
-
-### 登录管理
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 设备标识与登录账号 | `qq-accounts` | QQ 登录记录管理、QQ 账号管理、设备 GUID、登录记录、登录账号列表、登录记录与设备标识 |  |
-
-### 资源管理
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 占用概览 | `qq-storage-analysis` | 占用分析、存储占用 |  |
-| 资源清理 | `qq-storage-cleanup` | 缓存清理、清理缓存 |  |
-| 资源浏览 | `resource-viewer` | 资源查看、本地缓存 |  |
-
-### 数据库管理
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 启用数据库监听 | `realtime-enabled` | 自动刷新消息 | 数据库监听（全局） |
-| 数据库读取并发上限 | `database-read-concurrency` | 连接池、并行读取、查询排队、读取性能 | 数据库读取并发上限（全局） |
-| 监听与读取 | `database-listening` | 接入与监听、实时监听 |  |
-| 数据库检查与修复 | `database-repair` | 数据库修复、损坏与修复、数据库容错、修复数据库 |  |
-| 数据库浏览 | `database-manager` | 数据库管理 |  |
-| 导出明文数据库 | `database-export` | 数据库解密 |  |
-
-### 高级工具
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| Protobuf / JCE 逆向 | `protocol-reverse` |  |  |
-| 记录 UDP 流量 | `call-udp-trace` | udp 抓包、pcapng、通话抓包 | 记录 UDP 流量（全局） |
-| 签名器（wrapper.node） | `signer-status` |  |  |
-| QQNT 抓包 | `qqnt-capture` | ntqq 抓包 |  |
 
 ## 应用
 
