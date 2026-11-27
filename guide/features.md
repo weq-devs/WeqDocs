@@ -185,6 +185,7 @@
 | 个人空间相册 | `export.qzone-albums` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 当前任务 · 查看现有任务的状态、步骤和日志。 · [说明](./export.md#feature-export.tasks.current) | `export.tasks.current` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 定时任务 · 查看和管理已建立的定时导出计划。 · [说明](./export.md#feature-export.tasks.schedules) | `export.tasks.schedules` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
+| 已归档任务 · 查看和恢复已归档的任务，或彻底删除任务记录。 · [说明](./export.md#feature-export.tasks.archived) | `export.tasks.archived` | 桌面、Web、Remote | 全局搜索；需要账号与数据源 | — |
 | 精确选择导出 · 沿用选定的对象身份与范围提交导出。 · [说明](./saved-reports-and-content-export.md#feature-export.selection.exact) | `export.selection.exact` | — | 从对应工作区打开；需要账号与数据源、内容项 | — |
 | 保存导出结果 · 使用任务中已生成的产物，沿用各端保存方式。 | `export.result.save` | — | 从对应工作区打开；需要账号与数据源、内容项 | — |
 | 暂停或继续任务 · 对已选任务使用本身支持的控制操作。 | `export.task.control` | — | 从对应工作区打开；需要账号与数据源、内容项 | — |
