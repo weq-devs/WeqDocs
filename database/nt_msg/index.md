@@ -17,6 +17,7 @@
 | `msg_unread_info_table` | 未读信息 + 提醒高亮 | [unread-info](unread-info.md) |
 | `nt_uid_mapping_table` | uid ↔ uin ↔ sortNo 目录 | [下见](#nt_uid_mapping_table) |
 | `draft_storage_table_v1` | 草稿：输入了但还没点发送的内容（WeQ 读写） | [draft-storage](draft-storage.md) |
+| `ai_session_table` / `ai_assistant_msg_table` | QQ AI 助手（小Q，chatType 45）的会话与消息，只读 | [ai-assistant](ai-assistant.md) |
 
 ### 消息行
 
