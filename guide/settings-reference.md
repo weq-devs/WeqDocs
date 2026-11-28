@@ -132,6 +132,28 @@
 | 鼠标停留时保持会话位置 | `keep-conversation-position-on-hover` | 会话排序、悬停排序 | 鼠标停留时保持会话位置（全局） |
 | 切换视图时关闭不在新视图中的会话 | `close-conversation-outside-view` | 切换会话视图、保留当前会话 | 切换视图时关闭不在新视图中的会话（全局） |
 
+### 消息显示
+
+| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
+| --- | --- | --- | --- |
+| 语音消息自动转文字 | `auto-transcribe-voice` | 语音自动识别 | 语音自动转文字（全局） |
+| 消息样式与预览 | `custom-message-display` | 内容显示、自定义消息显示 |  |
+| 合并连续发言 | `group-consecutive-messages` | 连续发言分组、消息分组 | 合并连续发言（全局） |
+| 显示消息序号（seq） | `message-seq` | 消息序号 | 消息序号（全局） |
+| 显示发送日期 | `message-date` | 消息日期 yyyy-mm-dd | 消息日期（全局） |
+| 显示发送时间 | `message-time` | 显示发送时间（精确到秒）、消息时间 精确到秒 | 消息时间（全局） |
+| 昵称或备注 | `group-message-name` | 显示群消息发送者名称、显示群成员昵称、群消息发送者 | 显示群消息发送者名称（全局） |
+| 显示群成员等级 | `group-message-level` |  | 显示群成员等级（全局） |
+| 显示群成员头衔与身份 | `group-message-title` | 群主、管理员 | 显示群成员头衔与身份（全局） |
+| 聊天头像挂件 | `avatar-pendant` |  | 头像挂件（全局） |
+| 优先使用 QQ 秀替换头像 | `chat-qqshow` | 聊天 QQ 秀替换头像、QQ 秀 | QQ 秀头像（全局） |
+| 消息气泡 | `message-bubble` | 消息装扮（气泡/字体/挂件）、消息装扮、message-decoration、气泡 | 消息装饰（全局）；消息气泡（全局） |
+| 消息字体 | `message-font` | 聊天字体、字体 | 消息字体（全局） |
+| 文本消息自动渲染为 Markdown | `text-markdown` | 纯文本消息自动渲染为 Markdown、纯文本消息渲染 Markdown、富文本 | Markdown 文本（全局） |
+| 链接预览卡片 | `link-preview` | 网页预览 | 链接预览（全局） |
+| 自动联网补全链接预览 | `link-preview-auto-fetch` |  |  |
+| 无封面时网页截图 | `link-screenshot` | 链接截图 |  |
+
 ### 联系人
 
 | 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
@@ -203,28 +225,6 @@
 | 在底部时跟随新消息 | `auto-follow-latest-messages` | 自动跟随最新消息 | 在底部时跟随新消息（全局） |
 | 发送后回到最新消息 | `jump-latest-after-send` | 发送消息后定位到最新消息、发送后跳转 | 发送后回到最新消息（全局） |
 | 向下浏览时显示「回到最新」按钮 | `scroll-to-bottom-button` | 向下滚动时显示定位到底部按钮、快速到底部 | 向下浏览时显示「回到最新」按钮（全局） |
-
-### 消息显示
-
-| 设置或入口 | 稳定 ID | 搜索别名 | 页面恢复字段 |
-| --- | --- | --- | --- |
-| 语音消息自动转文字 | `auto-transcribe-voice` | 语音自动识别 | 语音自动转文字（全局） |
-| 消息样式与预览 | `custom-message-display` | 内容显示、自定义消息显示 |  |
-| 合并连续发言 | `group-consecutive-messages` | 连续发言分组、消息分组 | 合并连续发言（全局） |
-| 显示消息序号（seq） | `message-seq` | 消息序号 | 消息序号（全局） |
-| 显示发送日期 | `message-date` | 消息日期 yyyy-mm-dd | 消息日期（全局） |
-| 显示发送时间 | `message-time` | 显示发送时间（精确到秒）、消息时间 精确到秒 | 消息时间（全局） |
-| 昵称或备注 | `group-message-name` | 显示群消息发送者名称、显示群成员昵称、群消息发送者 | 显示群消息发送者名称（全局） |
-| 显示群成员等级 | `group-message-level` |  | 显示群成员等级（全局） |
-| 显示群成员头衔与身份 | `group-message-title` | 群主、管理员 | 显示群成员头衔与身份（全局） |
-| 聊天头像挂件 | `avatar-pendant` |  | 头像挂件（全局） |
-| 优先使用 QQ 秀替换头像 | `chat-qqshow` | 聊天 QQ 秀替换头像、QQ 秀 | QQ 秀头像（全局） |
-| 消息气泡 | `message-bubble` | 消息装扮（气泡/字体/挂件）、消息装扮、message-decoration、气泡 | 消息装饰（全局）；消息气泡（全局） |
-| 消息字体 | `message-font` | 聊天字体、字体 | 消息字体（全局） |
-| 文本消息自动渲染为 Markdown | `text-markdown` | 纯文本消息自动渲染为 Markdown、纯文本消息渲染 Markdown、富文本 | Markdown 文本（全局） |
-| 链接预览卡片 | `link-preview` | 网页预览 | 链接预览（全局） |
-| 自动联网补全链接预览 | `link-preview-auto-fetch` |  |  |
-| 无封面时网页截图 | `link-screenshot` | 链接截图 |  |
 
 ### 消息发送
 

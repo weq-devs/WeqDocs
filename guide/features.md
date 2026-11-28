@@ -234,7 +234,7 @@
 | WeQ 存储管理 | `settings.page.weq-storage` | 桌面、Web | 设置 / 应用 / WeQ 存储管理 | — |
 | 消息 | `settings.page.chat-messages` | 桌面、Web、Remote | 设置 / 外观 / 消息 | — |
 | 会话浏览 | `settings.page.message-display` | 桌面、Web、Remote | 设置 / 聊天 / 会话浏览 | — |
-| 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 聊天 / 消息显示 | — |
+| 消息显示 | `settings.page.message-content` | 桌面、Web、Remote | 设置 / 外观 / 消息显示 | — |
 | 消息发送 | `settings.page.chat-interaction` | 桌面、Web、Remote | 设置 / 聊天 / 消息发送 | — |
 | 防撤回 | `settings.page.anti-recall` | 桌面、Web、Remote | 设置 / 聊天 / 防撤回 | — |
 | 通话与录音 | `settings.page.call-recording` | 桌面、Web、Remote | 设置 / 聊天 / 通话与录音 | — |
